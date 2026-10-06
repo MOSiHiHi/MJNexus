@@ -79,8 +79,11 @@ with open(os.path.join(outdir, "raw.jsonl"), "a") as f:
 by_user = {}
 for it in items:
     u = (pick(it, "username", "userName") or "").lower()
-    if u:
-        by_user[u] = it
+    # keep the most complete record: real data beats diagnostics, full beats limitedData
+    score = (0 if it.get("_diagnostic") else 1, 0 if it.get("limitedData") else 1)
+    if u and (u not in by_user or score > by_user[u][0]):
+        by_user[u] = (score, it)
+by_user = {u: it for u, (_, it) in by_user.items()}
 
 with open(res_path, "a") as f:
     for u in todo:
@@ -92,7 +95,7 @@ with open(res_path, "a") as f:
         else:
             private = pick(it, "private", "isPrivate", "is_private")
             rec.update(
-                status="private" if private else "ok",
+                status="private" if private else ("limited" if it.get("limitedData") else "ok"),
                 full_name=pick(it, "fullName", "full_name", "name"),
                 biography=pick(it, "biography", "bio"),
                 external_links=links(it),
