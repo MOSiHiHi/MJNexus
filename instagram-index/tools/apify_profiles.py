@@ -41,7 +41,8 @@ def api(path, body=None):
 started = datetime.now(timezone.utc).isoformat(timespec="seconds")
 run_id = os.environ.get("APIFY_RUN_ID")  # import an already finished run instead of starting one
 if not run_id:
-    run_id = api(f"acts/{actor}/runs?maxTotalChargeUsd={max_usd}", {"usernames": todo})["data"]["id"]
+    extra = json.loads(os.environ.get("APIFY_EXTRA_INPUT", "{}"))  # e.g. {"concurrency": 1}
+    run_id = api(f"acts/{actor}/runs?maxTotalChargeUsd={max_usd}", {"usernames": todo, **extra})["data"]["id"]
     print("run", run_id, flush=True)
 while True:
     run = api(f"actor-runs/{run_id}")["data"]
