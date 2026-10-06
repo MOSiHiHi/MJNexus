@@ -11,6 +11,7 @@
 | `pilot/sample-10.txt` | نمونهٔ تصادفی پایلوت (seed=2026) |
 | `tools/discover.py` | جمع‌آوری از API رسمی (Business Discovery)؛ قابل ادامه |
 | `docs/api-setup.md` | راه‌اندازی API و دستور ادامه در سشن بعد |
+| `tools/apify_profiles.py` | **مسیر فعلی:** دریافت پروفایل‌ها از Apify، با سقف هزینه و قابل ادامه |
 | `pilot/log.md` | گزارش قدم‌به‌قدم آزمون‌ها |
 
 ## اجرا
