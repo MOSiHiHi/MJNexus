@@ -12,7 +12,7 @@ Writes OUTDIR/raw.jsonl (actor output as-is) and OUTDIR/results.jsonl
 (one normalized line per requested username; missing ones marked unavailable).
 Usernames already in results.jsonl are skipped, so re-running resumes.
 """
-import json, os, sys, time, urllib.request
+import json, os, sys, time, urllib.error, urllib.request
 from datetime import datetime, timezone
 
 actor, outdir, max_usd = sys.argv[1], sys.argv[2], sys.argv[3]
@@ -32,10 +32,18 @@ if os.environ.get("APIFY_TOKEN"):
     headers["Authorization"] = "Bearer " + os.environ["APIFY_TOKEN"]
 
 
-def api(path, body=None):
+def api(path, body=None, tries=6):
     req = urllib.request.Request(API + path, json.dumps(body).encode() if body is not None else None, headers)
-    with urllib.request.urlopen(req, timeout=120) as r:
-        return json.load(r)
+    for i in range(tries):
+        try:
+            with urllib.request.urlopen(req, timeout=120) as r:
+                return json.load(r)
+        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as e:
+            transient = not isinstance(e, urllib.error.HTTPError) or e.code in (429, 500, 502, 503, 504)
+            # never retry the run-start POST: a retry could start a second, separately billed run
+            if not transient or body is not None or i == tries - 1:
+                raise
+            time.sleep(15 * (i + 1))
 
 
 started = datetime.now(timezone.utc).isoformat(timespec="seconds")
