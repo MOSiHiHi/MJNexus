@@ -1,12 +1,10 @@
 # دستهٔ ۱ — ۵۰۰ حساب اول رتبه‌بندی
 
-منبع: Apify `dami_studio~instagram-profile-scraper` (اجرای اصلی + دو اجرای تکمیلی). هزینهٔ کل این دسته: حدود ۰٫۶۵ دلار.
+منبع: Apify (`dami_studio` و تکمیل با ابزار رسمی). هزینهٔ کل این دسته حدود ۱٫۱۴ دلار.
 
-- کامل (بیو و لینک): **310**
-- ناقص (فقط نام و آمار): **186**
-- دریافت‌نشده: **4** — trillermag، lifeatibm، babyspiceofficial، wolfson
-
-## کامل
+- کامل: **498**
+- خصوصی: **0**
+- پیدا نشد (حذف یا تغییر نام): **2** — trillermag، wolfson
 
 | # | حساب | نام | دسته | دنبال‌کننده | بیو | لینک‌های بیرونی |
 |---|---|---|---|---|---|---|
@@ -295,17 +293,52 @@
 | 284 | [gettymuseum](https://www.instagram.com/gettymuseum/) | Getty | — | 932,249 | Bringing people together through art.  / Based in Los Angeles, working globally. | https://linkin.bio/gettymuseum |
 | 285 | [microsoftedge](https://www.instagram.com/microsoftedge/) | Microsoft Edge | — | 103,033 | It’s time to question your browser | https://clicklinkin.bio/microsoftedge<br>http://msft.it/MicrosoftEdge |
 | 286 | [nothing](https://www.instagram.com/nothing/) | Nothing | — | 1,864,608 | V stepped into the crowd wearing Nothing | http://nothing.tech |
+| 287 | [nzxt](https://www.instagram.com/nzxt/) | NZXT | None | 1,066,690 | Making PC gaming easy and fun since 2004. Build it with our parts or grab a prebuilt. Quality components, expert support. Let's Play. 💜 | https://nzxt.co/4yKq2M6 |
+| 288 | [hideo_kojima](https://www.instagram.com/hideo_kojima/) | Hideo Kojima | — | 5,262,640 | Game Creator: 70% of my body is made of movies. / ゲームデザイナー：僕の体の70%は映画でできている | http://www.kojimaproductions.jp/ |
 | 289 | [assassinscreed](https://www.instagram.com/assassinscreed/) | Assassin's Creed | — | 1,871,743 | Assassin's Creed Black Flag Resynced, available now on all platforms. | http://linktr.ee/assassinscreed<br>http://assassinscreed.com/black-flag-resynced |
+| 290 | [crucial_memory](https://www.instagram.com/crucial_memory/) | Crucial Memory | Computers (Brand) | 119,736 | Official Crucial Memory Instagram    / #crucialmemory | https://investors.micron.com/news-releases/news-release-details/micron-announces-exit-crucial-consumer-business |
+| 291 | [ijustine](https://www.instagram.com/ijustine/) | iJustine | Public figure | 1,648,366 | 📱 tech reviewer / content creator / ✈️ travel 🤿 diving 💜 jiu jitsu / 🐶 dog: @djminimatt  / 🎙 podcast: @samebrain | https://beacons.ai/ijustine<br>https://bit.ly/SN_Justine_Reel |
+| 292 | [nvidia](https://www.instagram.com/nvidia/) | NVIDIA | None | 3,001,173 | NVIDIA pioneered accelerated computing to tackle challenges no one else can solve. Our work is transforming the world's industries. | https://nvidia.vista.page |
+| 293 | [formlabs](https://www.instagram.com/formlabs/) | Formlabs | None | 286,307 | High performance 3D printers, finally within reach ¦ @formlabsdental | https://linktr.ee/formlabs |
+| 294 | [igndotcom](https://www.instagram.com/igndotcom/) | IGN | Arts & entertainment | 5,770,222 | We're all about movies, TV, and video games! / #IGN30 | http://sprout.link/igndotcom/ |
+| 295 | [tekken](https://www.instagram.com/tekken/) | TEKKEN | Video Game | 331,945 | The official #TEKKEN Instagram. ESRB Rating TEEN: Crude Humor, Mild Blood, Mild Language, Suggestive Themes, Violence. PEGI 16+ Violence, Langage. | https://tekken.com/<br>https://www.tekken-official.jp/tekken_news/?p=1844 |
+| 296 | [mitopenlearning](https://www.instagram.com/mitopenlearning/) | MIT Open Learning | Education | 163,086 | Transforming teaching and learning at MIT and around the globe. Online offerings from OpenCourseWare, MITx, and more on MIT Learn: learn.mit.edu | https://sprout.link/mitopenlearning<br>http://learn.mit.edu |
+| 297 | [salesforce](https://www.instagram.com/salesforce/) | Salesforce | Business & Utility Services | 343,434 | Salesforce is the #1 Agentic CRM — bringing humans, agents, and platforms together to drive customer success. | http://sprout.link/salesforce |
+| 298 | [fifaworldcup](https://www.instagram.com/fifaworldcup/) | FIFA World Cup | Sports | 67,155,255 | 🏆 The official #FIFAWorldCup account on Instagram | https://link.me/fifaworldcup<br>https://youtu.be/Y3yPNc92TUQ |
 | 299 | [officialrezapahlavi](https://www.instagram.com/officialrezapahlavi/) | Reza Pahlavi - رضا پهلوی | Public figure | 9,164,052 | Advocate for a Secular Democratic Iran / Rise Iran! ¦ ایران را پس می‌گیریم / @pahlavicomms  / @rpfamilyphotos  / @rpportfolio | https://rezapahlavi.org<br>https://iranopasmigirim.com<br>https://linktr.ee/RezaPahlavi<br>https://fund.nufdiran.org/fa/projects/ipp/research/emergency-phase-booklet/ |
+| 300 | [gothamchess](https://www.instagram.com/gothamchess/) | Levy Rozman | Public figure | 2,365,571 | GET MY NEW BOOK OUT NOW / ⬇️⬇️⬇️⬇️⬇️⬇️⬇️ | https://sites.prh.com/gothamchessbook<br>https://apollomasters.de/events |
+| 301 | [hypebeast](https://www.instagram.com/hypebeast/) | HYPEBEAST | Publishers | 10,244,953 | Driving culture forward. / Work with us @hypemaker  / Shop with us @hbx / Insights @hype___mind | https://linkin.bio/hypebeast |
 | 302 | [veritasium_daily](https://www.instagram.com/veritasium_daily/) | Veritasium | Education | 1,315,075 | An element of truth - videos about science, education, and interesting things. Official account, managed by the @veritasium team. | https://ve42.co/IGBio<br>http://linktr.ee/veritasium<br>https://saily.com/veritasium<br>https://ve42.co/loviesbestlongform |
+| 303 | [enron](https://www.instagram.com/enron/) | Enron | None | 283,742 | The World’s Leading Company™ | http://enron.com |
 | 304 | [gkcs__](https://www.instagram.com/gkcs__/) | Gaurav Sen | — | 167,678 | Founder of InterviewReady. / I like pizza and @blossomcoelho. | https://aiengg.dev |
 | 305 | [bloombergbusiness](https://www.instagram.com/bloombergbusiness/) | Bloomberg Business | News & media website | 6,479,150 | The first word in business news. | https://smartlink.bio/bloombergbusiness |
+| 306 | [startalk](https://www.instagram.com/startalk/) | StarTalk | — | 1,606,409 | Science, pop culture & comedy collide on StarTalk w/astrophysicist @NeildeGrasseTyson, co-hosts & guests.  / Keep Looking Up! ✨ | https://www.penguinrandomhouse.com/books/826774/lost-in-space-by-neil-degrasse-tyson-and-lindsey-nyx-walker/<br>http://linktr.ee/startalkmedia |
+| 307 | [tailopez](https://www.instagram.com/tailopez/) | Tai Lopez 🇵🇷🇺🇸🇸🇪🇩🇰🇧🇷🇫🇮🇨🇦 | None | 3,006,975 | I post about the “Good Life”: health, wealth, love, happiness🙏 / ⬇️High Net Worth Tax Deductions⬇️ | https://www.tailopez.com/uhnwwebinarigfeed |
+| 308 | [answersingenesis](https://www.instagram.com/answersingenesis/) | Answers In Genesis | Non-Profits & Religious Organizations | 163,061 | AiG is an apologetics ministry, dedicated to enabling Christians to defend their faith and proclaim the gospel of Jesus Christ effectively. | https://linktr.ee/answersingenesis |
+| 309 | [museumofscience](https://www.instagram.com/museumofscience/) | Museum of Science | Science Museum | 539,194 | Inspiring a lifelong love of science in everyone - in museums, classrooms and online. We believe in a world where science belongs to everyone. | https://linktr.ee/museumofscience |
+| 310 | [supercarblondie](https://www.instagram.com/supercarblondie/) | Supercar Blondie | Digital creator | 17,352,356 | Showing you the coolest cars, tech and luxury around the world! 🌍 / 📍 HQ London ¦ Dubai ¦ Global reach / Enquiries 👉 info@sbmediagroup.com | https://go.sbxcars.com/Insta<br>https://www.shelbyamericancollection.org/fordgt-sbx?promo=SBX30&utm_source=instagram&utm_medium=organic_social&utm_campaign=SB_IG_Bio_Ford_GT<br>http://supercarblondie.com<br>http://hotwheels.com/challenge-accepted |
+| 311 | [aravindsrinivas](https://www.instagram.com/aravindsrinivas/) | Aravind Srinivas | — | 331,692 | CEO @perplexity | https://www.perplexity.ai/comet/<br>https://www.perplexity.ai |
+| 312 | [kevinbparry](https://www.instagram.com/kevinbparry/) | Kevin Parry | None | 1,994,396 | ✨ Director & one-man studio / 🇨🇦 handmade stop-motion & VFX illusions | https://kevinparry.tv/learn |
+| 313 | [razer](https://www.instagram.com/razer/) | RΛZΞR | Computers (Brand) | 7,304,735 | For Gamers. By Gamers. | https://sprout.link/razer<br>http://discord.gg/razer<br>http://razer.com/console-gaming |
+| 314 | [samsung](https://www.instagram.com/samsung/) | Samsung | Science, Technology & Engineering | 2,835,523 | Innovation for all / What we do👇 / @samsungmobile / @samsungtv / @samsung_bespoke / @samsungsemiconductor | http://account.samsung.com<br>http://www.samsung.com |
+| 315 | [ces](https://www.instagram.com/ces/) | CES | General Interest | 254,309 | Jan 6-9, 2027.  / The most powerful tech event in the world.  / Produced by @cta. | http://registration.experientevent.com/showCES271/Wizard/Landing?marketingcode=CESI<br>http://www.ces.tech/hotel<br>http://www.ces.tech/events<br>https://substack.com/@cesnow |
+| 316 | [nvidiageforce](https://www.instagram.com/nvidiageforce/) | NVIDIA GeForce | Content & Apps | 2,850,454 | Introducing GeForce RTX 50 Series graphics cards &  laptops, powered by NVIDIA Blackwell and AI. | https://linktr.ee/nvidiageforce |
+| 317 | [googlefordevs](https://www.instagram.com/googlefordevs/) | Google for Developers | Internet company | 1,171,721 | 🚀 Discover developer resources, community events, and inspirational stories to help you build smarter and ship faster. | https://linkin.bio/googlefordevs<br>https://www.linkedin.com/showcase/googledevelopers/<br>https://www.youtube.com/@GoogleDevelopers<br>https://developers.google.com/ |
+| 318 | [nytimes](https://www.instagram.com/nytimes/) | The New York Times | Publishers | 20,517,214 | We seek the truth and help people understand the world. Not a subscriber? Your first month is now free in our app. | http://nytimes.com/instagram |
 | 319 | [touchdesigner](https://www.instagram.com/touchdesigner/) | TouchDesigner | — | 484,903 | — | https://linktr.ee/TouchDesigner |
+| 320 | [kickstarter](https://www.instagram.com/kickstarter/) | Kickstarter | Community | 408,794 | Here to make the world a more creative place💡 / Discover new projects to back — or launch your own. | https://sprout.link/kickstarter |
 | 321 | [zackdfilms](https://www.instagram.com/zackdfilms/) | Zack D. Films | — | 11,219,429 | A Collection of Things That I Find Interesting | https://www.youtube.com/watch?v=7rd6HWqvaHQ |
 | 322 | [githubeducation](https://www.instagram.com/githubeducation/) | GitHub Education | Education | 106,929 | Bringing GitHub to the Classroom. | http://github.com/education<br>http://gh.io/linkinbio<br>https://github.com/github-education-resources/teacher-toolbox<br>https://github.com/education/teachers |
+| 323 | [lowleveltv](https://www.instagram.com/lowleveltv/) | Ed @ Low Level TV | Digital creator | 103,513 | 🏴‍☠️ i yap about computers (1M+ on YT) / 🖥️ vulnerability researcher / DM me "BIT" for a hacking newsletter | https://lowlevel.tv/<br>https://lowlevel.tv |
+| 324 | [klingai_official](https://www.instagram.com/klingai_official/) | Kling AI | None | 651,515 | ✨Kling AI, from vision to screen ✨ / Support: support@klingai.com | https://kling.ai<br>https://kling.ai/app/activity-zone/brand-activity?id=875105608830160966<br>https://discord.gg/8tj8YjSzKr<br>https://x.com/Kling_ai |
+| 325 | [bundesliga](https://www.instagram.com/bundesliga/) | Bundesliga | — | 16,989,487 | 🇩🇪⚽️ The #Bundesliga's official Instagram account.  #FootballAsItsMeantToBe | https://bundesliga.go.link/?adj_t=1ieevzk1<br>https://bundesliga.go.link?adj_t=1ieevzk1<br>https://bundesliga.go.link/CAPTAIN<br>https://bundesliga.go.link/FANTASY_2627 |
 | 326 | [spacex](https://www.instagram.com/spacex/) | SpaceX | — | 17,383,325 | SpaceX designs, manufactures and launches the world's most advanced rockets and spacecraft | http://x.com/spacex |
+| 327 | [_johnhammond](https://www.instagram.com/_johnhammond/) | John Hammond | — | 61,105 | Hacker. Friend. Cybersecurity researcher. | https://youtube.com/johnhammond010 |
+| 328 | [copaamerica](https://www.instagram.com/copaamerica/) | CONMEBOL Copa América™️ | — | 4,672,516 | Cuenta oficial del torneo de selecciones más antiguo del mundo 🏆 #VibraElContinente | — |
 | 329 | [samharrisorg](https://www.instagram.com/samharrisorg/) | Sam Harris | Creators & Celebrities | 499,401 | Neuroscientist, philosopher, and bestselling author. Host of the Making Sense podcast and creator of the Waking Up app. Account run by Team Sam. | http://samharris.org/subscribe<br>https://www.wakingup.com/redeem/WU8A-D80E6B480C<br>https://www.youtube.com/@samharrisorg |
 | 330 | [ea](https://www.instagram.com/ea/) | Electronic Arts (EA) | — | 3,259,516 | Electronic Arts, inspiring a global community of players to explore new ways to play everyday | http://linktr.ee/electronicarts |
+| 331 | [raydalio](https://www.instagram.com/raydalio/) | Ray Dalio | Entrepreneur | 1,941,691 | 📈Founder of Bridgewater Associates / 📚Author of #1 NYT Bestseller ‘Principles’ / 🤦‍♂️Professional Mistake Maker / Want to see every post? Click the 🔔 | https://linktr.ee/raydalio |
+| 332 | [thediaryofaceopodcast](https://www.instagram.com/thediaryofaceopodcast/) | The Diary Of A CEO - With Steven Bartlett | None | 4,049,433 | For the ones who never stop asking 'why'. / DOAC is proof that human curiosity is irreplaceable. / Hosted by @steven ¦ Episodes every Monday & Thursday. | https://link.thediaryofaceo.com/5elQ8zi<br>https://bit.ly/doac-circle-ig |
 | 333 | [lumafield](https://www.instagram.com/lumafield/) | Lumafield | Science, Technology & Engineering | 82,699 | Design, build, and ship products at the speed of light. | https://linkin.bio/lumafield |
 | 334 | [trtworld](https://www.instagram.com/trtworld/) | TRT World | News & media website | 3,687,368 | Where News Inspires Change | https://linkin.bio/trtworld |
 | 335 | [gamespot](https://www.instagram.com/gamespot/) | GameSpot | Video Game | 1,155,438 | Gaming & entertainment news, reviews and more! / #GameSpot | http://sprout.link/gamespot<br>https://comic-con.fandom.com/wiki/Special:GameUtility/SdccFandomPartyEntry |
@@ -317,197 +350,159 @@
 | 341 | [google](https://www.instagram.com/google/) | Google | Internet company | 15,778,720 | Here to help | https://linkin.bio/google |
 | 342 | [sonyelectronics](https://www.instagram.com/sonyelectronics/) | Sony Electronics | — | 7,858,766 | Headphones, Cameras, TVs, and stuff 🙂‍↕️ | https://linktr.ee/sonyelectronics1 |
 | 343 | [github](https://www.instagram.com/github/) | GitHub | Information Technology Company | 920,614 | The AI-powered developer platform to build, scale, and deliver secure software. | http://sprout.link/github/<br>https://www.thegithubshop.com/?utm_source=instagram&utm_medium=social&utm_campaign=biolink<br>https://the-github-podcast.simplecast.com/<br>http://githubuniverse.com?utm_source=instagram&utm_medium=social&utm_campaign=biolink |
+| 344 | [blender.studio.official](https://www.instagram.com/blender.studio.official/) | Blender Studio | None | 104,439 | Official account for the Blender Studio team. / The creators who share. | https://studio.blender.org/<br>https://www.youtube.com/@BlenderStudio |
+| 345 | [bryanjohnson_](https://www.instagram.com/bryanjohnson_/) | Bryan Johnson | — | 2,817,195 | we may be the first generation who won’t die. | http://immortals.com/bryan |
 | 346 | [marvelrivals](https://www.instagram.com/marvelrivals/) | Marvel Rivals | — | 1,223,186 | The Ultimate Marvel Super Hero Team-Based PVP Shooter!  / IGNITE THE BATTLE!💥 ¦ Published by NetEase Games | https://x.com/MarvelRivals |
+| 347 | [stevemouldscience](https://www.instagram.com/stevemouldscience/) | Steve mould | — | 487,569 | Science videos | https://linktr.ee/stevemould |
+| 348 | [pcgaming](https://www.instagram.com/pcgaming/) | PC GAMING | — | 886,553 | The Official PC GAMING ¦ Est. 2013 | http://linktr.ee/pcgaming |
+| 349 | [2xko](https://www.instagram.com/2xko/) | 2XKO | None | 212,455 | Official account of 2XKO, @RiotGames free 2v2 fighting game. Available now on PC, Xbox X¦S and PS5. | https://linktr.ee/play2xko |
+| 350 | [crashcourse](https://www.instagram.com/crashcourse/) | Crash Course | — | 185,458 | We make free, high-quality educational videos used by teachers, students, and learners of all kinds. 🌎 / Join us! 👇 | https://linkin.bio/thecrashcourse |
+| 351 | [pixar](https://www.instagram.com/pixar/) | Pixar | Publishers | 11,843,805 | To infinity and beyond!🚀  / Welcome to the official home of Pixar on Instagram! | https://movies.disney.com/toy-story-5<br>http://taylor.lnk.to/TSIKnewItIKnewYou-piano |
+| 352 | [iwcwatches](https://www.instagram.com/iwcwatches/) | IWC Schaffhausen | Personal Goods & General Merchandise Stores | 2,059,171 | IWC. Engineered. / 📍Schaffhausen, Switzerland | https://iwc.app.link/e/iwccom |
+| 353 | [oakley](https://www.instagram.com/oakley/) | Oakley | Product/service | 3,304,846 | #BeWhoYouAre | https://www.oakley.com/ |
+| 354 | [miketyson](https://www.instagram.com/miketyson/) | Mike Tyson | Public figure | 33,527,012 | Official Mike Tyson IG / @miketysoninvitational  / Shop @miketysoncollection  / Tyson Pro @tysonpro / Follow @itstyson20 / Account controlled by Tyson’s Team | https://www.ticketmaster.com/mike-tyson-invitational-3-mashantucket-connecticut-10-24-2026/event/1D00651AF2237A05<br>https://miketyson.com/<br>http://miketysoninvitational.com<br>https://heallosangelesfdn.givingfuel.com/passion-project |
+| 355 | [sonicthehedgehog](https://www.instagram.com/sonicthehedgehog/) | Sonic the Hedgehog | Gamer | 1,274,594 | Welcome to the official Instagram account of Sonic the Hedgehog! / ESRB Rating: EVERYONE 10+ with Fantasy Violence / In-Game Purchases | http://sonicchaoshunt.com/<br>http://sonicchaoshunt.com<br>http://racecrossworlds.com<br>http://sprout.link/sonicthehedgehog |
+| 356 | [mkbhd](https://www.instagram.com/mkbhd/) | Marques Brownlee | — | 5,288,053 | I promise I won't overdo the filters. | https://mkbhd.com/ |
+| 357 | [codedex.io](https://www.instagram.com/codedex.io/) | Codédex | — | 100,052 | 🌈 Build what AI can’t ⋆˙⟡ / 🚀 Join 2m learners / 👾 Brooklyn, NY | https://codedex.io/<br>https://codedex.io<br>https://linktr.ee/codedex |
+| 358 | [polygondotcom](https://www.instagram.com/polygondotcom/) | Polygon | Website | 221,804 | Video games, entertainment, and culture. We take the fun stuff seriously. | https://smartlink.bio/polygondotcom<br>https://youtu.be/rhvMRw3OPjY<br>https://secretlab.co/products/skins?rfsn=6939278.d2b0a4&sku=SKR24S-PKFIR&utm_source=refersion&utm_medium=affiliate&utm_campaign=6939278.d2b0a4&subid=p-080526<br>https://secretlab.co/products/skins?rfsn=6939278.d2b0a4&sku=SKR24S-PKGRS&utm_source=refersion&utm_medium=affiliate&utm_campaign=6939278.d2b0a4 |
+| 359 | [esldota2](https://www.instagram.com/esldota2/) | ESL Dota2 | Gamer | 140,963 | Your home for professional DOTA 2 | https://inmotion.dhl/en/esl/lore-stories/quiz |
+| 360 | [andrerieu](https://www.instagram.com/andrerieu/) | André Rieu | — | 4,127,929 | Official Instagram of André Rieu | https://linktr.ee/andrerieu |
+| 361 | [mancity](https://www.instagram.com/mancity/) | Manchester City | Creators & Celebrities | 57,030,333 | Est. 1894 🩵 | https://bio.mancity.com/<br>https://bio.mancity.com |
+| 362 | [discord](https://www.instagram.com/discord/) | Discord | Content & Apps | 2,618,203 | Where group chat is all fun & games. | https://linkin.bio/discord<br>http://discordmerch.com<br>https://discord.gg/discord-townhall |
+| 363 | [tech_with_tim](https://www.instagram.com/tech_with_tim/) | Tim | None | 34,760 | ⌨️ AI Engineer / 📹 YouTuber (2M subs) / 👇🏼 Build AI Agents for Free | — |
+| 364 | [mcdonaldscorp](https://www.instagram.com/mcdonaldscorp/) | McDonald's Corporation | None | 152,817 | Feeding and fostering communities around the 🌎 | https://lnk.bio/mcdonaldscorp |
+| 365 | [jimkwik](https://www.instagram.com/jimkwik/) | Jim Kwik ¦ Your Brain Coach | None | 2,474,082 | 🧠 Human Intelligence > AI / 📘 NYT Bestseller Limitless / 🎧 #1 Podcast: Kwik Brain (100M) / ⚡ Learn & read faster • Think better • Remember more / 👇 Start Here | https://linktr.ee/kwiklearning |
+| 366 | [samsunguk](https://www.instagram.com/samsunguk/) | Samsung UK | Personal Goods & General Merchandise Stores | 663,270 | Ultra powered, in a new shape ✨ #GalaxyAI | http://samsung.com/galaxy-z-fold8-ultra<br>http://samsung.com/galaxy-z-fold8<br>http://samsung.com/galaxy-z-flip8<br>http://samsung.com/galaxy-watch |
+| 367 | [modernrogueshow](https://www.instagram.com/modernrogueshow/) | Modern Rogue | — | 171,715 | Brian Brushwood and friends field test the things that will make you the most interesting person in the room. / Posts: annaliese and matt | http://youtube.com/modernrogue |
+| 368 | [gamingbible](https://www.instagram.com/gamingbible/) | GAMINGbible | Gamer | 1,733,702 | Let’s ALL Play 🎮 | https://supercell.com/en/games/clashofclans/blog/news/the-real-town-hall-contest/<br>http://linkin.bio/gamingbible |
+| 369 | [tmnt](https://www.instagram.com/tmnt/) | Teenage Mutant Ninja Turtles | — | 685,114 | Your one-stop pizza shop for all things cowabunga #TMNT Official 🐢🐢🐢🐢 / Watch on @Nickelodeon & @ParamountPlus | http://linktr.ee/nickelodeoninstagram |
+| 370 | [wetransfer](https://www.instagram.com/wetransfer/) | WeTransfer | Content & Apps | 78,884 | Need help? https://we.tl/support / Artist stories: @wepresent  / Meet our latest feature: Previews👇 | http://linktr.ee/wetransfer.com<br>http://bndspn.com/WeTransfer-100-Updates |
+| 371 | [christiesinc](https://www.instagram.com/christiesinc/) | Christie's | None | 1,426,322 | Art, inspiration and news from the world’s leading auction house. Visit our salerooms and galleries around the world – entry is free and open to all. | https://likeshop.me/christiesinc |
+| 372 | [christiesmiddleeast](https://www.instagram.com/christiesmiddleeast/) | Christie's Middle East | Art | 22,403 | Explore the world of art and luxury at Christie's Middle East through a series of engaging exhibitions and unparalleled auctions. / 📍 DIFC, Dubai, UAE | https://bit.ly/3yr9bUa |
+| 373 | [drjamestour](https://www.instagram.com/drjamestour/) | Dr James Tour | Science & Tech | 93,461 | T.T. & W.F. Chao Professor of Chemistry, Comp. Sci., Materials Science & NanoEngineering, Rice University. Smalley-Curl Institute & NanoCarbon Center | https://i.mtrbio.com/dr-james-tour<br>http://youtube.com/@drjamestour<br>https://x.com/drjamestour<br>https://www.tiktok.com/@drjamestour |
+| 374 | [bbcnews](https://www.instagram.com/bbcnews/) | BBC News | — | 30,949,762 | For the stories that matter to you -  / tap this link 👇 | https://bbc.in/news |
+| 375 | [subwaysurfers](https://www.instagram.com/subwaysurfers/) | Subway Surfers | Video Game | 4,850,080 | The official #SubwaySurfers Instagram account! 😎 Join the Subway Surfers crew and play now. ⬇️ | https://bit.ly/m/subwaysurfers |
+| 376 | [gitlab](https://www.instagram.com/gitlab/) | GitLab | Software Company | 102,159 | Build software faster. The DevSecOps Platform enables your entire organization to collaborate around your code. | https://linktr.ee/GitLab |
+| 377 | [hak5gear](https://www.instagram.com/hak5gear/) | Hak5 | Science, Technology & Engineering | 90,635 | 20+ years of Top Pentest Gear. / Trust your technolust. | https://hak5.org/ |
+| 378 | [red_hat](https://www.instagram.com/red_hat/) | Red Hat | Business & Utility Services | 139,927 | The world's leading provider of open source solutions, using a community-powered approach to deliver Linux, hybrid cloud, edge, and Kubernetes tech. | https://sprout.link/red_hat |
+| 379 | [thepracticaldev](https://www.instagram.com/thepracticaldev/) | DEV Community | Community Organization | 51,246 | A community of software developers sharing coding resources and general commentary. /   / Built on Forem, an OSS for building online community 🌱 | http://devcommunity.start.page/<br>http://devcommunity.start.page |
+| 380 | [lifeatibm](https://www.instagram.com/lifeatibm/) | Life at IBM | Information Technology Company | 106,328 | - 💙 Insight into life @IBM around the world / - 🚀 Showcasing amazing IBMers / - ⬇️ Join the Talent Network | http://ibm.biz/IBMLinktree<br>https://visitlink.bio/lifeatibm |
+| 381 | [digikey](https://www.instagram.com/digikey/) | DigiKey | Personal Goods & General Merchandise Stores | 72,416 | We're a full-service partner offering design tools, business solutions, and the world's largest selection of in-stock electronic components. | http://sprout.link/digikey/ |
+| 382 | [mouserelec](https://www.instagram.com/mouserelec/) | Mouser | Electronics | 33,185 | Just your friendly, global-neighborhood electronic components distributor. | https://linkstre.am/MouserElec |
+| 383 | [365datascience](https://www.instagram.com/365datascience/) | 365 Data Science | Education | 75,433 | ⬇️Accredited AI & data science courses!⬇️ | https://linktr.ee/365DS |
+| 384 | [seeedstudio](https://www.instagram.com/seeedstudio/) | Seeed Studio | Commercial & Industrial Equipment Supplier | 70,667 | The AI Hardware Partner whom you can turn to for advanced perception system. | https://lnk.bio/seeedstudio<br>https://map.seeed.cc/ |
+| 385 | [ansys_inc](https://www.instagram.com/ansys_inc/) | Ansys | Science, Technology & Engineering | 62,666 | Empowering Innovators to Drive Human Advancement | https://www.ansys.com/blog/running-formations-reduce-drag-save-energy-improve-times<br>https://www.ansys.com/blog/apollo-artemis-new-lunar-economy<br>https://www.ansys.com/simulation-topics/what-is-space-situational-awareness<br>https://youtu.be/1fDVy1eBYMc?si=0nWtYkqU9UnKH5xm |
+| 386 | [abbrobotics](https://www.instagram.com/abbrobotics/) | ABB Robotics | Business & Utility Services | 105,167 | 🅰🅱🅱 Robotics is a leading supplier of industrial #robots, robot software, and complete robot application solutions provider. #robotics, #automation | http://go.abb/robotics |
+| 387 | [stmicroelectronics.nv](https://www.instagram.com/stmicroelectronics.nv/) | STMicroelectronics | Product/service | 51,039 | Welcome to the official account of #STMicroelectronics, global semiconductor leader delivering #electronics solutions at the heart of everyday life. | http://spkl.io/st-bio |
+| 388 | [archlinux](https://www.instagram.com/archlinux/) | Arch Linux | Software | 44,655 | Keep It Simple, Stupid | https://www.archlinux.org/<br>https://www.archlinux.org |
+| 389 | [all_about_circuits](https://www.instagram.com/all_about_circuits/) | All About Circuits | Business & Utility Services | 28,133 | The world's largest collection of free electrical engineering resources and more. Join your peers and keep your skills up to date. | http://lnk.bio/all_about_circuits<br>http://www.allaboutcircuits.com |
+| 390 | [microchipmakes](https://www.instagram.com/microchipmakes/) | Microchip Makes | Business & Utility Services | 97,830 | You can find @microchiptechnologyinc’s PIC®, AVR® and SAM MCUs and other products at the heart of some pretty awesome hardware. | http://microchip.com/en-us/education/microchip-makes<br>https://www.microchip.com/en-us/about/events-info/maker-faire<br>http://youtube.com/MicrochipDeveloperHelp |
+| 391 | [perplexity](https://www.instagram.com/perplexity/) | Perplexity | Product/service | 1,218,015 | Curiosity changes everything. | https://perplexity.ai/personal-computer<br>https://pplx.ai/iphone<br>http://pplx.ai/android<br>https://www.perplexity.ai/comet |
+| 392 | [realpython](https://www.instagram.com/realpython/) | Real Python | Education | 80,611 | Python developer resources: #Python news, tutorials, code examples, snippets, articles, AI and LLM integration and more. | https://realpython.com/tutorials/ai/ |
+| 393 | [espressif_systems_official](https://www.instagram.com/espressif_systems_official/) | Espressif Systems® | Science, Technology & Engineering | 28,175 | Open technologies. Shared innovation. Connected possibilities. Show us what you're building with ESP32.💡 | http://espressif.com<br>http://developer.espressif.com<br>http://esp32-s31.espressif.com<br>http://espressif.com/contact-us/get-samples |
+| 394 | [twominutepapers](https://www.instagram.com/twominutepapers/) | 📜 Two Minute Papers | Digital creator | 39,549 | What a time to be alive! Full videos are in my bio. | https://www.youtube.com/@TwoMinutePapers |
+| 395 | [snapdragonofficial](https://www.instagram.com/snapdragonofficial/) | Snapdragon | None | 630,899 | Powering extraordinary experiences from inside the devices you love. | https://sprout.link/snapdragonofficial |
+| 396 | [photoshop](https://www.instagram.com/photoshop/) | Adobe Photoshop | — | 6,297,796 | Tag your Photoshop edits with: #MadeWithPhotoshop | http://clicklinkin.bio/photoshop |
+| 397 | [framer](https://www.instagram.com/framer/) | Framer | Product/service | 303,243 | Design agent for every step from idea to launch. | https://framer.link/bio/ |
+| 398 | [thechrisdo](https://www.instagram.com/thechrisdo/) | Chris Do—Personal Branding/Sales Coach | None | 1,028,017 | Success requires all of you. Allow me to make the introductions.  / Founder @thefuturishere | https://thefutur.com/retreats/pasadena?cohort=pasadena-retreat-sept-2026<br>https://thefutur.com/shop/unbland-essentials<br>https://adobe.ly/CCProIG_ |
+| 399 | [d_and_ad](https://www.instagram.com/d_and_ad/) | D&AD | Non-Profits & Religious Organizations | 369,643 | Celebrating creative excellence in design & advertising. / New and emerging creatives on @newblood_dandad ✏️ / All our links below ⬇️ | https://pulselink.bio/d_and_ad<br>https://www.dandad.org/work/annual-2026?page=1<br>https://www.dandad.org/work/annual-2026/d-ad-in-2026/trend-report<br>https://www.dandad.org/insights/learning/ai-report-2026 |
+| 400 | [firefox](https://www.instagram.com/firefox/) | Firefox | — | 408,041 | The only major non-profit backed, people-first browser. | https://mzl.la/get-firefox<br>https://sprout.link/firefox |
+| 401 | [windows](https://www.instagram.com/windows/) | Windows | Personal Goods & General Merchandise Stores | 2,573,604 | It Starts On Windows | https://www.microsoft.com/en-us/windows/rtx-spark-laptops?OCID=CGE_osocial_DevicesSeasonal_868menwqc<br>https://www.youtube.com/live/ilmBGeGldrI?OCID=CGE_osocial_DevicesSeasonal_868mbu6k3<br>https://youtu.be/_A5E6n4vMMM<br>https://www.youtube.com/watch?v=qYn_9BaQk78&t=2s |
+| 402 | [courteneycoxofficial](https://www.instagram.com/courteneycoxofficial/) | Courteney Cox | — | 14,984,826 | I played piano with Elton John! / Founder @homecourt | http://courteneycox.komi.io/ |
+| 403 | [figma](https://www.instagram.com/figma/) | Figma | Software | 968,036 | brb in my flow state / What’s your @sourcematerial___ | https://figma.bot/ReleaseNotes008IG<br>https://figma.bot/FigmaInMotion<br>https://figma.bot/ConfigIndiaVirtual<br>https://figma.bot/SkillsinCommunity |
+| 404 | [danmartell](https://www.instagram.com/danmartell/) | Dan Martell | None | 3,155,461 | 📘 Bestselling Author (Buy Back Your Time) / 🚀 AI Incubator @ Martell Ventures / ⚙️ 3x Software Exits • $100M HoldCo / 🩵 DM me “Coach” to grow your biz | — |
+| 405 | [ellenlupton](https://www.instagram.com/ellenlupton/) | Ellen Lupton | Graphic Designer | 275,462 | I’m a designer & educator. I teach @mica_gdmfa. Check out my books & my courses on @domestika_en and @skillshare. In-person workshops via @coopertype. | https://graphicmatters.nl/en/<br>https://mixam.com/print-on-demand/69b3fa8a8622b9065be7bf9e<br>https://mixam.com/print-on-demand/publisher/653685e513b4ee141a1c655c/series/67c9853753befc431387d04d<br>https://www.etsy.com/shop/TwoBirdsPress |
+| 406 | [unrealengine](https://www.instagram.com/unrealengine/) | Unreal Engine | Software | 1,072,866 | We make the engine. You make it Unreal.  / #GetUnreal | https://empli.fi/unrealengine/ |
+| 407 | [playstation](https://www.instagram.com/playstation/) | PlayStation | — | 32,764,944 | PlayStation's official Instagram!  / Get the latest PlayStation news ⬇️ | https://empli.fi/playstation/ |
+| 408 | [malcolmgladwell](https://www.instagram.com/malcolmgladwell/) | Malcolm Gladwell | — | 400,698 | NYT Bestselling Author / Host of Revisionist History / Skinny Canadian / New Book Revenge of The American Way of Killing out now👇 | https://linktr.ee/gladwell_americanway |
+| 409 | [interestingengineering](https://www.instagram.com/interestingengineering/) | Interesting Engineering | Media/news company | 4,348,544 | Uncovering the stories behind the latest breakthroughs from engineering industry. For inquiries, reach us at sales@interestingengineering.com.🔬🚀 | https://link.ie.social/qoUxAa<br>https://sprout.link/interestingengineering<br>https://www.ga-asi.com/ |
+| 410 | [masterclass](https://www.instagram.com/masterclass/) | MasterClass | None | 5,171,789 | Learn from the best. / Instant access to over 200 classes. | https://www.masterclass.com/executive/program-details<br>https://mstr.cl/NewClasses<br>http://mstr.cl/NegotiationCert<br>https://mstr.cl/RedefiningGriefIG |
+| 411 | [bloombergoriginals](https://www.instagram.com/bloombergoriginals/) | Bloomberg Originals | Media/news company | 680,348 | Bloomberg Originals offers cinematic documentary-style explorations and feature shows at the intersection of business, climate, technology and beyond | https://smartlink.bio/bloombergoriginals |
+| 412 | [techcrunch](https://www.instagram.com/techcrunch/) | TechCrunch | — | 1,740,474 | Tech news and analysis with a focus on founders and startup teams. | — |
+| 413 | [quantamag](https://www.instagram.com/quantamag/) | Quanta Magazine | Publishers | 300,199 | Illuminating math and science. Supported by the Simons Foundation. 2022 Pulitzer Prize in Explanatory Reporting. | https://linkin.bio/quantamag |
+| 414 | [kevinolearytv](https://www.instagram.com/kevinolearytv/) | Kevin O'Leary | Entrepreneur | 2,331,322 | Chairman of O’Leary Ventures & @beanstox / 🦈Mr. Wonderful on @sharktankabc / @bitzerodotcom | https://kevinoleary.com/tequila/<br>https://wondertrust.com/ |
+| 415 | [lenovo](https://www.instagram.com/lenovo/) | Lenovo | Product/service | 1,464,701 | Providing #smarter technology for all. | http://spr.ly/LenovoIG |
+| 416 | [verge](https://www.instagram.com/verge/) | The Verge | Publishers | 1,684,181 | Covering life in the future | https://likeshop.me/verge |
+| 417 | [dell](https://www.instagram.com/dell/) | Dell | None | 1,240,199 | Technology built for you, your vision, your ambition and your story. ✨ | https://visitstore.bio/dell?tab=ig |
+| 418 | [sonyxperia](https://www.instagram.com/sonyxperia/) | Sony ¦ Xperia | Community | 1,460,432 | The official global Instagram for Sony - Xperia. ​ / Ready when you are. #Xperia10VIII​ | https://linktr.ee/SonysXperia |
+| 419 | [nile.red](https://www.instagram.com/nile.red/) | NileRed - Chemistry & Science | — | 1,236,859 | Capturing the natural beauty of chemistry / Find me on YouTube: @NileRed/@NileBlue | https://m.youtube.com/@NileRed<br>https://m.youtube.com/@NileBlue |
+| 420 | [mo_gawdat](https://www.instagram.com/mo_gawdat/) | Mo Gawdat | — | 436,544 | Former CBO Google [X] ¦ @slomopodcast ¦ Author: Solve for Happy, Scary Smart, That Little Voice ¦ Co-Founder: @unstressable.official ¦#OneBillionHappy | http://emma.love/<br>http://emma.love<br>http://linktr.ee/mo_gawdat<br>https://m.youtube.com/c/mogawdatofficial |
+| 421 | [unboxtherapy](https://www.instagram.com/unboxtherapy/) | Lewis Hilsenteger | Reel creator | 2,820,006 | Where products get naked. | http://link.me/unboxtherapy |
+| 422 | [futurepedia_io](https://www.instagram.com/futurepedia_io/) | Futurepedia | — | 89,186 | Mind blown by AI. Experimenting and exploring the possibilities | https://www.futurepedia.io/<br>https://www.futurepedia.io |
+| 423 | [rive.app](https://www.instagram.com/rive.app/) | Rive | Personal Goods & General Merchandise Stores | 56,332 | The interactive experience engine. Design, animation, and code. Ship everywhere. | http://beacons.ai/rive.app |
+| 424 | [codiesanchez](https://www.instagram.com/codiesanchez/) | Codie Sanchez | — | 3,414,369 | Owner, Contrarian Thinking @ctventurecap @getbizscout @bigdeal.podcast  / Helping you build & buy profitable businesses / My bestselling books👇 | http://ownerbook.com/<br>http://ownerbook.com<br>https://www.amazon.com/review/create-review/?ie=UTF8&channel=glance-detail&asin=B0H9DG9PPG |
+| 425 | [knimesoftware](https://www.instagram.com/knimesoftware/) | KNIME | Software Company | 15,409 | Visual workflows for your best data and AI work. 📊👇Start building | https://knime.info/ig |
+| 426 | [morningbrew](https://www.instagram.com/morningbrew/) | Morning Brew | None | 2,269,178 | Everything you need to know about the world of business and the business of the world.  / Link in bio ⬇️ | https://linkin.bio/morningbrew<br>https://www.morningbrew.com/events/brew-performance-revue-2026?utm_campaign=performance_revue_2026&utm_source=mbm |
+| 427 | [leilahormozi](https://www.instagram.com/leilahormozi/) | Leila Hormozi | Entrepreneur | 1,596,776 | Founder & Chairwoman @acquisition / Building the business that builds businesses / Get My Free Five Scaling Frameworks⬇️ | https://www.acquisition.com/fivescalingframeworks?el=ig-leila-main-bio-frameworks-v1&htrafficsource=instagram&utm_source=instagram&utm_medium=leila-main&utm_campaign=instagram-bio&utm_content=five-scaling-frameworks-lead<br>https://leilahormozi.com/dearleila<br>https://leilahormozi.com/subscribe<br>https://www.youtube.com/watch?v=X6S2D1OEaQo |
+| 428 | [hormozi](https://www.instagram.com/hormozi/) | Alex Hormozi | Entrepreneur | 5,067,281 | Founder Acquisition.com, Co-Founder Skool.com. / I talk about scaling businesses. / Get your free scaling roadmap 👇 | https://www.acquisition.com/roadmap-ig<br>https://www.acquisition.com/a-ig |
+| 429 | [foundr](https://www.instagram.com/foundr/) | Foundr | Education | 3,834,239 | Founder @nathanchan / Join Our Free Black Friday Summit👇 | https://foundr.com/pages/fom-bfcm-summit<br>https://foundr.com/startdollartrial |
+| 430 | [benzinga](https://www.instagram.com/benzinga/) | Benzinga ¦ Finance, Investing, & Stock Market News | — | 251,771 | 📈 Stock Market, Business and Finance News / 📊 Real-Time Market News ¦ Free & Premium Analyst Research / Start here ↓ | https://www.benzinga.com/premium/ideas/benzinga-edge/?utm_source=instagram&utm_campaign=link_in_bio<br>https://www.benzinga.com/?utm_source=instagram&utm_campaign=link_in_bio<br>https://www.benzinga.com/services<br>https://linkin.bio/benzinga |
+| 431 | [aliabdaal](https://www.instagram.com/aliabdaal/) | Ali Abdaal | Entrepreneur | 1,164,115 | 👨‍⚕️ Doctor turned Entrepreneur / 📚 NYT Bestselling Book: Feel-Good Productivity / 💻 @lifestylebusinessacademy / 👇Give @superfocus.me a go | https://go.sparkle.so/get_superfocus_ig |
+| 432 | [cosmicskeptic](https://www.instagram.com/cosmicskeptic/) | Alex O’Connor | Reel creator | 457,991 | Darkening counsel by words without knowledge. / 🇺🇸🇨🇦 North America tour tickets ⬇️⬇️ | https://www.alexoconnor.com/<br>https://open.substack.com/pub/alexoconnor/p/general-sale-us-tour-tickets-out?r=2cuwzz&utm_medium=ios |
+| 433 | [qatarfoundation](https://www.instagram.com/qatarfoundation/) | Qatar Foundation ¦ مؤسسة قطر | Education | 1,157,117 | إطلاق قدرات الإنسان.  / Unlocking Human Potential. | https://linktr.ee/qatarfoundation<br>https://www.qf.org.qa/qiyada |
+| 434 | [natgeo](https://www.instagram.com/natgeo/) | National Geographic | None | 268,404,628 | Step into wonder and find your inner explorer with National Geographic 🌎 | http://visitstore.bio/natgeo<br>https://ngmdomsubs.nationalgeographic.com/servlet/OrdersGateway?cds_mag_code=NGM&cds_page_id=283562&cds_response_key=I5FX10002 |
+| 435 | [awsdevelopers](https://www.instagram.com/awsdevelopers/) | AWS Developers | — | 234,001 | 🚀 We’re here to connect developers with AWS experts, share dev-focused content & resources, and celebrate the #AWSCommunity. | http://go.aws/AWSDevelopers |
+| 436 | [android](https://www.instagram.com/android/) | Android | Personal Goods & General Merchandise Stores | 2,028,385 | Android is for everyone | https://goo.gle/MeetGooglebook_ig |
+| 437 | [zuck](https://www.instagram.com/zuck/) | Mark Zuckerberg | — | 17,275,159 | I build stuff | http://muse.ai/join |
+| 438 | [kurzgesagt](https://www.instagram.com/kurzgesagt/) | Kurzgesagt - In a nutshell | Reel creator | 1,607,927 | Sciency videos made with love, a lot of time and after effects. / Links to our videos, shop, website & more: | https://linktr.ee/kurzgesagt<br>https://kgs.link/Shop_IG |
+| 439 | [glucosegoddess](https://www.instagram.com/glucosegoddess/) | Jessie Inchauspé | None | 6,323,859 | French biochemist. 2x NYT bestselling author.  / 💥 Welcome to better blood sugar / 👇 Protein Prodigy is here! | http://glucosegoddess.com |
+| 440 | [healthygamer_gg](https://www.instagram.com/healthygamer_gg/) | Dr. Alok Kanojia | — | 356,830 | I’m Dr. K. Harvard-trained psychiatrist, creator & owner of Healthy Gamer 💚 mental health resources for modern life.  / ADHD, trauma, burnout, and more. | https://go.healthygamer.gg/4yE35Ki<br>https://go.healthygamer.gg/4xOWP0U<br>https://bit.ly/4woQ465<br>https://bit.ly/4woThSW |
+| 441 | [theschooloflifelondon](https://www.instagram.com/theschooloflifelondon/) | The School of Life | None | 958,463 | Ideas to help you Learn, Heal and Grow. / Click for more on any post 👇 | https://linkin.bio/theschooloflifelondon |
+| 442 | [nobelprize](https://www.instagram.com/nobelprize/) | Nobel Prize | None | 2,522,641 | The official Instagram account of the Nobel Prize.  / Celebrating the work and discoveries that have had the greatest benefit to humankind. | http://www.sprout.link/nobelprize |
+| 443 | [yuval_noah_harari](https://www.instagram.com/yuval_noah_harari/) | Yuval Noah Harari | Author | 1,196,987 | Historian/ Author: Sapiens, Homo Deus, 21 Lessons for the 21st Century, Nexus, Unstoppable Us, Sapiens: A Graphic History/ Co-founder: @sapienship.lab | http://lnk.bio/YNHarari |
+| 444 | [natgeotv](https://www.instagram.com/natgeotv/) | National Geographic TV | TV show | 7,415,050 | The home of wonder-filled stories of nature, science, exploration and beyond from National Geographic. Stream on NatGeoTV.com, @hulu and @disneyplus. | http://visitstore.bio/natgeotv<br>http://www.natgeotv.com |
+| 445 | [ted](https://www.instagram.com/ted/) | TED Talks | Nonprofit organization | 8,572,687 | Ideas change everything | https://linkin.bio/ted |
+| 446 | [realcodebullet](https://www.instagram.com/realcodebullet/) | Code Bullet | — | 125,700 | itsa me code bullet. i do nerd stuff on youtube. | https://lovable.link/hH9lEhQ<br>https://codebulletshop.com/en-aud/ |
+| 447 | [johnny.harris](https://www.instagram.com/johnny.harris/) | Johnny Harris | None | 1,041,392 | Filmmaker. New documentary series The Human Element coming soon. | https://youtube.com/@johnnyharris<br>http://newpress.com<br>https://www.youtube.com/@searchparty<br>https://www.youtube.com/@christophe |
+| 448 | [uniladtech](https://www.instagram.com/uniladtech/) | UNILAD Tech | Reel creator | 1,073,636 | 📱The technology arm of @UNILAD / 📽 Creating & sharing the best of science and tech / 📩 Get in touch: uniladtech@ladbiblegroup.com | http://www.linkin.bio/uniladtech |
+| 449 | [openai](https://www.instagram.com/openai/) | OpenAI | None | 6,658,086 | OpenAI’s mission is to ensure artificial intelligence benefits all of humanity. Proud parent of @chatgpt and @openaidevs | https://openai.com/index/gpt-6-astra/ |
+| 450 | [kallaway](https://www.instagram.com/kallaway/) | Kallaway | Entrepreneur | 460,706 | • Breaking down new tech & AI / • Helping business owners stay ahead in the AI era / • Partnerships: kallaway@rakugomedia.com / • Building sandcastles.ai👇🏻 | https://sandcastles.ai<br>https://chatgpt.com/features/dots/ |
+| 451 | [robertgreeneofficial](https://www.instagram.com/robertgreeneofficial/) | Robert Greene | Author | 2,845,712 | Official Instagram of New York Times best selling author Robert Greene.  / Pre-order my new book ⬇️ | https://sites.prh.com/lawofthesublime |
+| 452 | [cleoabram](https://www.instagram.com/cleoabram/) | Cleo Abram | — | 3,276,453 | Video journalist making HUGE* If True, an optimistic show about science and tech. Prev: Vox, Netflix. / Watch our new episode 👇 | https://youtu.be/yWgHx0HE8m8?is=B4cSmnMJTzQYfrO- |
+| 453 | [pirate_software](https://www.instagram.com/pirate_software/) | Pirate Software | Arts & entertainment | 85,680 | A bunch of rowdy pirates who somehow make games. Working on #Heartbound | https://piratesoftware.live/ |
+| 454 | [freethink](https://www.instagram.com/freethink/) | Freethink | — | 450,939 | Tech’s Cultural Frontier. Covering the builders, ideas, and innovations shaping society. Changing media with @bigthink. | https://www.freethink.com/links |
+| 455 | [sambucha](https://www.instagram.com/sambucha/) | Sam Beres | Reel creator | 890,805 | I occasionally look at my DMs | http://youtube.com/@sambucha<br>https://www.youtube.com/creators/create/ai-for-creators?utm_source=instagram&utm_medium=bio&utm_campaign=ai_for_creators&utm_content=sambucha |
+| 456 | [nowthis](https://www.instagram.com/nowthis/) | NowThis | — | 3,825,948 | enjoy the glow / 📧 partnerships@nowthismedia.com | https://linktr.ee/nowthismedia |
+| 457 | [chriswillx](https://www.instagram.com/chriswillx/) | Chris Williamson | — | 3,287,037 | Podcaster, writer, fake British accent. / Drink @neutonic  / Listen @modernwisdom  / ⬇️ UK Live Tour Tickets | https://chriswillx.com/books/<br>https://chriswilliamson.live/tickets |
+| 458 | [hubermanlab](https://www.instagram.com/hubermanlab/) | Andrew Huberman, Ph.D. | Scientist | 8,118,467 | • Professor of Neurobiology & Ophthalmology    @stanford.med @stanford  / • Neuroscience Research & Education / • Host of the Huberman Lab podcast | https://www.hubermanlab.com/events<br>https://www.hubermanlab.com<br>https://protocolsbook.com |
 | 459 | [tomandjerry](https://www.instagram.com/tomandjerry/) | Tom and Jerry | — | 4,025,804 | The official home of Tom And Jerry on Instagram! | https://sprout.link/tomandjerry<br>https://linktr.ee/ShopTomandJerry |
+| 460 | [rowancheung](https://www.instagram.com/rowancheung/) | Rowan Cheung | — | 503,397 | The latest in AI and robotics, explained / Founder & CEO @therundownai  / Zurich 🇨🇭 / NYC 🇺🇸 | http://rundown.ai/<br>http://rundown.ai<br>https://chatgpt.com/features/dots/ |
+| 461 | [dota2](https://www.instagram.com/dota2/) | Dota 2 | Games/toys | 702,827 | Official Instagram for Dota 2 from Valve Corporation. | https://linktr.ee/dota2ti<br>https://www.dota2.com |
+| 462 | [jordan.b.peterson](https://www.instagram.com/jordan.b.peterson/) | Dr. Jordan B. Peterson | Public figure | 9,154,102 | Clinical Psychologist / Best-Selling Author / #1 Education Podcast / Online Higher Education: @petersonacademy | http://petersonacademy.com/<br>http://petersonacademy.com<br>https://getdwplus.com/blackfridayJBP<br>https://feedlink.io/jordanbpeterson |
 | 463 | [storagereview](https://www.instagram.com/storagereview/) | StorageReview | — | 131,401 | StorageReview.com offers in-depth IT news and detailed reviews. Check our website👇👇👇 | https://www.youtube.com/user/storagereview<br>https://www.storagereview.com/ |
-
-## ناقص
-
-| # | حساب | نام | دنبال‌کننده | پست |
-|---|---|---|---|---|
-| 287 | [nzxt](https://www.instagram.com/nzxt/) | NZXT | 1,067,155 | 5,751 |
-| 288 | [hideo_kojima](https://www.instagram.com/hideo_kojima/) | Hideo Kojima | 5,260,423 | 17,800 |
-| 290 | [crucial_memory](https://www.instagram.com/crucial_memory/) | Crucial Memory | 119,826 | 1,722 |
-| 291 | [ijustine](https://www.instagram.com/ijustine/) | iJustine | 1,648,543 | 7,875 |
-| 292 | [nvidia](https://www.instagram.com/nvidia/) | NVIDIA | 2,997,484 | 2,389 |
-| 293 | [formlabs](https://www.instagram.com/formlabs/) | Formlabs | 286,058 | 1,909 |
-| 294 | [igndotcom](https://www.instagram.com/igndotcom/) | IGN | 5,770,024 | 33,219 |
-| 295 | [tekken](https://www.instagram.com/tekken/) | TEKKEN | 331,921 | 1,025 |
-| 296 | [mitopenlearning](https://www.instagram.com/mitopenlearning/) | MIT Open Learning | 161,957 | 598 |
-| 297 | [salesforce](https://www.instagram.com/salesforce/) | Salesforce | 342,503 | 1,110 |
-| 298 | [fifaworldcup](https://www.instagram.com/fifaworldcup/) | FIFA World Cup | 67,057,103 | 26,724 |
-| 300 | [gothamchess](https://www.instagram.com/gothamchess/) | Levy Rozman | 2,357,966 | 1,439 |
-| 301 | [hypebeast](https://www.instagram.com/hypebeast/) | HYPEBEAST | 10,247,120 | 36,797 |
-| 303 | [enron](https://www.instagram.com/enron/) | Enron | 283,882 | 6 |
-| 306 | [startalk](https://www.instagram.com/startalk/) | StarTalk | 1,605,269 | 3,642 |
-| 307 | [tailopez](https://www.instagram.com/tailopez/) | Tai Lopez 🇵🇷🇺🇸🇸🇪🇩🇰🇧🇷🇫🇮🇨🇦 | 3,006,882 | 4,696 |
-| 308 | [answersingenesis](https://www.instagram.com/answersingenesis/) | Answers In Genesis | 162,960 | 1,745 |
-| 309 | [museumofscience](https://www.instagram.com/museumofscience/) | Museum of Science | 536,580 | 3,976 |
-| 310 | [supercarblondie](https://www.instagram.com/supercarblondie/) | Supercar Blondie | 17,361,110 | 2,824 |
-| 311 | [aravindsrinivas](https://www.instagram.com/aravindsrinivas/) | Aravind Srinivas | 331,807 | 24 |
-| 312 | [kevinbparry](https://www.instagram.com/kevinbparry/) | Kevin Parry | 1,992,701 | 512 |
-| 313 | [razer](https://www.instagram.com/razer/) | RΛZΞR | 7,304,653 | 7,725 |
-| 314 | [samsung](https://www.instagram.com/samsung/) | Samsung | 2,832,531 | 868 |
-| 315 | [ces](https://www.instagram.com/ces/) | CES | 254,168 | 433 |
-| 316 | [nvidiageforce](https://www.instagram.com/nvidiageforce/) | NVIDIA GeForce | 2,849,193 | 3,406 |
-| 317 | [googlefordevs](https://www.instagram.com/googlefordevs/) | Google for Developers | 1,170,117 | 2,729 |
-| 318 | [nytimes](https://www.instagram.com/nytimes/) | The New York Times | 20,499,417 | 25,315 |
-| 320 | [kickstarter](https://www.instagram.com/kickstarter/) | Kickstarter | 408,705 | 4,554 |
-| 323 | [lowleveltv](https://www.instagram.com/lowleveltv/) | Ed @ Low Level TV | 99,378 | 88 |
-| 324 | [klingai_official](https://www.instagram.com/klingai_official/) | Kling AI | 650,963 | 2,241 |
-| 325 | [bundesliga](https://www.instagram.com/bundesliga/) | Bundesliga | 16,987,271 | 52,782 |
-| 327 | [_johnhammond](https://www.instagram.com/_johnhammond/) | John Hammond | 60,625 | 699 |
-| 328 | [copaamerica](https://www.instagram.com/copaamerica/) | CONMEBOL Copa América™️ | 4,666,604 | 9,377 |
-| 331 | [raydalio](https://www.instagram.com/raydalio/) | Ray Dalio | 1,940,565 | 3,810 |
-| 332 | [thediaryofaceopodcast](https://www.instagram.com/thediaryofaceopodcast/) | The Diary Of A CEO - With Steven Bartlett | 4,030,803 | 2,256 |
-| 344 | [blender.studio.official](https://www.instagram.com/blender.studio.official/) | Blender Studio | 104,199 | 144 |
-| 345 | [bryanjohnson_](https://www.instagram.com/bryanjohnson_/) | Bryan Johnson | 2,805,157 | 613 |
-| 347 | [stevemouldscience](https://www.instagram.com/stevemouldscience/) | Steve mould | 487,454 | 415 |
-| 348 | [pcgaming](https://www.instagram.com/pcgaming/) | PC GAMING | 886,661 | 2,858 |
-| 349 | [2xko](https://www.instagram.com/2xko/) | 2XKO | 212,397 | 597 |
-| 350 | [crashcourse](https://www.instagram.com/crashcourse/) | Crash Course | 185,506 | 1,426 |
-| 351 | [pixar](https://www.instagram.com/pixar/) | Pixar | 11,846,172 | 6,390 |
-| 352 | [iwcwatches](https://www.instagram.com/iwcwatches/) | IWC Schaffhausen | 2,057,204 | 4,440 |
-| 353 | [oakley](https://www.instagram.com/oakley/) | Oakley | 3,301,619 | 1,131 |
-| 354 | [miketyson](https://www.instagram.com/miketyson/) | Mike Tyson | 33,538,020 | 1,877 |
-| 355 | [sonicthehedgehog](https://www.instagram.com/sonicthehedgehog/) | Sonic the Hedgehog | 1,273,353 | 2,168 |
-| 356 | [mkbhd](https://www.instagram.com/mkbhd/) | Marques Brownlee | 5,288,206 | 2,118 |
-| 357 | [codedex.io](https://www.instagram.com/codedex.io/) | Codédex | 99,931 | 913 |
-| 358 | [polygondotcom](https://www.instagram.com/polygondotcom/) | Polygon | 221,714 | 3,173 |
-| 359 | [esldota2](https://www.instagram.com/esldota2/) | ESL Dota2 | 140,958 | 3,146 |
-| 360 | [andrerieu](https://www.instagram.com/andrerieu/) | André Rieu | 4,127,110 | 2,036 |
-| 361 | [mancity](https://www.instagram.com/mancity/) | Manchester City | 57,044,355 | 44,735 |
-| 362 | [discord](https://www.instagram.com/discord/) | Discord | 2,612,772 | 1,844 |
-| 363 | [tech_with_tim](https://www.instagram.com/tech_with_tim/) | Tim | 34,721 | 842 |
-| 364 | [mcdonaldscorp](https://www.instagram.com/mcdonaldscorp/) | McDonald's Corporation | 152,772 | 1,137 |
-| 365 | [jimkwik](https://www.instagram.com/jimkwik/) | Jim Kwik ¦ Your Brain Coach | 2,474,570 | 6,719 |
-| 366 | [samsunguk](https://www.instagram.com/samsunguk/) | Samsung UK | 663,120 | 2,940 |
-| 367 | [modernrogueshow](https://www.instagram.com/modernrogueshow/) | Modern Rogue | 169,914 | 2,562 |
-| 368 | [gamingbible](https://www.instagram.com/gamingbible/) | GAMINGbible | 1,734,456 | 14,641 |
-| 369 | [tmnt](https://www.instagram.com/tmnt/) | Teenage Mutant Ninja Turtles | 684,918 | 2,538 |
-| 370 | [wetransfer](https://www.instagram.com/wetransfer/) | WeTransfer | 78,894 | 3,111 |
-| 371 | [christiesinc](https://www.instagram.com/christiesinc/) | Christie's | 1,425,320 | 10,230 |
-| 372 | [christiesmiddleeast](https://www.instagram.com/christiesmiddleeast/) | Christie's Middle East | 22,324 | 588 |
-| 373 | [drjamestour](https://www.instagram.com/drjamestour/) | Dr James Tour | 93,395 | 418 |
-| 374 | [bbcnews](https://www.instagram.com/bbcnews/) | BBC News | 30,931,375 | 32,130 |
-| 375 | [subwaysurfers](https://www.instagram.com/subwaysurfers/) | Subway Surfers | 4,854,531 | 4,805 |
-| 376 | [gitlab](https://www.instagram.com/gitlab/) | GitLab | 101,725 | 660 |
-| 377 | [hak5gear](https://www.instagram.com/hak5gear/) | Hak5 | 90,569 | 96 |
-| 378 | [red_hat](https://www.instagram.com/red_hat/) | Red Hat | 138,665 | 790 |
-| 379 | [thepracticaldev](https://www.instagram.com/thepracticaldev/) | DEV Community | 51,199 | 1,558 |
-| 381 | [digikey](https://www.instagram.com/digikey/) | DigiKey | 72,364 | 2,352 |
-| 382 | [mouserelec](https://www.instagram.com/mouserelec/) | Mouser | 33,095 | 1,842 |
-| 383 | [365datascience](https://www.instagram.com/365datascience/) | 365 Data Science | 75,463 | 962 |
-| 384 | [seeedstudio](https://www.instagram.com/seeedstudio/) | Seeed Studio | 70,460 | 1,334 |
-| 385 | [ansys_inc](https://www.instagram.com/ansys_inc/) | Ansys | 62,539 | 617 |
-| 386 | [abbrobotics](https://www.instagram.com/abbrobotics/) | ABB Robotics | 104,863 | 1,058 |
-| 387 | [stmicroelectronics.nv](https://www.instagram.com/stmicroelectronics.nv/) | STMicroelectronics | 50,878 | 500 |
-| 388 | [archlinux](https://www.instagram.com/archlinux/) | Arch Linux | 44,648 | 34 |
-| 389 | [all_about_circuits](https://www.instagram.com/all_about_circuits/) | All About Circuits | 28,069 | 326 |
-| 390 | [microchipmakes](https://www.instagram.com/microchipmakes/) | Microchip Makes | 97,846 | 3,091 |
-| 391 | [perplexity](https://www.instagram.com/perplexity/) | Perplexity | 1,213,889 | 200 |
-| 392 | [realpython](https://www.instagram.com/realpython/) | Real Python | 80,464 | 1,154 |
-| 393 | [espressif_systems_official](https://www.instagram.com/espressif_systems_official/) | Espressif Systems® | 28,034 | 79 |
-| 394 | [twominutepapers](https://www.instagram.com/twominutepapers/) | 📜 Two Minute Papers | 39,551 | 947 |
-| 395 | [snapdragonofficial](https://www.instagram.com/snapdragonofficial/) | Snapdragon | 629,406 | 2,113 |
-| 396 | [photoshop](https://www.instagram.com/photoshop/) | Adobe Photoshop | 6,297,345 | 2,696 |
-| 397 | [framer](https://www.instagram.com/framer/) | Framer | 302,987 | 570 |
-| 398 | [thechrisdo](https://www.instagram.com/thechrisdo/) | Chris Do—Personal Branding/Sales Coach | 1,027,800 | 1,776 |
-| 399 | [d_and_ad](https://www.instagram.com/d_and_ad/) | D&AD | 369,122 | 3,770 |
-| 400 | [firefox](https://www.instagram.com/firefox/) | Firefox | 400,014 | 753 |
-| 401 | [windows](https://www.instagram.com/windows/) | Windows | 2,571,806 | 1,305 |
-| 402 | [courteneycoxofficial](https://www.instagram.com/courteneycoxofficial/) | Courteney Cox | 14,989,960 | 526 |
-| 403 | [figma](https://www.instagram.com/figma/) | Figma | 966,464 | 1,095 |
-| 404 | [danmartell](https://www.instagram.com/danmartell/) | Dan Martell | 3,141,306 | 3,967 |
-| 405 | [ellenlupton](https://www.instagram.com/ellenlupton/) | Ellen Lupton | 275,400 | 2,422 |
-| 406 | [unrealengine](https://www.instagram.com/unrealengine/) | Unreal Engine | 1,071,923 | 3,583 |
-| 407 | [playstation](https://www.instagram.com/playstation/) | PlayStation | 32,759,722 | 3,920 |
-| 408 | [malcolmgladwell](https://www.instagram.com/malcolmgladwell/) | Malcolm Gladwell | 399,133 | 215 |
-| 409 | [interestingengineering](https://www.instagram.com/interestingengineering/) | Interesting Engineering | 4,347,476 | 29,314 |
-| 410 | [masterclass](https://www.instagram.com/masterclass/) | MasterClass | 5,156,845 | 1,975 |
-| 411 | [bloombergoriginals](https://www.instagram.com/bloombergoriginals/) | Bloomberg Originals | 680,350 | 7,000 |
-| 412 | [techcrunch](https://www.instagram.com/techcrunch/) | TechCrunch | 1,740,331 | 6,437 |
-| 413 | [quantamag](https://www.instagram.com/quantamag/) | Quanta Magazine | 299,659 | 2,656 |
-| 414 | [kevinolearytv](https://www.instagram.com/kevinolearytv/) | Kevin O'Leary | 2,329,893 | 5,790 |
-| 415 | [lenovo](https://www.instagram.com/lenovo/) | Lenovo | 1,464,479 | 2,874 |
-| 416 | [verge](https://www.instagram.com/verge/) | The Verge | 1,681,887 | 6,302 |
-| 417 | [dell](https://www.instagram.com/dell/) | Dell | 1,239,571 | 752 |
-| 418 | [sonyxperia](https://www.instagram.com/sonyxperia/) | Sony ¦ Xperia | 1,460,683 | 4,126 |
-| 419 | [nile.red](https://www.instagram.com/nile.red/) | NileRed - Chemistry & Science | 1,236,160 | 319 |
-| 420 | [mo_gawdat](https://www.instagram.com/mo_gawdat/) | Mo Gawdat | 436,215 | 2,108 |
-| 421 | [unboxtherapy](https://www.instagram.com/unboxtherapy/) | Lewis Hilsenteger | 2,821,018 | 3,846 |
-| 422 | [futurepedia_io](https://www.instagram.com/futurepedia_io/) | Futurepedia | 89,236 | 172 |
-| 423 | [rive.app](https://www.instagram.com/rive.app/) | Rive | 56,238 | 791 |
-| 424 | [codiesanchez](https://www.instagram.com/codiesanchez/) | Codie Sanchez | 3,408,310 | 2,538 |
-| 425 | [knimesoftware](https://www.instagram.com/knimesoftware/) | KNIME | 15,427 | 170 |
-| 426 | [morningbrew](https://www.instagram.com/morningbrew/) | Morning Brew | 2,267,347 | 10,588 |
-| 427 | [leilahormozi](https://www.instagram.com/leilahormozi/) | Leila Hormozi | 1,593,173 | 3,605 |
-| 428 | [hormozi](https://www.instagram.com/hormozi/) | Alex Hormozi | 5,052,672 | 4,488 |
-| 429 | [foundr](https://www.instagram.com/foundr/) | Foundr | 3,834,960 | 21,568 |
-| 430 | [benzinga](https://www.instagram.com/benzinga/) | Benzinga ¦ Finance, Investing, & Stock Market News | 251,823 | 7,914 |
-| 431 | [aliabdaal](https://www.instagram.com/aliabdaal/) | Ali Abdaal | 1,163,719 | 2,159 |
-| 432 | [cosmicskeptic](https://www.instagram.com/cosmicskeptic/) | Alex O’Connor | 457,346 | 157 |
-| 433 | [qatarfoundation](https://www.instagram.com/qatarfoundation/) | Qatar Foundation ¦ مؤسسة قطر | 1,157,122 | 6,087 |
-| 434 | [natgeo](https://www.instagram.com/natgeo/) | National Geographic | 268,440,827 | 32,048 |
-| 435 | [awsdevelopers](https://www.instagram.com/awsdevelopers/) | AWS Developers | 234,116 | 491 |
-| 436 | [android](https://www.instagram.com/android/) | Android | 2,021,262 | 712 |
-| 437 | [zuck](https://www.instagram.com/zuck/) | Mark Zuckerberg | 17,269,485 | 444 |
-| 438 | [kurzgesagt](https://www.instagram.com/kurzgesagt/) | Kurzgesagt - In a nutshell | 1,606,644 | 2,353 |
-| 439 | [glucosegoddess](https://www.instagram.com/glucosegoddess/) | Jessie Inchauspé | 6,320,771 | 1,582 |
-| 440 | [healthygamer_gg](https://www.instagram.com/healthygamer_gg/) | Dr. Alok Kanojia | 354,354 | 1,254 |
-| 441 | [theschooloflifelondon](https://www.instagram.com/theschooloflifelondon/) | The School of Life | 957,794 | 3,999 |
-| 442 | [nobelprize](https://www.instagram.com/nobelprize/) | Nobel Prize | 2,353,732 | 4,909 |
-| 443 | [yuval_noah_harari](https://www.instagram.com/yuval_noah_harari/) | Yuval Noah Harari | 1,195,312 | 1,101 |
-| 444 | [natgeotv](https://www.instagram.com/natgeotv/) | National Geographic TV | 7,412,191 | 9,795 |
-| 445 | [ted](https://www.instagram.com/ted/) | TED Talks | 8,569,105 | 2,736 |
-| 446 | [realcodebullet](https://www.instagram.com/realcodebullet/) | Code Bullet | 125,765 | 265 |
-| 447 | [johnny.harris](https://www.instagram.com/johnny.harris/) | Johnny Harris | 1,040,687 | 1,245 |
-| 448 | [uniladtech](https://www.instagram.com/uniladtech/) | UNILAD Tech | 1,074,090 | 14,620 |
-| 449 | [openai](https://www.instagram.com/openai/) | OpenAI | 6,652,052 | 1,890 |
-| 450 | [kallaway](https://www.instagram.com/kallaway/) | Kallaway | 459,758 | 549 |
-| 451 | [robertgreeneofficial](https://www.instagram.com/robertgreeneofficial/) | Robert Greene | 2,843,729 | 2,380 |
-| 452 | [cleoabram](https://www.instagram.com/cleoabram/) | Cleo Abram | 3,269,645 | 900 |
-| 453 | [pirate_software](https://www.instagram.com/pirate_software/) | Pirate Software | 85,734 | 122 |
-| 454 | [freethink](https://www.instagram.com/freethink/) | Freethink | 451,108 | 2,243 |
-| 455 | [sambucha](https://www.instagram.com/sambucha/) | Sam Beres | 889,787 | 2,126 |
-| 456 | [nowthis](https://www.instagram.com/nowthis/) | NowThis | 3,824,314 | 26,480 |
-| 457 | [chriswillx](https://www.instagram.com/chriswillx/) | Chris Williamson | 3,284,893 | 5,585 |
-| 458 | [hubermanlab](https://www.instagram.com/hubermanlab/) | Andrew Huberman, Ph.D. | 8,112,696 | 1,688 |
-| 460 | [rowancheung](https://www.instagram.com/rowancheung/) | Rowan Cheung | 502,287 | 25 |
-| 461 | [dota2](https://www.instagram.com/dota2/) | Dota 2 | 702,727 | 2,360 |
-| 462 | [jordan.b.peterson](https://www.instagram.com/jordan.b.peterson/) | Dr. Jordan B. Peterson | 9,155,555 | 1,686 |
-| 464 | [tcmsecurity](https://www.instagram.com/tcmsecurity/) | TCM Security | 75,525 | 2,108 |
-| 465 | [ycombinator](https://www.instagram.com/ycombinator/) | Y Combinator | 747,972 | 941 |
-| 466 | [sandialabs](https://www.instagram.com/sandialabs/) | Sandia Labs | 54,160 | 845 |
-| 467 | [internetarchive](https://www.instagram.com/internetarchive/) | Internet Archive | 288,608 | 2,605 |
-| 468 | [3blue1brown](https://www.instagram.com/3blue1brown/) | 3blue1brown | 907,410 | 110 |
-| 470 | [flipper_zero](https://www.instagram.com/flipper_zero/) | Flipper Zero | 864,536 | 173 |
-| 471 | [hacksterio](https://www.instagram.com/hacksterio/) | Hackster.io, an Avnet community | 371,944 | 6,422 |
-| 472 | [networkchuck](https://www.instagram.com/networkchuck/) | NetworkChuck | 787,021 | 1,630 |
-| 473 | [remarkable](https://www.instagram.com/remarkable/) | reMarkable | 757,674 | 727 |
-| 474 | [codecademy](https://www.instagram.com/codecademy/) | Codecademy | 369,457 | 1,188 |
-| 475 | [letsdefend](https://www.instagram.com/letsdefend/) | LetsDefend | 84,054 | 1,353 |
-| 476 | [zsecurity_org](https://www.instagram.com/zsecurity_org/) | zSecurity | 50,864 | 1,071 |
-| 477 | [linustech](https://www.instagram.com/linustech/) | Linus Tech Tips | 1,804,823 | 4,705 |
-| 478 | [hackthebox](https://www.instagram.com/hackthebox/) | Hack The Box | 283,167 | 2,004 |
-| 479 | [jayztwocents](https://www.instagram.com/jayztwocents/) | JayzTwoCents | 423,370 | 3,461 |
-| 480 | [itsfoss](https://www.instagram.com/itsfoss/) | It's FOSS | 139,035 | 4,346 |
-| 481 | [davidbombal](https://www.instagram.com/davidbombal/) | David Bombal | 526,905 | 5,124 |
-| 482 | [frameworkcomputer](https://www.instagram.com/frameworkcomputer/) | Framework | 248,939 | 326 |
-| 483 | [eevblog](https://www.instagram.com/eevblog/) | Dave Jones | 22,808 | 941 |
-| 484 | [geerlingguy](https://www.instagram.com/geerlingguy/) | Jeff Geerling | 111,355 | 1,645 |
-| 485 | [brucelee](https://www.instagram.com/brucelee/) | Bruce Lee | 12,571,346 | 7,472 |
-| 486 | [theprimeagen](https://www.instagram.com/theprimeagen/) | ThePrimeagen | 276,802 | 852 |
-| 488 | [juliaprogramming.jl](https://www.instagram.com/juliaprogramming.jl/) | Julia ¦ Math & Programming | 39,603 | 214 |
-| 489 | [scientific_american](https://www.instagram.com/scientific_american/) | Scientific American | 924,331 | 1,802 |
-| 490 | [pubity](https://www.instagram.com/pubity/) | Pubity | 42,203,292 | 23,932 |
-| 491 | [manowin.ir](https://www.instagram.com/manowin.ir/) | مانوین | 3,730 | 174 |
-| 492 | [moonshots_pod](https://www.instagram.com/moonshots_pod/) | Moonshots | 11,760 | 209 |
-| 493 | [crashbash.app](https://www.instagram.com/crashbash.app/) | Crash Bash Multiplayer | 2,588 | 21 |
-| 494 | [farda.note](https://www.instagram.com/farda.note/) | فَردانوتـ | 90,023 | 124 |
-| 495 | [satrapi.iran](https://www.instagram.com/satrapi.iran/) | Mohammad Fallah | 238,956 | 435 |
-| 496 | [schoolofattention](https://www.instagram.com/schoolofattention/) | Strother School of Radical Attention | 33,378 | 539 |
-| 497 | [sharif_ict](https://www.instagram.com/sharif_ict/) | Sharif ICT Group | 7,224 | 232 |
-| 498 | [ketabekhatkhati](https://www.instagram.com/ketabekhatkhati/) | خط خطی های کتابخونه | 116 | 49 |
-| 499 | [astronomyoutreach](https://www.instagram.com/astronomyoutreach/) | Network for Outreach and Vocation in Astronomy | 15,435 | 204 |
-| 500 | [theravitshow](https://www.instagram.com/theravitshow/) | Ravit Jain | 67,958 | 1,232 |
+| 464 | [tcmsecurity](https://www.instagram.com/tcmsecurity/) | TCM Security | None | 75,631 | Disrupting the cybersecurity training industry. / For questions, please ask in our Discord server! (Link in bio.) | https://www.tcm.rocks/contact-ig<br>https://www.tcm.rocks/acad-ig<br>https://www.tcm.rocks/certs-ig<br>https://discord.com/invite/tcm |
+| 465 | [ycombinator](https://www.instagram.com/ycombinator/) | Y Combinator | None | 750,367 | Funding startups since 2005 | http://beacons.ai/ycombinator<br>http://ycombinator.com |
+| 466 | [sandialabs](https://www.instagram.com/sandialabs/) | Sandia Labs | Government Agencies | 54,320 | U.S. Department of @Energy labs dedicated to securing a peaceful and free world through #science and #technology. | http://linkstre.am/SandiaLabs |
+| 467 | [internetarchive](https://www.instagram.com/internetarchive/) | Internet Archive | Nonprofit organization | 289,929 | Internet Archive is a non-profit research library preserving web pages, books, movies & audio for public access. Home of the Wayback Machine. | https://linkin.bio/internetarchive |
+| 468 | [3blue1brown](https://www.instagram.com/3blue1brown/) | 3blue1brown | — | 913,098 | Animated math.  See also @randy_the_pi | https://www.youtube.com/3blue1brown |
+| 469 | [babyspiceofficial](https://www.instagram.com/babyspiceofficial/) | Spice Watterson | Digital creator | 1,529,531 | Psalms 62:7 / @luccainternational  / BabySpiceCJTeam@redxtalent.com | — |
+| 470 | [flipper_zero](https://www.instagram.com/flipper_zero/) | Flipper Zero | None | 865,254 | Flipper Zero Official Account — Multi-tool Device for Electronics Geeks ⚙️ & Security Enthusiasts / Buy here ⬇️ | http://r.flipper.net/i |
+| 471 | [hacksterio](https://www.instagram.com/hacksterio/) | Hackster.io, an Avnet community | Internet company | 371,935 | The world’s fastest growing developer community for learning, programming, and building hardware with 2M+ innovators and 45K+ open source projects. | http://linktr.ee/hacksterio<br>http://hackster.io/news |
+| 472 | [networkchuck](https://www.instagram.com/networkchuck/) | NetworkChuck | Education | 787,789 | YouTuber | http://ntck.co/More<br>https://ntck-ac.co/ck<br>https://bit.ly/43Bs8Pp<br>http://www.chatgpt.com/download/ |
+| 473 | [remarkable](https://www.instagram.com/remarkable/) | reMarkable | Business & Utility Services | 758,982 | Made for thinking. / Share your work with #reMarkablePaper | https://remarkable.com/products/remarkable-paper/pure?utm_source=instagram&utm_medium=organic&utm_content=rMPPure<br>https://remarkable.com/clp/8-reasons-why-remarkable-paper-pure-is-made-for-you<br>https://remarkable.com/?utm_source=instagram&utm_medium=organic&utm_content=homepage<br>https://remarkable.com/scientific-advisory-board?utm_source=instagram&utm_medium=organic&utm_content=sab-link |
+| 474 | [codecademy](https://www.instagram.com/codecademy/) | Codecademy | Professional Services | 369,444 | Helping you learn the latest tech skills — so you can build the career you’ve always wanted. | https://sprout.link/codecademy |
+| 475 | [letsdefend](https://www.instagram.com/letsdefend/) | LetsDefend | None | 84,017 | LetsDefend, now part of Hack The Box. | https://letsdefend.io/ |
+| 476 | [zsecurity_org](https://www.instagram.com/zsecurity_org/) | zSecurity | None | 50,876 | 💻 Ethical Hacking & Cybersecurity. / Master Hacking & AI, stay, sharp and ahead of the game - join Z Society 👇 | https://skool.com/hacking |
+| 477 | [linustech](https://www.instagram.com/linustech/) | Linus Tech Tips | — | 1,804,623 | The official Instagram of Linus Tech Tips. / Find our latest promotion here: ↙️ | http://linktr.ee/linustech/ |
+| 478 | [hackthebox](https://www.instagram.com/hackthebox/) | Hack The Box | Science, Technology & Engineering | 284,238 | Cyber Mastery: Community Inspired. Enterprise Trusted. | https://beacons.ai/hackthebox |
+| 479 | [jayztwocents](https://www.instagram.com/jayztwocents/) | JayzTwoCents | Reel creator | 423,261 | Tech, Cars, Gaming, and more! | http://www.youtube.com/jayztwocents |
+| 480 | [itsfoss](https://www.instagram.com/itsfoss/) | It's FOSS | Education | 139,634 | Follow for / - Linux News, Tips & Memes🐧 / - Open Source Software 👩‍💻 / - Terminal Tools 🔧  / - Retro Computing 🖥  / - Homelab and Local AI 🤖 | https://itsfoss.com/<br>https://youtube.com/@itsfoss<br>https://itsfoss.community/<br>https://t.me/itsfoss_official |
+| 481 | [davidbombal](https://www.instagram.com/davidbombal/) | David Bombal | Information Technology Company | 527,008 | Twitter: @davidbombal / YouTube: https://www.youtube.com/davidbombal | https://tap.bio/@davidbombal |
+| 482 | [frameworkcomputer](https://www.instagram.com/frameworkcomputer/) | Framework | Personal Goods & General Merchandise Stores | 249,079 | We’re remaking Consumer Electronics to respect the people and the planet. 🌎 | http://frame.work/<br>http://frame.work<br>http://linktr.ee/framework_computer |
+| 483 | [eevblog](https://www.instagram.com/eevblog/) | Dave Jones | Science Website | 22,798 | That EEVblog dude | http://www.eevblog.com/ |
+| 484 | [geerlingguy](https://www.instagram.com/geerlingguy/) | Jeff Geerling | — | 111,339 | Father, author, developer, maker. Sometimes called "an inflammatory enigma". #stl #drupal #ansible #k8s #raspberrypi #mac #crohns | https://www.jeffgeerling.com/ |
+| 485 | [brucelee](https://www.instagram.com/brucelee/) | Bruce Lee | — | 12,572,638 | Bruce Lee's daughter here, @therealshannonlee + The Bruce Lee Family Company on behalf of Bruce Lee’s legacy. | https://static.macmillan.com/static/wednesday-books/breath-of-the-dragon-9781250902672/<br>https://ktla.com/news/california/california-bruce-lee-day-bill-newsom/<br>http://shop.brucelee.com<br>https://brucelee.com/podcast |
+| 486 | [theprimeagen](https://www.instagram.com/theprimeagen/) | ThePrimeagen | — | 277,110 | CEO @ TheStartup™ | https://youtube.com/ThePrimeTimeagen<br>https://twitch.tv/ThePrimeagen<br>https://www.tiktok.com/@theprimeagen<br>https://www.facebook.com/profile.php?id=61577902242582&mibextid=wwXIfr |
+| 488 | [juliaprogramming.jl](https://www.instagram.com/juliaprogramming.jl/) | Julia ¦ Math & Programming | Science, Technology & Engineering | 39,568 | MIT Aero/Astro & Statistics PhD 🪐 | http://juliabriden.com/<br>http://juliabriden.com<br>https://www.tiktok.com/@juliaprogramming |
+| 489 | [scientific_american](https://www.instagram.com/scientific_american/) | Scientific American | Publishers | 931,342 | A legacy of discovery. A future of innovation. Explore our coverage ↓ | https://snhealthhip.my.canva.site/scientificamerican |
+| 490 | [pubity](https://www.instagram.com/pubity/) | Pubity | None | 42,216,906 | Bringing Entertainment and News to a  / community of millions. ☀️🫂 / ⠀ / 📧 → contactus@pubitygroup.com | https://www.gofundme.com/f/support-the-people-of-nepal-after-the-devastating-floods<br>https://www.gofundme.com/f/support-earthquake-relief-in-venezuela-fzph9<br>https://pubity.com/submit/<br>https://pubity.com/sign-up-to-our-newsletters |
+| 491 | [manowin.ir](https://www.instagram.com/manowin.ir/) | مانوین | None | 3,857 | بزرگترین رویداد ملی صنایع خلاق / ستاد توسعه فناوری‌های فرهنگی و نرم | http://ble.ir/join/B3jq4jDUtF<br>https://t.me/manowinevent<br>https://www.aparat.com/manowin.ir |
+| 492 | [moonshots_pod](https://www.instagram.com/moonshots_pod/) | Moonshots | Community | 13,682 | The MOONSHOTS Podcast and live annual event. Sep 25th. Host @peterdiamandis @dave.blundin @alexwissnergross @salimismailexo | http://moonshots.com<br>http://www.geminixprize.com<br>http://www.futurevisionxprize.com |
+| 493 | [crashbash.app](https://www.instagram.com/crashbash.app/) | Crash Bash Multiplayer | Game Publisher | 3,317 | Play online on www.crashbash.app | http://www.crashbash.app<br>https://apps.apple.com/gb/app/crash-bash-multiplayer/id6814895663<br>https://discord.gg/tb8GECFFWW |
+| 494 | [farda.note](https://www.instagram.com/farda.note/) | فَردانوتـ | Product/service | 90,244 | ¦فکرتو بریز رو کاغذ‌¦ / 🖊️انواع یادداشت‌های کاربردی روزمره / فروش به صورت تک و عمده  / سفارش از طریق سایت و دایرکت / دارای نماد اعتماد الکترونیک | https://fardanote.com/<br>https://t.me/fardanote<br>https://www.facebook.com/share/1BcsirWLWK/?mibextid=wwXIfr<br>https://www.youtube.com/@Fardanote |
+| 495 | [satrapi.iran](https://www.instagram.com/satrapi.iran/) | Mohammad Fallah | — | 239,657 | ‏🎥 Documentary Filmmaker ¦ Editor & Content Creator / خالق مجموعه مستند «ایران من» ¦ پخش در فیلیمو / برندسازی مقاصد گردشگری ¦ مستند ساز / @satrapi.rugs👈 | https://www.filimo.com/m/168043<br>https://www.linkedin.com/in/mohammad-fallah-366360234?utm_source=share_via&utm_content=profile&utm_medium=member_ios |
+| 496 | [schoolofattention](https://www.instagram.com/schoolofattention/) | Strother School of Radical Attention | — | 33,656 | A non-profit school for Attention Activism: the movement to free human attention from commodification by Big Tech. / 📍55 Washington St. Brooklyn, NY | https://linktr.ee/schoolofattention |
+| 497 | [sharif_ict](https://www.instagram.com/sharif_ict/) | Sharif ICT Group | Education | 7,213 | Sharif ICT Group / گروه فناوری اطلاعات شریف / طراح و‌ برگزار کننده مسابقات، همایش و نمایشگاه و آموزش در حوزه فناوری اطلاعات، ارتباطات و هوش مصنوعی | http://sharifict.com<br>https://iranitex.com<br>https://wa.me/989100014800?countryName=IR&countryCode=98&phoneNumber=9100014800<br>http://mpm.sharifict.ir |
+| 498 | [ketabekhatkhati](https://www.instagram.com/ketabekhatkhati/) | خط خطی های کتابخونه | — | 117 | نه نقده نه معرفی ... فقط یه چیزایی که از دل کتابا به دل من افتادن 🌱 / هرروز یک تکه از کتاب که شاید دقیقا حرف دل تو باشه 💫 | — |
+| 499 | [astronomyoutreach](https://www.instagram.com/astronomyoutreach/) | Network for Outreach and Vocation in Astronomy | Education | 15,540 | Expanding Access to the Cosmos, One Star at a Time 🌟 / Check out our website: | http://www.novastronomy.com/<br>http://www.novastronomy.com<br>https://discord.gg/nw4yjYbYjs |
+| 500 | [theravitshow](https://www.instagram.com/theravitshow/) | Ravit Jain | — | 67,942 | 🚀Everything about Tech / AI! / 📩collabs - collabs@theravitshow.com | http://www.theravitshow.com/<br>http://www.theravitshow.com |
