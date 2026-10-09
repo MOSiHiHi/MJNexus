@@ -8,11 +8,11 @@ Usage:
   ACTOR e.g. apify~instagram-profile-scraper or dami_studio~instagram-profile-scraper
   MAX_USD caps what this run may charge.
 
-Writes OUTDIR/raw.jsonl (actor output as-is) and OUTDIR/results.jsonl
+Writes OUTDIR/raw.jsonl.gz (actor output as-is) and OUTDIR/results.jsonl
 (one normalized line per requested username; missing ones marked unavailable).
 Usernames already in results.jsonl are skipped, so re-running resumes.
 """
-import json, os, sys, time, urllib.error, urllib.request
+import gzip, json, os, sys, time, urllib.error, urllib.request
 from datetime import datetime, timezone
 
 actor, outdir, max_usd = sys.argv[1], sys.argv[2], sys.argv[3]
@@ -81,7 +81,8 @@ def links(d):
     return out
 
 
-with open(os.path.join(outdir, "raw.jsonl"), "a") as f:
+# raw output is large (latest posts etc.), so keep it gzipped to stay under GitHub's file limits
+with gzip.open(os.path.join(outdir, "raw.jsonl.gz"), "at", encoding="utf-8") as f:
     for it in items:
         f.write(json.dumps(it, ensure_ascii=False) + "\n")
 
