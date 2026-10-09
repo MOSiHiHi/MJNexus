@@ -29,3 +29,13 @@ python3 -I tools/probe.py browser runs/<id> 30 user1 user2 ...
 ## وضعیت فعلی
 
 نگاه کنید به `pilot/log.md`.
+
+## اجرای ماهانه (رایگان و آهسته)
+
+هر ماه پس از تمدید اعتبار رایگان Apify:
+
+```sh
+cd instagram-index
+python3 -I tools/monthly.py --dry-run   # فقط نشان می‌دهد چند حساب در بودجه جا می‌شود
+python3 -I tools/monthly.py             # دستهٔ بعدی را می‌گیرد، گزارش و index/profiles.tsv را به‌روز می‌کند
+```
