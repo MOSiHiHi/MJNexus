@@ -20,11 +20,18 @@ learning/
         ├── README.md    ← ویکی گره + سؤال‌های سنجش + منابع
         └── resources/   ← فایل‌های شما برای این گره
 ```
-حوزه‌ها (هر کدام پوشه‌ای با `tree.md`):
-- **ویکی کامل:** `ai/`، `gamedev/`، `math/` (هر کدام ۵ گرهٔ حیاتی با ویکی)
-- **فقط فهرست گره:** `physics-astronomy/`، `programming-infra/`، `design-typography/`، `hardware-tech-privacy/`، `business-marketing/`، `learning-language-books/`، `media-entertainment/`، `history-myth/`، `news-politics/`، `society-religion/`، `health-sports/`، `music-sound/`، `visual-art/`، `culture-spirituality/`
+حوزه‌ها (هر کدام پوشه‌ای با `tree.md` و یک پوشه برای هر گره با `README.md` ویکی):
+- `ai/`، `gamedev/`، `math/`، `physics-astronomy/`، `programming-infra/`، `design-typography/`، `hardware-tech-privacy/`، `business-marketing/`، `learning-language-books/`، `media-entertainment/`، `history-myth/`، `news-politics/`، `society-religion/`، `health-sports/`، `music-sound/`، `visual-art/`، `culture-spirituality/`
+
+**ترتیب هر ویکی:** بخش‌های مرجع (چرا مهم است، مفاهیم، مثال، اشتباه‌ها، منابع) اول می‌آیند؛ بخش «آموزشی و سنجش» (تمرین، سؤال‌های سنجش، معیار) آخر صفحه است. سطح فقط در `progress.md` و فقط از جواب واقعی ثبت می‌شود.
 
 مرجع پژوهش حساب‌های اختلاف‌دار: `research/2026-10-disputed-accounts.md`.
+
+## بررسی خودکار
+```sh
+python3 -I learning/tools/verify.py      # @نام‌ها، پیوندها، کارنامه، فایل‌های ثبت‌نشده
+python3 -I learning/tools/build_search.py # بازسازی catalog/search.tsv از نمایه
+```
 
 ## افزودن فایل
 هر نوع فایل پذیرفته می‌شود: متن، Markdown، PDF، Word/Excel/PowerPoint، عکس، صدا، ویدیو، سورس‌کد به هر زبان، نوت‌بوک، آرشیو، و حتی فایل باینری.
