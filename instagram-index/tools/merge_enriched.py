@@ -18,7 +18,8 @@ TYPES = [("یوتیوب", ("youtube.com", "youtu.be")), ("پادکست", ("podca
          ("فروشگاه", ("store", "shop", "steampowered", "makeship", "bookshop"))]
 DOMAINS = ["هوش مصنوعی", "بازی‌سازی", "ریاضی", "فیزیک و نجوم", "برنامه‌نویسی و زیرساخت", "طراحی و تایپوگرافی",
            "سخت‌افزار، فناوری و حریم خصوصی", "کسب‌وکار و بازاریابی", "یادگیری، زبان و کتاب", "سرگرمی و رسانهٔ تصویری",
-           "تاریخ، اسطوره و رازها", "خبر و سیاست", "فعالیت اجتماعی و دین", "سلامت و ورزش"]
+           "تاریخ، اسطوره و رازها", "خبر و سیاست", "فعالیت اجتماعی و دین", "سلامت و ورزش",
+           "موسیقی و صدا", "هنر تجسمی", "فرهنگ و معنویت"]
 
 
 def dom(u):
@@ -88,6 +89,16 @@ for u, p in prof.items():
         "domains": c["domains"], "value": c["value"], "level": norm_level(c["level"]), "level_evidence": c["level_evidence"],
         "my_status": "بررسی‌نشده", "my_rating": "", "my_notes": "", "reviewed_on": "",
     })
+import csv as _csv
+ov_path = f"{BASE}/analysis/overrides.tsv"
+if os.path.exists(ov_path):
+    ov = {r["username"]: r["domains"] for r in _csv.DictReader(open(ov_path, encoding="utf-8"), delimiter="\t")}
+    for r in rows:
+        if r["username"] in ov:
+            r["domains"] = ov[r["username"]]
+    missing = set(ov) - {r["username"] for r in rows}
+    if missing:
+        problems.append(f"overrides for unknown accounts: {sorted(missing)}")
 rows.sort(key=lambda r: int(r["rank"]) if str(r["rank"]).isdigit() else 10**9)
 cols = list(rows[0].keys())
 with open(f"{BASE}/analysis/enriched-all.tsv", "w", encoding="utf-8") as f:
