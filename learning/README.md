@@ -20,7 +20,11 @@ learning/
         ├── README.md    ← ویکی گره + سؤال‌های سنجش + منابع
         └── resources/   ← فایل‌های شما برای این گره
 ```
-حوزه‌های بعدی (بازی‌سازی، ریاضی و …) با همین الگو کنار `ai/` اضافه می‌شوند.
+حوزه‌ها (هر کدام پوشه‌ای با `tree.md`):
+- **ویکی کامل:** `ai/`، `gamedev/`، `math/` (هر کدام ۵ گرهٔ حیاتی با ویکی)
+- **فقط فهرست گره:** `physics-astronomy/`، `programming-infra/`، `design-typography/`، `hardware-tech-privacy/`، `business-marketing/`، `learning-language-books/`، `media-entertainment/`، `history-myth/`، `news-politics/`، `society-religion/`، `health-sports/`، `music-sound/`، `visual-art/`، `culture-spirituality/`
+
+مرجع پژوهش حساب‌های اختلاف‌دار: `research/2026-10-disputed-accounts.md`.
 
 ## افزودن فایل
 هر نوع فایل پذیرفته می‌شود: متن، Markdown، PDF، Word/Excel/PowerPoint، عکس، صدا، ویدیو، سورس‌کد به هر زبان، نوت‌بوک، آرشیو، و حتی فایل باینری.
