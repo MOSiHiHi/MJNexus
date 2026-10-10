@@ -37,6 +37,17 @@ def facts(links):
     return main, types
 
 
+LEVELS = {"عمومی", "مبتدی", "متوسط", "حرفه‌ای", "دانشگاهی", "پژوهشی", "نامشخص"}
+LEVEL_FIX = {"": "نامشخص", "—": "نامشخص", "-": "نامشخص", "همه سطوح": "عمومی", "مبتدی تا متوسط": "مبتدی",
+             "پیشرفته": "حرفه‌ای"}
+
+
+def norm_level(v):
+    v = (v or "").strip()
+    v = LEVEL_FIX.get(v, v)
+    return v if v in LEVELS else "نامشخص"
+
+
 def is_fa(t):
     return any("؀" <= c <= "ۿ" for c in t)
 
@@ -57,7 +68,9 @@ for f in sorted(glob.glob(f"{BASE}/analysis/verify-out/*.tsv")):
 rows, problems = [], []
 for u, p in prof.items():
     if u in sample:
-        rows.append(sample[u])
+        row = dict(sample[u])
+        row["level"] = norm_level(row.get("level"))
+        rows.append(row)
         continue
     if u not in cls:
         continue
@@ -72,7 +85,7 @@ for u, p in prof.items():
         "followers": p["followers"], "lang": "فارسی" if is_fa(p["biography"] + p["full_name"]) else "غیرفارسی",
         "what": c["what"], "kind": c["kind"], "topics": "", "main_link": main, "link_types": "، ".join(types),
         "all_links": " ".join(links), "biography": p["biography"], "observed_at": p["observed_at"],
-        "domains": c["domains"], "value": c["value"], "level": c["level"], "level_evidence": c["level_evidence"],
+        "domains": c["domains"], "value": c["value"], "level": norm_level(c["level"]), "level_evidence": c["level_evidence"],
         "my_status": "بررسی‌نشده", "my_rating": "", "my_notes": "", "reviewed_on": "",
     })
 rows.sort(key=lambda r: int(r["rank"]) if str(r["rank"]).isdigit() else 10**9)
