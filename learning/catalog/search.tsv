@@ -70,6 +70,20 @@ gamedev	platinumgames_official	domain	47	PlatinumGames Inc.	35978	https://www.in
 gamedev	remedygames	domain	87	Remedy Entertainment	164419	https://www.instagram.com/remedygames/
 gamedev	thegameawards	domain	3	The Game Awards	1010878	https://www.instagram.com/thegameawards/
 gamedev	unitytechnologies	domain	96	Unity	328794	https://www.instagram.com/unitytechnologies/
+gamedev/01-engines	gdevelopapp	cited	65	GDevelop	6472	https://www.instagram.com/gdevelopapp/
+gamedev/01-engines	unitytechnologies	cited	96	Unity	328794	https://www.instagram.com/unitytechnologies/
+gamedev/01-engines	unrealengine	cited	406	Unreal Engine	1072866	https://www.instagram.com/unrealengine/
+gamedev/02-game-design	frictionalgames	cited	91	Frictional Games	14679	https://www.instagram.com/frictionalgames/
+gamedev/02-game-design	insomniacgames	cited	97	Insomniac Games	1212570	https://www.instagram.com/insomniacgames/
+gamedev/02-game-design	platinumgames_official	cited	47	PlatinumGames Inc.	35978	https://www.instagram.com/platinumgames_official/
+gamedev/02-game-design	remedygames	cited	87	Remedy Entertainment	164419	https://www.instagram.com/remedygames/
+gamedev/03-assets	blender.studio.official	cited	344	Blender Studio	104439	https://www.instagram.com/blender.studio.official/
+gamedev/03-assets	cascadeur3d	cited	56	Cascadeur - The Future of Animation	4885	https://www.instagram.com/cascadeur3d/
+gamedev/04-ai-in-games	gdevelopapp	cited	65	GDevelop	6472	https://www.instagram.com/gdevelopapp/
+gamedev/04-ai-in-games	godofprompt	cited	57	God of Prompt	351188	https://www.instagram.com/godofprompt/
+gamedev/04-ai-in-games	unitytechnologies	cited	96	Unity	328794	https://www.instagram.com/unitytechnologies/
+gamedev/05-math-physics	gdevelopapp	cited	65	GDevelop	6472	https://www.instagram.com/gdevelopapp/
+gamedev/05-math-physics	unitytechnologies	cited	96	Unity	328794	https://www.instagram.com/unitytechnologies/
 hardware-tech-privacy	cnet	domain	85	CNET	1468825	https://www.instagram.com/cnet/
 hardware-tech-privacy	corsair	domain	79	CORSAIR	2981498	https://www.instagram.com/corsair/
 hardware-tech-privacy	duckduckgo	domain	4	DuckDuckGo	76575	https://www.instagram.com/duckduckgo/
@@ -90,6 +104,19 @@ math	drtrefor	domain	35	Dr. Trefor Bazett	13783	https://www.instagram.com/drtref
 math	marcusdusautoy	domain	53	Marcus du Sautoy	11951	https://www.instagram.com/marcusdusautoy/
 math	simonsfoundation	domain	30	Simons Foundation	36213	https://www.instagram.com/simonsfoundation/
 math	tibees_	domain	5	Toby Hendy	134182	https://www.instagram.com/tibees_/
+math/01-foundations	drtrefor	cited	35	Dr. Trefor Bazett	13783	https://www.instagram.com/drtrefor/
+math/01-foundations	okaytobesmart	cited	54	Be Smart	137362	https://www.instagram.com/okaytobesmart/
+math/01-foundations	tibees_	cited	5	Toby Hendy	134182	https://www.instagram.com/tibees_/
+math/02-linear-algebra	3blue1brown	cited	468	3blue1brown	913098	https://www.instagram.com/3blue1brown/
+math/02-linear-algebra	tibees_	cited	5	Toby Hendy	134182	https://www.instagram.com/tibees_/
+math/03-calculus	3blue1brown	cited	468	3blue1brown	913098	https://www.instagram.com/3blue1brown/
+math/03-calculus	drtrefor	cited	35	Dr. Trefor Bazett	13783	https://www.instagram.com/drtrefor/
+math/04-probability-stats	drtrefor	cited	35	Dr. Trefor Bazett	13783	https://www.instagram.com/drtrefor/
+math/04-probability-stats	okaytobesmart	cited	54	Be Smart	137362	https://www.instagram.com/okaytobesmart/
+math/04-probability-stats	tibees_	cited	5	Toby Hendy	134182	https://www.instagram.com/tibees_/
+math/05-math-for-ml	3blue1brown	cited	468	3blue1brown	913098	https://www.instagram.com/3blue1brown/
+math/05-math-for-ml	dailydoseofds_	cited	625	Daily Dose of Data Science	27613	https://www.instagram.com/dailydoseofds_/
+math/05-math-for-ml	damienbenveniste	cited	549	Damien Benveniste	27506	https://www.instagram.com/damienbenveniste/
 media-entertainment	bennjordan	domain	27	Benn Jordan 🎛️	325055	https://www.instagram.com/bennjordan/
 media-entertainment	catsuka	domain	98	Catsuka	611821	https://www.instagram.com/catsuka/
 media-entertainment	disney	domain	49	Disney	40051249	https://www.instagram.com/disney/
