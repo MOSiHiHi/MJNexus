@@ -16,6 +16,7 @@ DOMAIN_FOLDER = {
     "کسب‌وکار و بازاریابی": "business-marketing", "یادگیری، زبان و کتاب": "learning-language-books",
     "سرگرمی و رسانهٔ تصویری": "media-entertainment", "تاریخ، اسطوره و رازها": "history-myth",
     "خبر و سیاست": "news-politics", "فعالیت اجتماعی و دین": "society-religion", "سلامت و ورزش": "health-sports",
+    "موسیقی و صدا": "music-sound", "هنر تجسمی": "visual-art", "فرهنگ و معنویت": "culture-spirituality",
 }
 
 profiles = {r["username"].lower(): r for r in csv.DictReader(open(os.path.join(REPO, "instagram-index/index/profiles.tsv"), encoding="utf-8"), delimiter="\t")}
