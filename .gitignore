@@ -1,0 +1,4 @@
+# transient run artifacts
+instagram-index/runs/*.log
+**/__pycache__/
+*.pyc
