@@ -49,6 +49,9 @@ for path in sys.argv[1:]:
     for r in csv.DictReader(open(path), delimiter="\t"):
         labels[r["username"]] = r
 prof = {r["username"]: r for r in csv.DictReader(open("index/profiles.tsv"), delimiter="\t")}
+# focus labels: the owner's domains (AI, game dev, math); everything unlisted is out of focus
+focus = {r["username"]: r for r in csv.DictReader(open("analysis/focus-sample-100.tsv"), delimiter="\t")}
+DOMAIN_ORDER = {"هوش مصنوعی": 0, "بازی‌سازی": 1, "ریاضی": 2}
 
 rows = []
 for u, lab in labels.items():
@@ -61,8 +64,15 @@ for u, lab in labels.items():
         "what": lab["what"], "kind": lab["kind"], "topics": lab["topics"],
         "main_link": main, "link_types": "، ".join(types), "all_links": " ".join(links),
         "biography": p["biography"], "observed_at": p["observed_at"],
+        "domains": focus.get(u, {}).get("domains", "خارج از حوزه"),
+        "value": focus.get(u, {}).get("value", ""),
+        "level": focus.get(u, {}).get("level", ""),
+        "level_evidence": focus.get(u, {}).get("level_evidence", ""),
+        # filled only by the owner after real review/use; never guessed
+        "my_status": "بررسی‌نشده", "my_rating": "", "my_notes": "", "reviewed_on": "",
     })
-rows.sort(key=lambda r: int(r["rank"]))
+# group by the primary (first-listed) domain so each section is contiguous
+rows.sort(key=lambda r: (DOMAIN_ORDER.get(r["domains"].split("؛")[0].strip(), 9), int(r["rank"])))
 
 cols = list(rows[0].keys())
 with open("analysis/enriched.tsv", "w") as f:
@@ -71,11 +81,24 @@ with open("analysis/enriched.tsv", "w") as f:
         f.write("\t".join(str(r[c]).replace("\t", " ") for c in cols) + "\n")
 
 md = ["# نمایهٔ تحلیل‌شده", "",
-      "ستون‌های «چیست»، «نوع» و «موضوع» **برداشت مدل** از نام، بیو و دستهٔ پروفایل است؛ "
-      "بقیه مشاهده‌شده یا از لینک‌ها استخراج شده‌اند.", "",
-      "| # | حساب | چیست | نوع | موضوع | منبع اصلی بیرونی | انواع ارجاع |", "|---|---|---|---|---|---|---|"]
+      "«چیست»، «نوع»، «حوزه»، «ارزش» و «سطح» **برداشت مدل** از نام، بیو و دستهٔ پروفایل است و سطح همراه شاهدش آمده؛ "
+      "لینک‌ها از خود پروفایل استخراج شده‌اند. ستون‌های «من» (وضعیت، امتیاز، یادداشت) فقط بعد از بررسی و استفادهٔ واقعی "
+      "توسط صاحب نمایه پر می‌شوند و در `analysis/enriched.tsv` قابل ویرایش‌اند.", ""]
+current = None
 for r in rows:
-    md.append(f"| {r['rank']} | [{r['username']}]({r['profile_url']}) | {r['what']} | {r['kind']} | {r['topics']} | "
-              f"{r['main_link'] or '—'} | {r['link_types'] or '—'} |")
+    head = r["domains"].split("؛")[0].strip() if r["domains"] != "خارج از حوزه" else "خارج از حوزه"
+    if head != current:
+        current = head
+        md += ["", f"## {head}", ""]
+        if head == "خارج از حوزه":
+            md += ["| # | حساب | چیست | نوع | منبع اصلی بیرونی |", "|---|---|---|---|---|"]
+        else:
+            md += ["| # | حساب | چیست | ارزش | سطح (شاهد) | منبع اصلی بیرونی | انواع ارجاع |", "|---|---|---|---|---|---|---|"]
+    if head == "خارج از حوزه":
+        md.append(f"| {r['rank']} | [{r['username']}]({r['profile_url']}) | {r['what']} | {r['kind']} | {r['main_link'] or '—'} |")
+    else:
+        lvl = r["level"] + (f" ({r['level_evidence']})" if r["level_evidence"] else "")
+        md.append(f"| {r['rank']} | [{r['username']}]({r['profile_url']}) | {r['what']} | {r['value']} | {lvl} | "
+                  f"{r['main_link'] or '—'} | {r['link_types'] or '—'} |")
 open("analysis/report.md", "w").write("\n".join(md) + "\n")
 print(len(rows), "rows")
