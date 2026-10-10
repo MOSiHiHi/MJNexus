@@ -22,7 +22,7 @@
 import anthropic  # یا SDK هر ارائه‌دهندهٔ دیگر
 client = anthropic.Anthropic()          # کلید از متغیر محیطی خوانده می‌شود
 msg = client.messages.create(
-    model="claude-sonnet-5-5", max_tokens=300,
+    model="<نام مدل از مستندات>", max_tokens=300,
     messages=[{"role": "user", "content": "این بیو را در یک خط فارسی خلاصه کن: ..."}])
 print(msg.content[0].text, msg.usage)  # متن و شمار توکن‌ها
 ```
