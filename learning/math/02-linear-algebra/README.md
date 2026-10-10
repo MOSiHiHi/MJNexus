@@ -56,5 +56,5 @@
 - Sheldon Axler — *Linear Algebra Done Right*؛ کتابی که دترمینان را دیرتر وارد می‌کند و بر مفهوم فضای برداری و تبدیل خطی تکیه دارد.
 - Khan Academy — بخش Linear algebra (رایگان، با تمرین) — [khanacademy.org](https://www.khanacademy.org) †
 - Marc Peter Deisenroth، A. Aldo Faisal و Cheng Soon Ong — *Mathematics for Machine Learning*؛ فصل‌های جبر خطی آن کاربرد مستقیم در یادگیری ماشین دارد — [mml-book.com](https://mml-book.com) †
-- ⏳ مستندات رسمی NumPy، بخش جبر خطی (`numpy.linalg`) برای تمرین عددی — [numpy.org](https://numpy.org/doc/stable/reference/routines.linalg.html) †
+- ⏳ مستندات رسمی NumPy، بخش جبر خطی (`numpy.linalg` در پایتون) برای تمرین عددی — [numpy.org](https://numpy.org/doc/stable/reference/routines.linalg.html) †
 - ⏳ ابزار اختیاری: GeoGebra برای دیدن بردارها و تبدیل‌ها روی صفحه.

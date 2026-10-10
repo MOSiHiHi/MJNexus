@@ -60,7 +60,7 @@
 
 **بیرونی:**
 - Marc Peter Deisenroth، A. Aldo Faisal و Cheng Soon Ong — *Mathematics for Machine Learning*؛ فصل‌های حساب برداری و بهینه‌سازی پیوسته — [mml-book.com](https://mml-book.com) †
-- Ian Goodfellow، Yoshua Bengio و Aaron Courville — *Deep Learning*؛ بخش‌های ریاضی کاربردی، منظم‌سازی و بهینه‌سازی — [deeplearningbook.org](https://www.deeplearningbook.org/) †
+- Ian Goodfellow، Yoshua Bengio و Aaron Courville — *Deep Learning*؛ بخش‌های ریاضی کاربردی، منظم‌سازی و بهینه‌سازی — [www.deeplearningbook.org](https://www.deeplearningbook.org/) †
 - Ashish Vaswani و همکاران (۲۰۱۷) — *Attention Is All You Need*؛ مقالهٔ اصلی ترنسفورمر و فرمول توجه — [arxiv.org/abs/1706.03762](https://arxiv.org/abs/1706.03762) †
 - Stanford CS231n — یادداشت‌های بهینه‌سازی و بازانتشار — [cs231n.github.io](https://cs231n.github.io/) †
 - 3Blue1Brown — سری «Neural Networks» (فصل‌های گرادیان و بازانتشار) و فصل ترنسفورمرها (یوتیوب) — [youtube.com/@3blue1brown](https://www.youtube.com/@3blue1brown) †

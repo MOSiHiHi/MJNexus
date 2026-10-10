@@ -47,4 +47,4 @@
 - Khan Academy — بخش Calculus در khanacademy.org † (رایگان)
 - Paul Dawkins — Paul's Online Math Notes، فصل‌های مشتق و انتگرال در tutorial.math.lamar.edu † (رایگان)
 - Marc Peter Deisenroth، A. Aldo Faisal، Cheng Soon Ong — Mathematics for Machine Learning در mml-book.github.io † (رایگان)؛ بخش‌های حساب برداری و بهینه‌سازی پیوسته، پل مستقیم به ML.
-- Goodfellow، Bengio، Courville — Deep Learning در deeplearningbook.org † (رایگان)؛ بخش محاسبات عددی و بهینه‌سازی گرادیانی.
+- Goodfellow، Bengio، Courville — Deep Learning در www.deeplearningbook.org † (رایگان)؛ بخش محاسبات عددی و بهینه‌سازی گرادیانی.
