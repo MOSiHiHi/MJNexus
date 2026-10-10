@@ -49,9 +49,11 @@ for path in sys.argv[1:]:
     for r in csv.DictReader(open(path), delimiter="\t"):
         labels[r["username"]] = r
 prof = {r["username"]: r for r in csv.DictReader(open("index/profiles.tsv"), delimiter="\t")}
-# focus labels: the owner's domains (AI, game dev, math); everything unlisted is out of focus
+# domain labels; the owner's three focus domains come first, nothing is excluded
 focus = {r["username"]: r for r in csv.DictReader(open("analysis/focus-sample-100.tsv"), delimiter="\t")}
-DOMAIN_ORDER = {"هوش مصنوعی": 0, "بازی‌سازی": 1, "ریاضی": 2}
+DOMAIN_ORDER = {d: i for i, d in enumerate(["هوش مصنوعی", "بازی‌سازی", "ریاضی", "فیزیک و نجوم", "برنامه‌نویسی و زیرساخت",
+    "طراحی و تایپوگرافی", "سخت‌افزار، فناوری و حریم خصوصی", "کسب‌وکار و بازاریابی", "یادگیری، زبان و کتاب",
+    "سرگرمی و رسانهٔ تصویری", "تاریخ، اسطوره و رازها", "خبر و سیاست", "فعالیت اجتماعی و دین", "سلامت و ورزش"])}
 
 rows = []
 for u, lab in labels.items():
@@ -86,17 +88,12 @@ md = ["# نمایهٔ تحلیل‌شده", "",
       "توسط صاحب نمایه پر می‌شوند و در `analysis/enriched.tsv` قابل ویرایش‌اند.", ""]
 current = None
 for r in rows:
-    head = r["domains"].split("؛")[0].strip() if r["domains"] != "خارج از حوزه" else "خارج از حوزه"
+    head = r["domains"].split("؛")[0].strip()
     if head != current:
         current = head
         md += ["", f"## {head}", ""]
-        if head == "خارج از حوزه":
-            md += ["| # | حساب | چیست | نوع | منبع اصلی بیرونی |", "|---|---|---|---|---|"]
-        else:
-            md += ["| # | حساب | چیست | ارزش | سطح (شاهد) | منبع اصلی بیرونی | انواع ارجاع |", "|---|---|---|---|---|---|---|"]
-    if head == "خارج از حوزه":
-        md.append(f"| {r['rank']} | [{r['username']}]({r['profile_url']}) | {r['what']} | {r['kind']} | {r['main_link'] or '—'} |")
-    else:
+        md += ["| # | حساب | چیست | ارزش | سطح (شاهد) | منبع اصلی بیرونی | انواع ارجاع |", "|---|---|---|---|---|---|---|"]
+    if True:
         lvl = r["level"] + (f" ({r['level_evidence']})" if r["level_evidence"] else "")
         md.append(f"| {r['rank']} | [{r['username']}]({r['profile_url']}) | {r['what']} | {r['value']} | {lvl} | "
                   f"{r['main_link'] or '—'} | {r['link_types'] or '—'} |")
