@@ -51,7 +51,7 @@
 - مقالهٔ «A* search algorithm» در ویکی‌پدیای انگلیسی — en.wikipedia.org/wiki/A*_search_algorithm †
 - Unity — Manual (بخش NavMesh) — docs.unity3d.com/Manual/ † ⏳
 - Godot — مستندات رسمی (بخش‌های Navigation و State Machine) — docs.godotengine.org † ⏳
-- Unity ML-Agents — مخزن رسمی — github.com/Unity-Technologies/ml-agents † ⏳
+- Unity ML-Agents — مخزن رسمی — github.com/Unity-Technologies/ml-agents † (بررسی: ۴۰۳ از سرور) ⏳
 - Ken Perlin — «An Image Synthesizer» (SIGGRAPH ۱۹۸۵)، مقالهٔ اصلی نویز پرلین — †
 - Steve Rabin (ویراستار) — مجموعهٔ «Game AI Pro»؛ فصل‌های درخت رفتار و ماشین حالت — †
 - Shaker، Togelius و Nelson — «Procedural Content Generation in Games» (۲۰۱۶)؛ مرجع تولید رویه‌ای — †

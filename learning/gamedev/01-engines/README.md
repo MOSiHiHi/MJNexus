@@ -68,7 +68,7 @@
 
 **بیرونی:**
 - مستندات رسمی Godot (docs.godotengine.org) †
-- Unity Manual (docs.unity3d.com/Manual) †
-- مستندات رسمی Unreal Engine (dev.epicgames.com/documentation) †
+- Unity Manual (docs.unity3d.com/Manual/) †
+- مستندات رسمی Unreal Engine (dev.epicgames.com/documentation) † (بررسی: ۴۰۳ از سرور؛ احتمالاً محدودیت ربات)
 - مستندات رسمی GDevelop (wiki.gdevelop.io) †
 - Robert Nystrom — *Game Programming Patterns* (نسخهٔ آنلاین رایگان: gameprogrammingpatterns.com)؛ فصل‌های «Game Loop» و «Component» برای حلقهٔ اجرا و معماری کامپوننت †

@@ -54,7 +54,7 @@
 - @blender.studio.official — حساب تیم Blender Studio؛ نمونهٔ خط تولید واقعی از مدل تا انیمیشن. مناسب بخش‌های سه‌بعدی.
 
 **بیرونی:**
-- Khronos Group — مشخصهٔ glTF 2.0: https://github.com/KhronosGroup/glTF †
+- Khronos Group — مشخصهٔ glTF 2.0: https://github.com/KhronosGroup/glTF † (بررسی: ۴۰۳ از سرور)
 - Blender Manual — راهنمای رسمی مدل‌سازی، UV و بافت: https://docs.blender.org/manual/en/latest/ †
 - Pharr، Jakob، Humphreys — *Physically Based Rendering* (کتاب رایگان آنلاین): https://pbr-book.org/ †
 - LearnOpenGL — بخش PBR (کتاب رایگان آنلاین): https://learnopengl.com/ †

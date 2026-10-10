@@ -50,4 +50,4 @@
 - MIT OpenCourseWare — *Mathematics for Computer Science* (6.042J): یادداشت‌ها و مسئله‌های رایگان ریاضیات پایهٔ علوم کامپیوتر — [ocw.mit.edu](https://ocw.mit.edu) †
 - Stanford CS103 — *Mathematical Foundations of Computing*: یادداشت‌های رایگان درس منطق و اثبات.
 - Keith Devlin — *Introduction to Mathematical Thinking*: دورهٔ آنلاین رایگان دربارهٔ تفکر و اثبات ریاضی.
-- ⏳ ابزار اختیاری: Lean — دستیار اثبات برای نوشتن و بررسی اثبات‌های صوری — [lean-lang.org](https://lean-lang.org) †
+- ⏳ ابزار اختیاری: Lean — دستیار اثبات برای نوشتن و بررسی اثبات‌های صوری — [lean-lang.org](https://lean-lang.org) † (بررسی نشد: دسترسی از این محیط ممکن نبود)
