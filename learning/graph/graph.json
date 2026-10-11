@@ -1,0 +1,921 @@
+{
+ "version": 1,
+ "domains": [
+  {
+   "id": "ai",
+   "title": "هوش مصنوعی"
+  },
+  {
+   "id": "gamedev",
+   "title": "بازی‌سازی"
+  },
+  {
+   "id": "math",
+   "title": "ریاضیات"
+  },
+  {
+   "id": "programming-infra",
+   "title": "برنامه‌نویسی و زیرساخت"
+  },
+  {
+   "id": "physics-astronomy",
+   "title": "فیزیک و نجوم"
+  },
+  {
+   "id": "design-typography",
+   "title": "طراحی و تایپوگرافی"
+  },
+  {
+   "id": "hardware-tech-privacy",
+   "title": "سخت‌افزار، فناوری و حریم خصوصی"
+  },
+  {
+   "id": "business-marketing",
+   "title": "کسب‌وکار و بازاریابی"
+  },
+  {
+   "id": "learning-language-books",
+   "title": "یادگیری، زبان و کتاب"
+  },
+  {
+   "id": "media-entertainment",
+   "title": "سرگرمی و رسانهٔ تصویری"
+  },
+  {
+   "id": "history-myth",
+   "title": "تاریخ، اسطوره و رازها"
+  },
+  {
+   "id": "news-politics",
+   "title": "خبر و سیاست"
+  },
+  {
+   "id": "society-religion",
+   "title": "فعالیت اجتماعی و دین"
+  },
+  {
+   "id": "health-sports",
+   "title": "سلامت و ورزش"
+  },
+  {
+   "id": "music-sound",
+   "title": "موسیقی و صدا"
+  },
+  {
+   "id": "visual-art",
+   "title": "هنر تجسمی"
+  },
+  {
+   "id": "culture-spirituality",
+   "title": "فرهنگ و معنویت"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "ai/01-llm-basics",
+   "domain": "ai",
+   "title": "مدل‌های زبانی بزرگ (LLM) چطور کار می‌کنند",
+   "star": true
+  },
+  {
+   "id": "ai/02-prompting",
+   "domain": "ai",
+   "title": "پرامپت‌نویسی و ارزیابی خروجی",
+   "star": true
+  },
+  {
+   "id": "ai/03-tools-map",
+   "domain": "ai",
+   "title": "نقشهٔ ابزارها و انتخاب ابزار",
+   "star": true
+  },
+  {
+   "id": "ai/04-agents-automation",
+   "domain": "ai",
+   "title": "ایجنت‌ها و اتوماسیون",
+   "star": true
+  },
+  {
+   "id": "ai/05-api-rag",
+   "domain": "ai",
+   "title": "ساختن با API و RAG",
+   "star": true
+  },
+  {
+   "id": "gamedev/01-engines",
+   "domain": "gamedev",
+   "title": "موتورهای بازی‌سازی",
+   "star": true
+  },
+  {
+   "id": "gamedev/02-game-design",
+   "domain": "gamedev",
+   "title": "طراحی بازی و حلقهٔ گیم‌پلی",
+   "star": true
+  },
+  {
+   "id": "gamedev/03-assets",
+   "domain": "gamedev",
+   "title": "پایپ‌لاین دارایی دوبعدی و سه‌بعدی",
+   "star": true
+  },
+  {
+   "id": "gamedev/04-ai-in-games",
+   "domain": "gamedev",
+   "title": "هوش مصنوعی در بازی",
+   "star": true
+  },
+  {
+   "id": "gamedev/05-math-physics",
+   "domain": "gamedev",
+   "title": "ریاضی و فیزیک بازی",
+   "star": true
+  },
+  {
+   "id": "math/01-foundations",
+   "domain": "math",
+   "title": "مبانی: مجموعه، تابع و استدلال",
+   "star": true
+  },
+  {
+   "id": "math/02-linear-algebra",
+   "domain": "math",
+   "title": "جبر خطی",
+   "star": true
+  },
+  {
+   "id": "math/03-calculus",
+   "domain": "math",
+   "title": "حساب دیفرانسیل و انتگرال",
+   "star": true
+  },
+  {
+   "id": "math/04-probability-stats",
+   "domain": "math",
+   "title": "احتمال و آمار",
+   "star": true
+  },
+  {
+   "id": "math/05-math-for-ml",
+   "domain": "math",
+   "title": "ریاضی برای یادگیری ماشین",
+   "star": true
+  },
+  {
+   "id": "programming-infra/01-programming-basics-python",
+   "domain": "programming-infra",
+   "title": "مبانی برنامه‌نویسی و پایتون",
+   "star": true
+  },
+  {
+   "id": "programming-infra/02-algorithms-data-structures",
+   "domain": "programming-infra",
+   "title": "الگوریتم و ساختار داده",
+   "star": true
+  },
+  {
+   "id": "programming-infra/03-linux-command-line",
+   "domain": "programming-infra",
+   "title": "سیستم‌عامل لینوکس و خط فرمان",
+   "star": false
+  },
+  {
+   "id": "programming-infra/04-git-collaboration",
+   "domain": "programming-infra",
+   "title": "گیت و همکاری روی کد",
+   "star": true
+  },
+  {
+   "id": "programming-infra/05-devops-cloud-containers",
+   "domain": "programming-infra",
+   "title": "DevOps، ابر و کانتینر",
+   "star": false
+  },
+  {
+   "id": "programming-infra/06-software-security",
+   "domain": "programming-infra",
+   "title": "امنیت نرم‌افزار (مرز با امنیت سایبری)",
+   "star": false
+  },
+  {
+   "id": "physics-astronomy/01-mechanics-electromagnetism",
+   "domain": "physics-astronomy",
+   "title": "مبانی مکانیک و الکترومغناطیس",
+   "star": true
+  },
+  {
+   "id": "physics-astronomy/02-particle-physics-cern",
+   "domain": "physics-astronomy",
+   "title": "ذرات بنیادی و شتاب‌دهنده‌ها (سرن)",
+   "star": true
+  },
+  {
+   "id": "physics-astronomy/03-observational-astronomy",
+   "domain": "physics-astronomy",
+   "title": "نجوم مشاهده‌ای و تلسکوپ‌ها (هابل، ناسا)",
+   "star": false
+  },
+  {
+   "id": "physics-astronomy/04-cosmology-gravitational-waves",
+   "domain": "physics-astronomy",
+   "title": "کیهان‌شناسی و موج گرانشی",
+   "star": false
+  },
+  {
+   "id": "physics-astronomy/05-science-communication",
+   "domain": "physics-astronomy",
+   "title": "ترویج علم و رسانه‌های علمی",
+   "star": false
+  },
+  {
+   "id": "design-typography/01-visual-principles",
+   "domain": "design-typography",
+   "title": "اصول طراحی بصری (کنتراست، فاصله، سلسله‌مراتب)",
+   "star": true
+  },
+  {
+   "id": "design-typography/02-typography-font-choice",
+   "domain": "design-typography",
+   "title": "تایپوگرافی و انتخاب فونت (فارسی و لاتین)",
+   "star": false
+  },
+  {
+   "id": "design-typography/03-ui-ux",
+   "domain": "design-typography",
+   "title": "طراحی رابط کاربری و تجربه (UI/UX)",
+   "star": false
+  },
+  {
+   "id": "design-typography/04-design-tools",
+   "domain": "design-typography",
+   "title": "ابزارهای طراحی و خروجی",
+   "star": false
+  },
+  {
+   "id": "design-typography/05-game-design-visuals",
+   "domain": "design-typography",
+   "title": "طراحی برای بازی (رابط بازی، هنر مفهومی)",
+   "star": false
+  },
+  {
+   "id": "hardware-tech-privacy/01-hardware-choice",
+   "domain": "hardware-tech-privacy",
+   "title": "انتخاب سخت‌افزار (کامپیوتر، کنسول، گیمینگ)",
+   "star": true
+  },
+  {
+   "id": "hardware-tech-privacy/02-privacy-secure-tools",
+   "domain": "hardware-tech-privacy",
+   "title": "حریم خصوصی و ابزارهای امن (VPN، مرورگر، رمز)",
+   "star": true
+  },
+  {
+   "id": "hardware-tech-privacy/03-electronics-arduino",
+   "domain": "hardware-tech-privacy",
+   "title": "الکترونیک و آردوینو",
+   "star": false
+  },
+  {
+   "id": "hardware-tech-privacy/04-content-tools-streaming",
+   "domain": "hardware-tech-privacy",
+   "title": "ابزارهای تولید محتوا و استریم",
+   "star": false
+  },
+  {
+   "id": "hardware-tech-privacy/05-tech-news-prices",
+   "domain": "hardware-tech-privacy",
+   "title": "تازه‌های فناوری و قیمت‌ها",
+   "star": false
+  },
+  {
+   "id": "business-marketing/01-business-model-and-revenue",
+   "domain": "business-marketing",
+   "title": "مبانی کسب‌وکار و مدل درآمدی",
+   "star": true
+  },
+  {
+   "id": "business-marketing/02-content-marketing-and-newsletter",
+   "domain": "business-marketing",
+   "title": "بازاریابی محتوا و خبرنامه",
+   "star": true
+  },
+  {
+   "id": "business-marketing/03-entrepreneurship-and-product-building",
+   "domain": "business-marketing",
+   "title": "کارآفرینی و ساخت محصول",
+   "star": false
+  },
+  {
+   "id": "business-marketing/04-investing-and-personal-finance",
+   "domain": "business-marketing",
+   "title": "سرمایه‌گذاری و مالی شخصی (فقط آموزشی)",
+   "star": false
+  },
+  {
+   "id": "learning-language-books/01-effective-learning-and-memory",
+   "domain": "learning-language-books",
+   "title": "روش‌های یادگیری مؤثر و حافظه",
+   "star": true
+  },
+  {
+   "id": "learning-language-books/02-second-language-and-linguistics",
+   "domain": "learning-language-books",
+   "title": "زبان دوم و زبان‌شناسی",
+   "star": true
+  },
+  {
+   "id": "learning-language-books/03-reading-and-writing-books",
+   "domain": "learning-language-books",
+   "title": "کتاب‌خوانی و نویسندگی",
+   "star": false
+  },
+  {
+   "id": "learning-language-books/04-exam-prep-and-schooling",
+   "domain": "learning-language-books",
+   "title": "آمادگی آزمون و تحصیل",
+   "star": false
+  },
+  {
+   "id": "media-entertainment/01-cinema-film-criticism",
+   "domain": "media-entertainment",
+   "title": "سینما و نقد فیلم",
+   "star": false
+  },
+  {
+   "id": "media-entertainment/02-music-sound",
+   "domain": "media-entertainment",
+   "title": "موسیقی و صدا",
+   "star": false
+  },
+  {
+   "id": "media-entertainment/03-animation-cartoon",
+   "domain": "media-entertainment",
+   "title": "انیمیشن و کارتون",
+   "star": false
+  },
+  {
+   "id": "media-entertainment/04-series-streaming",
+   "domain": "media-entertainment",
+   "title": "سریال و پخش",
+   "star": false
+  },
+  {
+   "id": "media-entertainment/05-memes-online-culture",
+   "domain": "media-entertainment",
+   "title": "میم و فرهنگ آنلاین",
+   "star": false
+  },
+  {
+   "id": "history-myth/01-iran-world-history",
+   "domain": "history-myth",
+   "title": "تاریخ ایران و جهان",
+   "star": false
+  },
+  {
+   "id": "history-myth/02-mythology-folklore",
+   "domain": "history-myth",
+   "title": "اسطوره‌شناسی و فولکلور",
+   "star": false
+  },
+  {
+   "id": "history-myth/03-unknown-mysteries-critical-analysis",
+   "domain": "history-myth",
+   "title": "رازهای ناشناخته و تحلیل انتقادی آن‌ها",
+   "star": false
+  },
+  {
+   "id": "news-politics/01-media-literacy",
+   "domain": "news-politics",
+   "title": "سواد رسانه‌ای و تشخیص منبع",
+   "star": true
+  },
+  {
+   "id": "news-politics/02-international-news",
+   "domain": "news-politics",
+   "title": "خبر بین‌المللی و منطقه‌ای",
+   "star": false
+  },
+  {
+   "id": "news-politics/03-politics-institutions",
+   "domain": "news-politics",
+   "title": "سیاست و نهادهای حکومتی",
+   "star": false
+  },
+  {
+   "id": "news-politics/04-state-and-independent-media",
+   "domain": "news-politics",
+   "title": "رسانه‌های دولتی و مستقل (با یادداشت منبع)",
+   "star": false
+  },
+  {
+   "id": "society-religion/01-islam-and-sources",
+   "domain": "society-religion",
+   "title": "اسلام و منابع (قرآن، حدیث، نهج‌البلاغه)",
+   "star": true
+  },
+  {
+   "id": "society-religion/02-religions-comparative",
+   "domain": "society-religion",
+   "title": "ادیان و مطالعات تطبیقی",
+   "star": false
+  },
+  {
+   "id": "society-religion/03-social-activism-nonprofits",
+   "domain": "society-religion",
+   "title": "فعالیت اجتماعی و سازمان‌های غیرانتفاعی",
+   "star": false
+  },
+  {
+   "id": "society-religion/04-interfaith-dialogue",
+   "domain": "society-religion",
+   "title": "گفت‌وگوهای بین‌ادیانی",
+   "star": false
+  },
+  {
+   "id": "health-sports/01-calisthenics-basics",
+   "domain": "health-sports",
+   "title": "مبانی تمرین و بدن‌سازی بدون وسیله (کالیستنیکس)",
+   "star": true
+  },
+  {
+   "id": "health-sports/02-nutrition-health",
+   "domain": "health-sports",
+   "title": "تغذیه و سلامت عمومی",
+   "star": true
+  },
+  {
+   "id": "health-sports/03-mental-health-sleep",
+   "domain": "health-sports",
+   "title": "سلامت روان و خواب",
+   "star": false
+  },
+  {
+   "id": "health-sports/04-supplements",
+   "domain": "health-sports",
+   "title": "⏳ 04. مکمل‌ها و محصولات سلامت (با احتیاط و منبع)",
+   "star": false
+  },
+  {
+   "id": "music-sound/01-sound-music-basics",
+   "domain": "music-sound",
+   "title": "مبانی صدا و موسیقی (ریتم، هارمونی، فرکانس)",
+   "star": true
+  },
+  {
+   "id": "music-sound/02-daw-production",
+   "domain": "music-sound",
+   "title": "ساخت موسیقی با نرم‌افزار (DAW، مثل FL Studio)",
+   "star": true
+  },
+  {
+   "id": "music-sound/03-sound-design-mixing",
+   "domain": "music-sound",
+   "title": "صداسازی و میکس",
+   "star": false
+  },
+  {
+   "id": "music-sound/04-ai-audio-tools",
+   "domain": "music-sound",
+   "title": "⏳ 04. ابزارهای تولید صدا با هوش مصنوعی",
+   "star": false
+  },
+  {
+   "id": "music-sound/05-music-licensing",
+   "domain": "music-sound",
+   "title": "مجوز و استفاده از موسیقی",
+   "star": false
+  },
+  {
+   "id": "visual-art/01-painting-composition-basics",
+   "domain": "visual-art",
+   "title": "مبانی نقاشی و ترکیب‌بندی",
+   "star": true
+  },
+  {
+   "id": "visual-art/02-color-contrast",
+   "domain": "visual-art",
+   "title": "رنگ و کنتراست",
+   "star": true
+  },
+  {
+   "id": "visual-art/03-figure-portrait-drawing",
+   "domain": "visual-art",
+   "title": "طراحی مدل و هنر پرتره",
+   "star": false
+  },
+  {
+   "id": "visual-art/04-gallery-exhibition-market",
+   "domain": "visual-art",
+   "title": "گالری، نمایشگاه و بازار هنری",
+   "star": false
+  },
+  {
+   "id": "visual-art/05-art-and-ai",
+   "domain": "visual-art",
+   "title": "هنر و هوش مصنوعی",
+   "star": false
+  },
+  {
+   "id": "culture-spirituality/01-cultural-studies-journals",
+   "domain": "culture-spirituality",
+   "title": "مطالعات فرهنگی و مجلات تحلیلی",
+   "star": true
+  },
+  {
+   "id": "culture-spirituality/02-spirituality-classical-texts",
+   "domain": "culture-spirituality",
+   "title": "معنویت و متون کلاسیک",
+   "star": true
+  },
+  {
+   "id": "culture-spirituality/03-architecture-culture",
+   "domain": "culture-spirituality",
+   "title": "معماری و فرهنگ",
+   "star": false
+  },
+  {
+   "id": "culture-spirituality/04-persian-arabic-language-literature",
+   "domain": "culture-spirituality",
+   "title": "زبان و ادبیات فارسی و عربی",
+   "star": false
+  },
+  {
+   "id": "culture-spirituality/05-philosophy-meaning-ethics",
+   "domain": "culture-spirituality",
+   "title": "فلسفهٔ معنا و اخلاق",
+   "star": false
+  }
+ ],
+ "edges": [
+  {
+   "from": "ai/01-llm-basics",
+   "to": "ai/02-prompting",
+   "kind": "next"
+  },
+  {
+   "from": "ai/02-prompting",
+   "to": "ai/03-tools-map",
+   "kind": "next"
+  },
+  {
+   "from": "ai/03-tools-map",
+   "to": "ai/04-agents-automation",
+   "kind": "next"
+  },
+  {
+   "from": "ai/04-agents-automation",
+   "to": "ai/05-api-rag",
+   "kind": "next"
+  },
+  {
+   "from": "gamedev/01-engines",
+   "to": "gamedev/02-game-design",
+   "kind": "next"
+  },
+  {
+   "from": "gamedev/02-game-design",
+   "to": "gamedev/03-assets",
+   "kind": "next"
+  },
+  {
+   "from": "gamedev/03-assets",
+   "to": "gamedev/04-ai-in-games",
+   "kind": "next"
+  },
+  {
+   "from": "gamedev/04-ai-in-games",
+   "to": "gamedev/05-math-physics",
+   "kind": "next"
+  },
+  {
+   "from": "math/01-foundations",
+   "to": "math/02-linear-algebra",
+   "kind": "next"
+  },
+  {
+   "from": "math/02-linear-algebra",
+   "to": "math/03-calculus",
+   "kind": "next"
+  },
+  {
+   "from": "math/03-calculus",
+   "to": "math/04-probability-stats",
+   "kind": "next"
+  },
+  {
+   "from": "math/04-probability-stats",
+   "to": "math/05-math-for-ml",
+   "kind": "next"
+  },
+  {
+   "from": "programming-infra/01-programming-basics-python",
+   "to": "programming-infra/02-algorithms-data-structures",
+   "kind": "next"
+  },
+  {
+   "from": "programming-infra/02-algorithms-data-structures",
+   "to": "programming-infra/03-linux-command-line",
+   "kind": "next"
+  },
+  {
+   "from": "programming-infra/03-linux-command-line",
+   "to": "programming-infra/04-git-collaboration",
+   "kind": "next"
+  },
+  {
+   "from": "programming-infra/04-git-collaboration",
+   "to": "programming-infra/05-devops-cloud-containers",
+   "kind": "next"
+  },
+  {
+   "from": "programming-infra/05-devops-cloud-containers",
+   "to": "programming-infra/06-software-security",
+   "kind": "next"
+  },
+  {
+   "from": "physics-astronomy/01-mechanics-electromagnetism",
+   "to": "physics-astronomy/02-particle-physics-cern",
+   "kind": "next"
+  },
+  {
+   "from": "physics-astronomy/02-particle-physics-cern",
+   "to": "physics-astronomy/03-observational-astronomy",
+   "kind": "next"
+  },
+  {
+   "from": "physics-astronomy/03-observational-astronomy",
+   "to": "physics-astronomy/04-cosmology-gravitational-waves",
+   "kind": "next"
+  },
+  {
+   "from": "physics-astronomy/04-cosmology-gravitational-waves",
+   "to": "physics-astronomy/05-science-communication",
+   "kind": "next"
+  },
+  {
+   "from": "design-typography/01-visual-principles",
+   "to": "design-typography/02-typography-font-choice",
+   "kind": "next"
+  },
+  {
+   "from": "design-typography/02-typography-font-choice",
+   "to": "design-typography/03-ui-ux",
+   "kind": "next"
+  },
+  {
+   "from": "design-typography/03-ui-ux",
+   "to": "design-typography/04-design-tools",
+   "kind": "next"
+  },
+  {
+   "from": "design-typography/04-design-tools",
+   "to": "design-typography/05-game-design-visuals",
+   "kind": "next"
+  },
+  {
+   "from": "hardware-tech-privacy/01-hardware-choice",
+   "to": "hardware-tech-privacy/02-privacy-secure-tools",
+   "kind": "next"
+  },
+  {
+   "from": "hardware-tech-privacy/02-privacy-secure-tools",
+   "to": "hardware-tech-privacy/03-electronics-arduino",
+   "kind": "next"
+  },
+  {
+   "from": "hardware-tech-privacy/03-electronics-arduino",
+   "to": "hardware-tech-privacy/04-content-tools-streaming",
+   "kind": "next"
+  },
+  {
+   "from": "hardware-tech-privacy/04-content-tools-streaming",
+   "to": "hardware-tech-privacy/05-tech-news-prices",
+   "kind": "next"
+  },
+  {
+   "from": "business-marketing/01-business-model-and-revenue",
+   "to": "business-marketing/02-content-marketing-and-newsletter",
+   "kind": "next"
+  },
+  {
+   "from": "business-marketing/02-content-marketing-and-newsletter",
+   "to": "business-marketing/03-entrepreneurship-and-product-building",
+   "kind": "next"
+  },
+  {
+   "from": "business-marketing/03-entrepreneurship-and-product-building",
+   "to": "business-marketing/04-investing-and-personal-finance",
+   "kind": "next"
+  },
+  {
+   "from": "learning-language-books/01-effective-learning-and-memory",
+   "to": "learning-language-books/02-second-language-and-linguistics",
+   "kind": "next"
+  },
+  {
+   "from": "learning-language-books/02-second-language-and-linguistics",
+   "to": "learning-language-books/03-reading-and-writing-books",
+   "kind": "next"
+  },
+  {
+   "from": "learning-language-books/03-reading-and-writing-books",
+   "to": "learning-language-books/04-exam-prep-and-schooling",
+   "kind": "next"
+  },
+  {
+   "from": "media-entertainment/01-cinema-film-criticism",
+   "to": "media-entertainment/02-music-sound",
+   "kind": "next"
+  },
+  {
+   "from": "media-entertainment/02-music-sound",
+   "to": "media-entertainment/03-animation-cartoon",
+   "kind": "next"
+  },
+  {
+   "from": "media-entertainment/03-animation-cartoon",
+   "to": "media-entertainment/04-series-streaming",
+   "kind": "next"
+  },
+  {
+   "from": "media-entertainment/04-series-streaming",
+   "to": "media-entertainment/05-memes-online-culture",
+   "kind": "next"
+  },
+  {
+   "from": "history-myth/01-iran-world-history",
+   "to": "history-myth/02-mythology-folklore",
+   "kind": "next"
+  },
+  {
+   "from": "history-myth/02-mythology-folklore",
+   "to": "history-myth/03-unknown-mysteries-critical-analysis",
+   "kind": "next"
+  },
+  {
+   "from": "news-politics/01-media-literacy",
+   "to": "news-politics/02-international-news",
+   "kind": "next"
+  },
+  {
+   "from": "news-politics/02-international-news",
+   "to": "news-politics/03-politics-institutions",
+   "kind": "next"
+  },
+  {
+   "from": "news-politics/03-politics-institutions",
+   "to": "news-politics/04-state-and-independent-media",
+   "kind": "next"
+  },
+  {
+   "from": "society-religion/01-islam-and-sources",
+   "to": "society-religion/02-religions-comparative",
+   "kind": "next"
+  },
+  {
+   "from": "society-religion/02-religions-comparative",
+   "to": "society-religion/03-social-activism-nonprofits",
+   "kind": "next"
+  },
+  {
+   "from": "society-religion/03-social-activism-nonprofits",
+   "to": "society-religion/04-interfaith-dialogue",
+   "kind": "next"
+  },
+  {
+   "from": "health-sports/01-calisthenics-basics",
+   "to": "health-sports/02-nutrition-health",
+   "kind": "next"
+  },
+  {
+   "from": "health-sports/02-nutrition-health",
+   "to": "health-sports/03-mental-health-sleep",
+   "kind": "next"
+  },
+  {
+   "from": "health-sports/03-mental-health-sleep",
+   "to": "health-sports/04-supplements",
+   "kind": "next"
+  },
+  {
+   "from": "music-sound/01-sound-music-basics",
+   "to": "music-sound/02-daw-production",
+   "kind": "next"
+  },
+  {
+   "from": "music-sound/02-daw-production",
+   "to": "music-sound/03-sound-design-mixing",
+   "kind": "next"
+  },
+  {
+   "from": "music-sound/03-sound-design-mixing",
+   "to": "music-sound/04-ai-audio-tools",
+   "kind": "next"
+  },
+  {
+   "from": "music-sound/04-ai-audio-tools",
+   "to": "music-sound/05-music-licensing",
+   "kind": "next"
+  },
+  {
+   "from": "visual-art/01-painting-composition-basics",
+   "to": "visual-art/02-color-contrast",
+   "kind": "next"
+  },
+  {
+   "from": "visual-art/02-color-contrast",
+   "to": "visual-art/03-figure-portrait-drawing",
+   "kind": "next"
+  },
+  {
+   "from": "visual-art/03-figure-portrait-drawing",
+   "to": "visual-art/04-gallery-exhibition-market",
+   "kind": "next"
+  },
+  {
+   "from": "visual-art/04-gallery-exhibition-market",
+   "to": "visual-art/05-art-and-ai",
+   "kind": "next"
+  },
+  {
+   "from": "culture-spirituality/01-cultural-studies-journals",
+   "to": "culture-spirituality/02-spirituality-classical-texts",
+   "kind": "next"
+  },
+  {
+   "from": "culture-spirituality/02-spirituality-classical-texts",
+   "to": "culture-spirituality/03-architecture-culture",
+   "kind": "next"
+  },
+  {
+   "from": "culture-spirituality/03-architecture-culture",
+   "to": "culture-spirituality/04-persian-arabic-language-literature",
+   "kind": "next"
+  },
+  {
+   "from": "culture-spirituality/04-persian-arabic-language-literature",
+   "to": "culture-spirituality/05-philosophy-meaning-ethics",
+   "kind": "next"
+  },
+  {
+   "from": "ai/03-tools-map",
+   "to": "ai/01-llm-basics",
+   "kind": "link"
+  },
+  {
+   "from": "ai/04-agents-automation",
+   "to": "ai/02-prompting",
+   "kind": "link"
+  },
+  {
+   "from": "ai/05-api-rag",
+   "to": "ai/01-llm-basics",
+   "kind": "link"
+  },
+  {
+   "from": "ai/05-api-rag",
+   "to": "ai/02-prompting",
+   "kind": "link"
+  },
+  {
+   "from": "gamedev/03-assets",
+   "to": "ai/03-tools-map",
+   "kind": "link"
+  },
+  {
+   "from": "gamedev/04-ai-in-games",
+   "to": "ai/01-llm-basics",
+   "kind": "link"
+  },
+  {
+   "from": "gamedev/05-math-physics",
+   "to": "math/02-linear-algebra",
+   "kind": "link"
+  },
+  {
+   "from": "math/02-linear-algebra",
+   "to": "ai/05-api-rag",
+   "kind": "link"
+  },
+  {
+   "from": "math/05-math-for-ml",
+   "to": "ai/01-llm-basics",
+   "kind": "link"
+  },
+  {
+   "from": "math/05-math-for-ml",
+   "to": "math/02-linear-algebra",
+   "kind": "link"
+  },
+  {
+   "from": "math/05-math-for-ml",
+   "to": "math/03-calculus",
+   "kind": "link"
+  },
+  {
+   "from": "math/05-math-for-ml",
+   "to": "ai/05-api-rag",
+   "kind": "link"
+  }
+ ]
+}
