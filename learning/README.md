@@ -7,7 +7,8 @@
 learning/
 ├── README.md            ← همین راهنما
 ├── CLAUDE.md            ← قواعد کار ایجنت‌ها با خزانه
-├── progress.md          ← کارنامهٔ سطح (فقط از جواب‌های واقعی)
+├── framework/           ← فریمورک تعامل، یادگیری و تعیین سطح
+├── progress.md          ← ساختار گره‌ها (نتیجهٔ شخصی خصوصی ثبت می‌شود)
 ├── glossary.md          ← واژه‌نامهٔ فارسی–انگلیسی
 ├── inbox/               ← هر فایلی را اینجا بیندازید تا ثبت شود
 ├── catalog/
@@ -23,7 +24,9 @@ learning/
 حوزه‌ها (هر کدام پوشه‌ای با `tree.md` و یک پوشه برای هر گره با `README.md` ویکی):
 - `ai/`، `gamedev/`، `math/`، `physics-astronomy/`، `programming-infra/`، `design-typography/`، `hardware-tech-privacy/`، `business-marketing/`، `learning-language-books/`، `media-entertainment/`، `history-myth/`، `news-politics/`، `society-religion/`، `health-sports/`، `music-sound/`، `visual-art/`، `culture-spirituality/`
 
-**ترتیب هر ویکی:** بخش‌های مرجع (چرا مهم است، مفاهیم، مثال، اشتباه‌ها، منابع) اول می‌آیند؛ بخش «آموزشی و سنجش» (تمرین، سؤال‌های سنجش، معیار) آخر صفحه است. سطح فقط در `progress.md` و فقط از جواب واقعی ثبت می‌شود.
+**یادگیری و تعیین سطح:** طبق [`framework/`](framework/README.md). در گفت‌وگو بنویسید `شروع` یا `جایابی`. نتیجه‌های شخصی در یک فایل خصوصی ثبت می‌شوند، نه در این مخزن.
+
+**ترتیب هر ویکی:** بخش‌های مرجع (چرا مهم است، مفاهیم، مثال، اشتباه‌ها، منابع) اول می‌آیند؛ بخش «آموزشی و سنجش» (تمرین، سؤال‌های سنجش، معیار) آخر صفحه است. سطح فقط از جواب واقعی ثبت می‌شود.
 
 مرجع پژوهش حساب‌های اختلاف‌دار: `research/2026-10-disputed-accounts.md`.
 
