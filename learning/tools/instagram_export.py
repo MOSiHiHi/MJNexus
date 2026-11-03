@@ -73,7 +73,7 @@ def score(text, rules):
 
 
 def categorize(row):
-    text = " ".join([row["caption"], row["hashtags"], row["creator"], row["url"]])
+    text = " ".join([row["caption"], row["hashtags"], row["creator"], row["url"], row.get("external", "")])
     domain = score(text, DOMAIN_RULES) or "نامشخص"
     node = ""
     if domain == "ai":
@@ -92,14 +92,24 @@ def summary(caption, limit=280):
     return (text[:limit] + "…") if len(text) > limit else text
 
 
+def external_text():
+    path = os.path.join(BASE, "external.tsv")
+    if not os.path.exists(path):
+        return {}
+    return {r["url"]: r["title"] + " " + r["summary"] for r in csv.DictReader(open(path, encoding="utf-8"), delimiter="\t")}
+
+
 def main():
     src = os.path.join(BASE, "catalog.tsv")
     rows = list(csv.DictReader(open(src, encoding="utf-8"), delimiter="\t"))
+    ext = external_text()
     out_rows = []
     for i, r in enumerate(rows, 1):
         r["creator"] = fix(r["creator"])
         r["caption"] = fix(r["caption"])
         r["hashtags"] = fix(r["hashtags"])
+        # external page text (title and summary) also counts as evidence for the domain
+        r["external"] = " ".join(ext.get(u, "") for u in r["links_in_caption"].split())
         domain, node, kind = categorize(r)
         r.update(domain=domain, node=node, kind_class=kind, id=f"{i:04d}", summary=summary(r["caption"]))
         out_rows.append(r)
