@@ -18,6 +18,8 @@
   "signals": {"ai": {"correct": 3, "total": 4}},
   "interests": {"declared": {"ai": 1, "news-politics": -1}, "behavior_30d": {"ai": 6}},
   "strengths": [{"text": "مثال‌زدن دقیق", "domain": "ai", "date": "2026-10-11", "count": 2}],
+  "propositions": [{"id": "p-gradient-step", "text": "قدم کاهش گرادیانی برابر است با نرخ × شیب", "source": "ai/…", "held": true, "date": "2026-11-03"}],
+  "edges": [{"from": "p-slope", "to": "p-gradient-step", "reason": "شیب ورودی قدم است"}],
   "cards": [{"title": "می‌توانم …", "domain": "ai", "level": "سطح ۱", "evidence": ["2026-10-11: …"], "limits": "…"}],
   "projects": [{"title": "…", "domain": "ai", "status": "ادغام‌شده", "date": "…", "link": "…"}],
   "review": [{"item": "ai/02-prompting#few-shot", "due": "2026-10-14", "interval": 3}],
