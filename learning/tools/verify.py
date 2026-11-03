@@ -22,7 +22,8 @@ def fail(msg):
 
 # 1. citations against the index
 index_users = {r["username"].lower() for r in csv.DictReader(open(os.path.join(REPO, "instagram-index/index/profiles.tsv"), encoding="utf-8"), delimiter="\t")}
-md_files = [p for p in glob.glob(os.path.join(LEARN, "**/*.md"), recursive=True)]
+# Export pages are data copied from saved shares, not wiki citations: skip them for the @handle rule.
+md_files = [p for p in glob.glob(os.path.join(LEARN, "**/*.md"), recursive=True) if "sources/instagram-export" not in p]
 cited = 0
 for p in md_files:
     text = open(p, encoding="utf-8").read()
