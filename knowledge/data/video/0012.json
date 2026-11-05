@@ -1,0 +1,42 @@
+{
+ "item_id": "0012",
+ "shortcode": "Da0ToskNGE7",
+ "url": "https://www.instagram.com/reel/Da0ToskNGE7/",
+ "creator": "disco_orpheus",
+ "posted_at": "2026-07-15",
+ "duration_s": 164.0,
+ "language": "en",
+ "transcript_quality": "good",
+ "frames_reviewed": false,
+ "transcript": "Under normal circumstances, in their natural habitat, wild animals do not mutilate themselves, masturbate, attack their offspring, develop stomach ulcers, become fetishists, suffer from obese, steeves or commit murder. Among human city dwellers, needless to say, all of these things occur. Does this then reveal a basic difference between human species and other animals? At first glance, it seems to do so, but this is deceptive. Other animals do behave in these ways under certain conditions, namely when they are confined to the unnatural conditions of captivity. The zoo animal, in a cage, exhibits all the abnormalities that we know well from our human companions. Clearly then, the city is not a concrete jungle, it is a human zoo. This is a quote by Desmond Morris, a British zoologist who wrote this in his 1969 book The Human Zoo, which is an analysis of human behaviour in big modern cities and their resemblance to animal behaviour in captivity. For most people to initiate change in their life, they need impetus. The impetus often comes from a crisis in their life in which the other self is revealed to them. To rely on a crisis to come, change people is risky business, not everyone experiences a crisis and not everyone comes back from a crisis either. When one person discovers their other self and changes positively from a captive animal to a free man, his resonance has changed. He now operates on a higher frequency and that frequency can be detected by the people whom he comes into contact with. It was said about poet philosopher Johann Goethe that he would fling his arms around in a sort of extravagant gesticulation whenever he went for a walk. He cited this as the exaggerated swimming of one's arms was how he walked more naturally and he couldn't care less how society regarded him. Goethe's insouciance, that is his casual lack of concern, demonstrated by his extravagant strut is worth emulating. The coward inmates at the Seine Asylum will probably regard it as rather antisocial. They will regard you like some peculiar smell, but I say bask in it, for there will be some who look at you flailing your arms around as you walk and they will laugh. Not at you, but with you. Their societal mask might totter you, but underneath they are crying, wishing they could release them just be like you and the man flailing his arms as he walks. So the question is how do we free ourselves from the dictates of bug-man society? How do we liberate ourselves from the peering gaze of the bourgeois rule-followers and the spiritually obese, not just yourself, but to pass on this insouciance sense of freedom to others? Well as Evela said, be radical and have principles, be absolute. Be what the bourgeois calls an extremist. Give yourself without counting and calculating, don't accept what they call the reality of life. And act in such a way that you won't be accepted by that kind of life. Never abandon the principle of struggle. Be radical. Have principles. Yes. Although I would add one thing, and that's the principle of struggle and the energy derived from it, must be transmuted into the principle of ecstatic reverence for life. Approach life like a charivary, and turn the mundane aspects of life into your ecstatic playground and allow that energy to permeate those around you. Momento the very, life is for living.",
+ "on_screen": [],
+ "summary_fa": "نقل قولی از Desmond Morris در کتاب The Human Zoo (۱۹۶۹): رفتارهای ناهنجار انسان شهری شبیه حیوان در قفس است و شهر «باغ‌وحش انسانی» است. ادامهٔ ویدیو دربارهٔ تغییر فردی و «خود دیگر» است و ادعاهایی دربارهٔ «فرکانس» و «رزونانس» می‌کند.",
+ "key_points_fa": [
+  "ایدهٔ اصلی کتاب: محیط بسته و غیرطبیعی رفتارهای ناهنجار می‌سازد.",
+  "تغییر معمولاً به محرک یا بحران نیاز دارد.",
+  "ادعای «فرکانس بالاتر که دیگران حس می‌کنند» علمی و قابل‌سنجش نیست."
+ ],
+ "resources": [
+  {
+   "name": "The Human Zoo",
+   "type": "book",
+   "role": "main",
+   "via": "transcript"
+  }
+ ],
+ "references": [
+  "Desmond Morris, The Human Zoo (1969)"
+ ],
+ "series": null,
+ "claims": [
+  "A person who changes operates on a higher frequency that others can detect"
+ ],
+ "category": "other",
+ "nodes": [
+  "culture-spirituality/05-philosophy-meaning-ethics"
+ ],
+ "risk": [],
+ "open_questions_fa": [],
+ "extracted_by": "Apify instagram-reel-scraper (videoUrl) + ffmpeg keyframes + faster-whisper small (CPU) + Claude reading frames and transcript",
+ "extracted_at": "2026-11-05"
+}

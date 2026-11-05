@@ -1,0 +1,43 @@
+{
+ "item_id": "0003",
+ "shortcode": "DfNfhbUzlzm",
+ "url": "https://www.instagram.com/reel/DfNfhbUzlzm/",
+ "creator": "orvexanexus",
+ "posted_at": "2026-11-01",
+ "duration_s": 62.1,
+ "language": "en",
+ "transcript_quality": "good",
+ "frames_reviewed": true,
+ "transcript": "Add every number! One, two, three, forever. The total? Minus one-twelfth. Bigger numbers? Smaller total? Ramanujan! 1913. A letter to Hardy. Minus one-twelfth. I've read it. Under my theory, he wrote. Zeta! Zeta of minus one. Minus one-twelfth, exactly. Zeta's series breaks below one. That value is an extension. Then name your total. Just one. I don't have one. I just keep adding. Partial sums! One, three, six, ten? A hundred terms. Five thousand fifty. Stop climbing! Turn negative! Every step adds something positive. Nothing ever comes back down. Divergence! The sums pass every number you can name. So Ramanujan was wrong? He answered a different question.",
+ "on_screen": [
+  "1 + 2 + 3 + 4 + ... = −1/12",
+  "Ramanujan's letter to Hardy, 27 Feb 1913: \"under my theory\"",
+  "ζ(s) = Σ 1/n^s ; ζ(−1) = −1/12",
+  "\"the sum works here: s > 1\" on a number line; \"extension\"",
+  "Divergence"
+ ],
+ "summary_fa": "ویدیوی متحرک دربارهٔ «۱+۲+۳+۴+… = ۱/۱۲−»: نامهٔ رامانوجان به هاردی (۱۹۱۳) و تابع زتا. نتیجه: جمع جزئی‌ها بی‌نهایت بزرگ می‌شوند و سری واگراست؛ عدد ۱/۱۲− مقدار ζ(−1) از راه گسترش تحلیلی است، یعنی جواب یک سؤال دیگر، نه جمع معمولی.",
+ "key_points_fa": [
+  "جمع‌های جزئی (۱، ۳، ۶، ۱۰، … ۵۰۵۰ برای صد جمله) مدام بزرگ‌تر می‌شوند: سری واگراست.",
+  "سری زتا فقط برای s > 1 همگراست؛ ζ(−1) = −1/12 از گسترش تحلیلی می‌آید.",
+  "«رامانوجان اشتباه نکرد؛ به سؤال دیگری جواب داد.»",
+  "کپشن پست سری متناوب ۱−۲+۳−۴+… را آورده که با ویدیو جور نیست؛ مقدار آبلی آن سری ۱/۴ است، نه ۱/۱۲−."
+ ],
+ "resources": [],
+ "references": [
+  "Ramanujan's 1913 letter to G. H. Hardy",
+  "Riemann zeta function"
+ ],
+ "series": null,
+ "claims": [
+  "Caption: 1 − 2 + 3 − 4 + … is associated with −1/12 (does not match the video; that series has Abel sum 1/4)"
+ ],
+ "category": "learning-resources",
+ "nodes": [
+  "math/03-calculus"
+ ],
+ "risk": [],
+ "open_questions_fa": [],
+ "extracted_by": "Apify instagram-reel-scraper (videoUrl) + ffmpeg keyframes + faster-whisper small (CPU) + Claude reading frames and transcript",
+ "extracted_at": "2026-11-05"
+}

@@ -50,6 +50,11 @@ def repos_wanted():
                 repo = (res.get("repo") or "").strip().lower()
                 if re.fullmatch(r"[a-z0-9_.-]+/[a-z0-9_.-]+", repo):
                     want.add(repo)
+    for p in glob.glob(os.path.join(DATA, "video", "*.json")):
+        for res in json.load(open(p, encoding="utf-8")).get("resources", []):
+            repo = (res.get("repo") or "").strip().lower()
+            if re.fullmatch(r"[a-z0-9_.-]+/[a-z0-9_.-]+", repo):
+                want.add(repo)
     return sorted(want)
 
 

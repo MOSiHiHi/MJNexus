@@ -198,10 +198,15 @@ def main():
                 res[rid]["cats"][o.get("category") or "other"] += 0
     for i, v in videos.items():
         for r in v.get("resources") or []:
-            rid = alias.get(slug(r["name"]), f"res:{slug(r['name'])}")
-            add(i, rid, r["name"], r.get("type") or "tool", r.get("via") or "transcript", r.get("role") or "context", r["name"])
+            repo = (r.get("repo") or "").strip().lower()
+            rid = f"gh:{repo}" if repo else alias.get(slug(r["name"]), f"res:{slug(r['name'])}")
+            add(i, rid, r["name"], r.get("type") or "tool", r.get("via") or "transcript", r.get("role") or "context",
+                r["name"], "", repo)
             if r.get("role") == "main":
                 res[rid]["cats"][v.get("category") or "other"] += 1
+                res[rid]["risk"].update(v.get("risk") or [])
+                if v.get("summary_fa") and not res[rid]["what"]:
+                    res[rid]["what"].append(v["summary_fa"])
         con.execute("INSERT INTO video VALUES (?,?,?,?,?,?,?,?,?,?)", (
             i, v.get("duration_s"), v.get("language"), v.get("transcript"), v.get("summary_fa"),
             json.dumps(v.get("key_points_fa") or [], ensure_ascii=False), json.dumps(v.get("on_screen") or [], ensure_ascii=False),

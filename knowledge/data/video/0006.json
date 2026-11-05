@@ -1,0 +1,57 @@
+{
+ "item_id": "0006",
+ "shortcode": "DfAkXOeIRBm",
+ "url": "https://www.instagram.com/reel/DfAkXOeIRBm/",
+ "creator": "archive.genocide",
+ "posted_at": "2026-10-27",
+ "duration_s": 117.1,
+ "language": "en",
+ "transcript_quality": "good",
+ "frames_reviewed": true,
+ "transcript": "We have released our second and far more powerful open source tool, Zero Breach Toolkit, which can detect over 12,100 indicators of Israeli spyware on your devices, from Pegasus, Candiru, Paragon's Graphite, Quadream, Stalkerware, and more. You can download it from our GitHub link in the description below. The tool is read only. It never goes online and never asks for admin rights. It works on Windows, Linux, Android, macOS, and it can do iPhones if you create a backup file first then scan the backup file. You will need Python installed to use it. It includes a toolkit to investigate when you find something and steps to report them. If you find a piece of malware, report it to us on our telegram. We advise you not to delete anything you find before sending us a copy. It will also check your browser settings if you have ads blocked and tell you if any of your profiles touched the hundreds of thousands of recently infected ads Israeli spyware was using. We included a skill for your AIs to use the tool too, which should make it easier for non-tech savvy users to use. Just point your AI to it and it will know what to do. We hope this tool helps you guys. Feel free to take the source code and create your own improved tools with it. You can also suggest improvements or upgrades on our GitHub and we will take a look at them. We will be expanding its capability to reach Android based TVs and other home devices in the coming weeks. If the tool helped you, please consider leaving us a star on GitHub. God bless.",
+ "on_screen": [
+  "Zero Breach Toolkit menu: check this computer (standard / full / browsers only), a drive or file, a phone; help; update indicator lists",
+  "README: --describe prints every check as JSON; --json writes a machine-readable report; see scan/CONTRACT.md",
+  "Tested on Windows computers and Android phone collections; Android results compared with MVT on a real phone (no indicator matches); iPhone support experimental",
+  "Telegram group card of the publisher (political archive)"
+ ],
+ "summary_fa": "معرفی Zero Breach Toolkit: ابزار متن‌باز و فقط‌خواندنی برای پیدا کردن ردپای جاسوس‌افزارها (Pegasus، Candiru، Graphite، QuaDream و stalkerware) با بیش از ۱۲٬۱۰۰ نشانه، روی Windows، Linux، macOS، Android و بکاپ iPhone. بدون اینترنت و بدون دسترسی ادمین اجرا می‌شود و یک مهارت برای دستیارهای AI هم دارد.",
+ "key_points_fa": [
+  "اجرا با Python؛ کاملاً آفلاین و فقط‌خواندنی (به ادعای سازنده).",
+  "برای iPhone اول بکاپ می‌گیرید و بکاپ را اسکن می‌کنید.",
+  "خروجی JSON و دستور --describe برای استفاده توسط ایجنت‌ها.",
+  "نتایج Android با MVT (ابزار مرجع شناخته‌شده) مقایسه شده است.",
+  "منتشرکننده یک حساب سیاسی است؛ پیش از استفاده در کار، کد و نتایج را مستقل بررسی کنید."
+ ],
+ "resources": [
+  {
+   "name": "Zero Breach Toolkit",
+   "type": "repo",
+   "role": "main",
+   "via": "transcript",
+   "repo": "interplains/zero-breach-toolkit"
+  },
+  {
+   "name": "MVT (Mobile Verification Toolkit)",
+   "type": "tool",
+   "role": "context",
+   "via": "screen"
+  }
+ ],
+ "references": [
+  "https://github.com/interplains/Zero-Breach-Toolkit"
+ ],
+ "series": null,
+ "claims": [
+  "Detects over 12,100 indicators of spyware",
+  "Never goes online, read-only, needs no admin rights"
+ ],
+ "category": "dev-infra-security",
+ "nodes": [
+  "hardware-tech-privacy/02-privacy-secure-tools"
+ ],
+ "risk": [],
+ "open_questions_fa": [],
+ "extracted_by": "Apify instagram-reel-scraper (videoUrl) + ffmpeg keyframes + faster-whisper small (CPU) + Claude reading frames and transcript",
+ "extracted_at": "2026-11-05"
+}
