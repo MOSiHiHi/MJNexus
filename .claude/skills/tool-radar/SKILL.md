@@ -10,16 +10,21 @@ the learning wiki, claims, series and projects. Schema: `knowledge/ontology.yaml
 Reply to the owner in Persian. Product names stay in English.
 
 ## Answering questions
-1. Query with `python3 -I knowledge/tools/radar.py` (`find`, `top --category C`, `resource <rid|name>`, `item <id>`, `licenses`, `stats`),
+1. Query with `python3 -I knowledge/tools/radar.py` (`find`, `top --category C`, `resource <rid|name>`, `item <id>`, `account <username>`, `licenses`, `stats`),
    or SQL on `knowledge/kg.sqlite` for anything else (tables: account, item, video, resource, concept, claim, series, project, edge).
-2. Cite item ids and URLs for every claim you make about a saved resource.
+2. Cite item ids and URLs for every claim you make about a saved resource, and name the account that posted it.
+   For a known entity give its official site (`homepage`) and Wikipedia link from the resource or concept row.
 3. For work use, always state license, last commit date, mention count, `info_level` of the evidence, risk flags and claim status.
    A resource with only `low` evidence or only marketing claims is a lead, not a recommendation.
 4. `ring`, `notes_fa`, `verification` on resources and everything in projects are owner-only. Suggest values; never write them
    unless the owner says so (then edit `knowledge/data/radar_owner.tsv` or `projects.tsv` / `project_links.tsv` and rebuild).
 
 ## Updating the model
-Rebuild after any data change: `python3 -I knowledge/tools/build_db.py` (also refreshes `data/resources.jsonl` and `data/radar.json`).
+Rebuild after any data change: `python3 -I knowledge/tools/build_db.py` (also refreshes `data/resources.jsonl` and `data/radar.json`),
+then `export_dashboard.py` and `build_site.py` so the static radar in `site/` matches.
+
+- Entity links: `python3 -I knowledge/tools/link_entities.py` (Wikidata SPARQL). Add or correct a link by hand in
+  `knowledge/data/entity_curated.tsv` (`none` blocks a wrong automatic match); never guess a homepage you are not sure of.
 
 - New saves: the owner exports the Instagram conversation again; copy it to `learning/sources/instagram-export/messages.json`,
   rebuild the export tables (`learning/tools/instagram_export.py` and the catalog step), then run the steps below for new ids only.

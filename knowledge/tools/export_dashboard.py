@@ -8,6 +8,9 @@ Output folder: knowledge/data/dashboard/
   info_levels.json     saved items per evidence level
   resources.json       one row per resource (single-mention sites left out)
   resource_items.json  saved items behind each resource (for the detail view)
+  items.json           every saved post or reel with its account (for account details)
+  graph_nodes.json, graph_edges.json        knowledge canvas (domains, concepts, categories, resources, accounts)
+  ontology_nodes.json, ontology_edges.json  schema canvas
 Usage: python3 -I knowledge/tools/export_dashboard.py
 """
 import collections, json, os, sqlite3
@@ -66,6 +69,13 @@ def main():
         r["what_fa"] = short(r["what_fa"], 120)
         for k in ("info", "role", "via"):  # Persian labels are what the page shows
             r.pop(k, None)
+    all_items = rows(con, """SELECT id AS item_id, creator, url, kind, saved_at,
+                                     coalesce(nullif(what_fa,''), substr(summary_fa, 1, 160), '') AS what_fa,
+                                     coalesce(nullif(info_level,''), 'unknown') AS info
+                              FROM item ORDER BY saved_at DESC, id DESC""")
+    for r in all_items:
+        r["what_fa"] = short(r["what_fa"], 120)
+        r["info_fa"] = INFO_FA.get(r.pop("info"), "")
     cats = rows(con, f"""SELECT category, count(*) AS resources, sum(main_mentions) AS main_mentions
                          FROM resource WHERE {keep} GROUP BY category ORDER BY resources DESC""")
     for c in cats:
@@ -87,7 +97,7 @@ def main():
         "generated": __import__("datetime").date.today().isoformat(),
     }]
     for name, data in [("kpis", kpis), ("categories", cats), ("licenses", lic), ("info_levels", info),
-                       ("resources", res), ("resource_items", items)]:
+                       ("resources", res), ("resource_items", items), ("items", all_items)]:
         path = os.path.join(OUT, f"{name}.json")
         json.dump(data, open(path, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
         print(name, len(data), "rows", os.path.getsize(path), "bytes")
@@ -106,21 +116,26 @@ def export_graph():
     import yaml
     con = sqlite3.connect(DB)
     blank = {"type": "", "category_fa": "", "license": "", "last_commit": "", "ring": "", "risk": "", "what_fa": "",
-             "url": "", "mentions": 0, "main_mentions": 0, "items": 0, "sub": ""}
+             "url": "", "mentions": 0, "main_mentions": 0, "items": 0, "sub": "", "first_seen": "", "homepage": "",
+             "qid": "", "wikipedia_en": "", "wikipedia_fa": "", "description_en": "", "followers": 0, "followed": ""}
     nodes, edges = [], []
     titles = dict(con.execute("SELECT slug, title_fa FROM domain").fetchall())
     about = dict(con.execute("SELECT substr(dst, 9), count(DISTINCT src) FROM edge WHERE rel='ABOUT' GROUP BY 1").fetchall())
     for slug, title in titles.items():
         nodes.append(blank | {"id": "d:" + slug, "kind": "domain", "label": title, "group": slug, "size": 0, "sub": "حوزه"})
-    for node, title, dom, star in con.execute("SELECT node, title, domain, star FROM concept"):
+    for node, title, dom, star, qid, wen, wfa, desc in con.execute(
+            "SELECT node, title, domain, star, qid, wikipedia_en, wikipedia_fa, description_en FROM concept"):
         nodes.append(blank | {"id": "c:" + node, "kind": "concept", "label": title, "group": dom, "size": about.get(node, 0),
-                              "items": about.get(node, 0), "sub": titles.get(dom, dom) + (" · گرهٔ حیاتی" if star else "")})
+                              "items": about.get(node, 0), "sub": titles.get(dom, dom) + (" · گرهٔ حیاتی" if star else ""),
+                              "qid": qid or "", "wikipedia_en": wen or "", "wikipedia_fa": wfa or "", "description_en": desc or "",
+                              "url": wfa or wen or ""})
         edges.append({"source": "c:" + node, "target": "d:" + dom, "kind": "in_domain", "weight": 1})
     for src, rel, dst in con.execute("SELECT src, rel, dst FROM edge WHERE rel IN ('PREREQ_OF','LINKS_TO')"):
         edges.append({"source": "c:" + src[8:], "target": "c:" + dst[8:], "kind": "prereq" if rel == "PREREQ_OF" else "link", "weight": 1})
     res = rows(con, """SELECT rid, name, type, category, mentions, main_mentions, coalesce(license,'') AS license,
                               coalesce(last_commit,'') AS last_commit, ring, risk_flags, coalesce(what_fa,'') AS what_fa,
-                              coalesce(url,'') AS url FROM resource
+                              coalesce(url,'') AS url, first_seen, homepage, qid, wikipedia_en, wikipedia_fa, description_en
+                       FROM resource
                        WHERE main_mentions >= 1 AND NOT (type = 'site' AND mentions < 2)""")
     cats = collections.Counter(r["category"] for r in res)
     for c, n in cats.items():
@@ -135,7 +150,10 @@ def export_graph():
                               "license": r["license"], "last_commit": r["last_commit"], "ring": r["ring"],
                               "risk": ", ".join(json.loads(r["risk_flags"] or "[]")), "what_fa": short(r["what_fa"], 160),
                               "url": r["url"], "mentions": r["mentions"], "main_mentions": r["main_mentions"],
-                              "items": r["mentions"], "sub": CATEGORY_FA.get(r["category"], r["category"])})
+                              "items": r["mentions"], "sub": CATEGORY_FA.get(r["category"], r["category"]),
+                              "first_seen": r["first_seen"] or "", "homepage": r["homepage"] or "", "qid": r["qid"] or "",
+                              "wikipedia_en": r["wikipedia_en"] or "", "wikipedia_fa": r["wikipedia_fa"] or "",
+                              "description_en": r["description_en"] or ""})
         edges.append({"source": rid, "target": "k:" + r["category"], "kind": "in_category", "weight": 1})
     # resource -> concept through the saved items that are about the concept (top 3 per resource)
     pairs = collections.defaultdict(list)
@@ -147,6 +165,23 @@ def export_graph():
     for res_id, lst in pairs.items():
         for n, concept in sorted(lst, reverse=True)[:3]:
             edges.append({"source": "r:" + res_id, "target": "c:" + concept, "kind": "about", "weight": n})
+    # accounts whose saved posts mention a resource on the canvas: account -> resource, weighted by posts
+    posted = collections.Counter()
+    for creator, res_id, _item in con.execute("""SELECT DISTINCT i.creator, substr(e.dst, 10), i.id FROM edge e
+                                         JOIN item i ON e.src = 'item:' || i.id WHERE e.rel = 'MENTIONS'""").fetchall():
+        if creator and res_id in keep:
+            posted[(creator, res_id)] += 1
+    accts = {a for a, _ in posted}
+    for u, full, followers, followed, cat, saved, profile in con.execute(
+            "SELECT username, full_name, followers, followed_by_owner, category, saved_items, profile_url FROM account"):
+        if u not in accts:
+            continue
+        nodes.append(blank | {"id": "a:" + u, "kind": "account", "label": u, "group": "account", "size": saved or 0,
+                              "items": saved or 0, "mentions": saved or 0, "url": profile or f"https://www.instagram.com/{u}/",
+                              "sub": (full or "").strip() or "حساب اینستاگرام", "followers": followers or 0,
+                              "followed": "yes" if followed else "no", "category_fa": "" if cat in (None, "—") else cat})
+    for (u, res_id), n in posted.items():
+        edges.append({"source": "a:" + u, "target": "r:" + res_id, "kind": "posted", "weight": n})
     onto = yaml.safe_load(open(os.path.join(ROOT, "knowledge", "ontology.yaml"), encoding="utf-8"))
     rel_n = dict(con.execute("SELECT rel, count(*) FROM edge GROUP BY rel").fetchall())
     onodes = [{"id": "o:Owner", "label": "Owner", "sub": "صاحب مدل (شما)", "count": 1}]

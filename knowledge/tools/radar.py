@@ -5,6 +5,7 @@
   python3 -I knowledge/tools/radar.py top [--category C] [--n 20]
   python3 -I knowledge/tools/radar.py resource <rid or name>  everything linked to one resource
   python3 -I knowledge/tools/radar.py item <id>               one saved item with its links and video layer
+  python3 -I knowledge/tools/radar.py account <username>      an account: its saved posts and the resources they mention
   python3 -I knowledge/tools/radar.py licenses                repos grouped by license
   python3 -I knowledge/tools/radar.py stats
 Read-only. The database is rebuilt by build_db.py.
@@ -83,6 +84,24 @@ def item(i):
         print(json.dumps(dict(v), ensure_ascii=False, indent=1))
 
 
+def account(name):
+    c = con()
+    u = name.lstrip("@").lower()
+    a = c.execute("SELECT * FROM account WHERE username = ?", (u,)).fetchone()
+    if not a:
+        sys.exit("no such account; try: radar.py find " + name)
+    print(json.dumps(dict(a), ensure_ascii=False, indent=1))
+    print("# saved posts")
+    show(c.execute("""SELECT id, saved_at, info_level, coalesce(nullif(what_fa,''), substr(summary_fa,1,90)) AS what, url
+                      FROM item WHERE creator = ? ORDER BY saved_at DESC""", (u,)), ["id", "saved_at", "info_level", "what", "url"])
+    print("# resources in those posts")
+    show(c.execute("""SELECT r.rid, r.name, r.category, count(*) AS posts, coalesce(nullif(r.homepage,''), r.url) AS link
+                      FROM item i JOIN edge e ON e.src = 'item:' || i.id AND e.rel = 'MENTIONS'
+                      JOIN resource r ON e.dst = 'resource:' || r.rid
+                      WHERE i.creator = ? GROUP BY r.rid ORDER BY posts DESC, r.mentions DESC""", (u,)),
+         ["rid", "name", "category", "posts", "link"])
+
+
 def licenses():
     show(con().execute("""SELECT coalesce(nullif(license,''),'(none found)') AS license, count(*) AS repos
                           FROM resource WHERE repo != '' GROUP BY 1 ORDER BY 2 DESC"""), ["license", "repos"])
@@ -103,4 +122,4 @@ if __name__ == "__main__":
         sys.exit(__doc__)
     cmd, rest = sys.argv[1], sys.argv[2:]
     {"find": lambda: find(rest), "top": lambda: top(rest), "resource": lambda: resource(" ".join(rest)),
-     "item": lambda: item(rest[0]), "licenses": licenses, "stats": stats}.get(cmd, lambda: sys.exit(__doc__))()
+     "item": lambda: item(rest[0]), "account": lambda: account(rest[0]), "licenses": licenses, "stats": stats}.get(cmd, lambda: sys.exit(__doc__))()

@@ -1,0 +1,66 @@
+/* Design tokens for the static radar site (the same names the dashboard runtime provides). */
+:root {
+  color-scheme: light dark;
+  --font-anthropic-sans: "Vazirmatn", "Noto Sans Arabic", "Segoe UI", Tahoma, system-ui, sans-serif;
+  --font-anthropic-serif: "Noto Naskh Arabic", "Vazirmatn", Georgia, serif;
+  --color-fg: #1f1e1c;
+  --color-fg-muted: #6b6862;
+  --color-bg: #ffffff;
+  --color-panel: #f6f5f1;
+  --color-border-line: #e2dfd7;
+  --color-ok: #2f7d4f;
+  --color-warn: #b8620e;
+  --color-bad: #b42318;
+  --cds-font-size-caption: 12.5px;
+  --cds-font-size-body: 14.5px;
+  --cds-font-size-heading: 19px;
+  --cds-font-size-title: 24px;
+  --cds-font-weight-medium: 600;
+  --cds-gap-xs: 4px; --cds-gap-sm: 8px; --cds-gap-md: 12px; --cds-gap-lg: 16px; --cds-gap-xl: 24px;
+  --cds-pad-xs: 4px; --cds-pad-sm: 8px; --cds-pad-md: 12px; --cds-pad-lg: 16px; --cds-pad-xl: 24px;
+  --cds-radius: 8px;
+  --cds-chart-grid: #e4e1d9;
+  --cds-chart-axis: #a29e95;
+  --cds-chart-muted: #bdb9b0;
+  --cds-chart-reference: #8d8a83;
+  --cds-chart-status-critical: #b42318;
+  --cds-surface-popover: #ffffff;
+  --cds-border: #d8d4ca;
+  --cds-shadow-popover: 0 6px 24px rgb(0 0 0 / 0.12);
+  --cds-text-secondary: #6b6862;
+  --cds-dur-slow: 240ms;
+  --cds-ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --cat-1: #2f9e5b; --cat-2: #3b6fd1; --cat-3: #c8642a; --cat-4: #8e44c9;
+  --cat-5: #1fa7a7; --cat-6: #a89a1c; --cat-7: #c33a6b; --cat-8: #59595f;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-fg: #ecebe7;
+    --color-fg-muted: #a5a29a;
+    --color-bg: #181816;
+    --color-panel: #21211e;
+    --color-border-line: #34332f;
+    --color-ok: #5cc184;
+    --color-warn: #f0a24c;
+    --color-bad: #f07467;
+    --cds-chart-grid: #34332f;
+    --cds-chart-axis: #77746c;
+    --cds-chart-muted: #5d5b55;
+    --cds-chart-reference: #8a877f;
+    --cds-surface-popover: #2a2a26;
+    --cds-border: #44433e;
+    --cds-shadow-popover: 0 6px 24px rgb(0 0 0 / 0.5);
+    --cds-text-secondary: #a5a29a;
+    --cat-1: #5cc184; --cat-2: #7ea4ef; --cat-3: #ec955c; --cat-4: #bf8ae8;
+    --cat-5: #4fcfcf; --cat-6: #d6c64e; --cat-7: #ec7aa4; --cat-8: #a5a5ad;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-family: var(--font-anthropic-sans); }
+.site-head { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; padding: 8px 16px;
+  font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.site-head strong { color: var(--color-fg); font-size: var(--cds-font-size-body); }
+.site-head a { color: inherit; }
+.site-head .grow { flex: 1 1 auto; }
+#dash-root { padding: 0 16px 16px; }
+@media (max-width: 600px) { #dash-root { padding: 0 8px 8px; } }

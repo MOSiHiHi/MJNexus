@@ -10,6 +10,7 @@ Sources
   knowledge/data/video/*.json                                        video layer
   knowledge/data/repos.tsv                                           repo license and activity
   knowledge/data/radar_owner.tsv                                     owner-only ring, notes, verification
+  knowledge/data/entity_links.tsv                                    Wikidata id, official site, Wikipedia pages
   knowledge/data/projects.tsv, project_links.tsv                     owner-only projects
 
 Outputs: knowledge/kg.sqlite, knowledge/data/resources.jsonl, knowledge/data/radar.json
@@ -36,8 +37,10 @@ CREATE TABLE video(item_id TEXT PRIMARY KEY, duration_s REAL, language TEXT, tra
   key_points_fa TEXT, on_screen TEXT, references_json TEXT, extracted_by TEXT, extracted_at TEXT);
 CREATE TABLE resource(rid TEXT PRIMARY KEY, name TEXT, type TEXT, url TEXT, repo TEXT, repo_exists TEXT,
   license TEXT, last_commit TEXT, category TEXT, mentions INTEGER, main_mentions INTEGER, first_seen TEXT,
-  last_seen TEXT, risk_flags TEXT, verification TEXT, ring TEXT, notes_fa TEXT, what_fa TEXT);
-CREATE TABLE concept(node TEXT PRIMARY KEY, title TEXT, domain TEXT, star INTEGER);
+  last_seen TEXT, risk_flags TEXT, verification TEXT, ring TEXT, notes_fa TEXT, what_fa TEXT,
+  homepage TEXT, qid TEXT, wikipedia_en TEXT, wikipedia_fa TEXT, description_en TEXT);
+CREATE TABLE concept(node TEXT PRIMARY KEY, title TEXT, domain TEXT, star INTEGER,
+  homepage TEXT, qid TEXT, wikipedia_en TEXT, wikipedia_fa TEXT, description_en TEXT);
 CREATE TABLE domain(slug TEXT PRIMARY KEY, title_fa TEXT);
 CREATE TABLE series(id TEXT PRIMARY KEY, creator TEXT, name TEXT);
 CREATE TABLE claim(cid TEXT PRIMARY KEY, item_id TEXT, text TEXT, verification TEXT);
@@ -79,12 +82,17 @@ def main():
             sys.exit(f"relation {rel} is not in the ontology")
         edges.append((src, rel, dst, via, role, (evidence or "")[:300]))
 
+    # canonical web identity of known entities (link_entities.py)
+    links = {r["id"]: r for r in tsv(os.path.join(DATA, "entity_links.tsv"))}
+    ident = lambda key: tuple(links.get(key, {}).get(f, "") for f in ("homepage", "qid", "wikipedia_en", "wikipedia_fa", "description_en"))
+
     # --- concepts and domains
     g = json.load(open(os.path.join(ROOT, "learning", "graph", "graph.json"), encoding="utf-8"))
     for d in g["domains"]:
         con.execute("INSERT INTO domain VALUES (?,?)", (d["id"], d["title"]))
     for n in g["nodes"]:
-        con.execute("INSERT INTO concept VALUES (?,?,?,?)", (n["id"], n["title"], n["domain"], int(n["star"])))
+        con.execute("INSERT INTO concept VALUES (?,?,?,?,?,?,?,?,?)",
+                    (n["id"], n["title"], n["domain"], int(n["star"])) + ident(f"concept:{n['id']}"))
         edge(f"concept:{n['id']}", "IN_DOMAIN", f"domain:{n['domain']}", "graph")
     for e in g["edges"]:
         rel = "PREREQ_OF" if e["kind"] == "next" else "LINKS_TO"
@@ -242,6 +250,7 @@ def main():
         category = category if category in cats else "other"
         ow = owner.get(rid, {})
         ring = ow.get("ring") if ow.get("ring") in rings else "assess"
+        home, qid, wen, wfa, desc = ident(rid)
         row = {
             "rid": rid, "name": d["names"].most_common(1)[0][0], "type": d["types"].most_common(1)[0][0],
             "url": d["url"] or (f"https://github.com/{d['repo']}" if d["repo"] else ""), "repo": d["repo"],
@@ -250,12 +259,16 @@ def main():
             "main_mentions": len(d["main"]), "first_seen": dates[0] if dates else "", "last_seen": dates[-1] if dates else "",
             "risk_flags": sorted(d["risk"]), "verification": ow.get("verification") or "unverified", "ring": ring,
             "notes_fa": ow.get("notes_fa", ""), "what_fa": d["what"][0] if d["what"] else "",
+            "homepage": home, "qid": qid, "wikipedia_en": wen, "wikipedia_fa": wfa, "description_en": desc,
         }
+        if not row["url"]:  # a known entity without a link in the post points at its official site
+            row["url"] = home or wen
         out.append(row)
-        con.execute("INSERT INTO resource VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", (
+        con.execute("INSERT INTO resource VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", (
             row["rid"], row["name"], row["type"], row["url"], row["repo"], row["repo_exists"], row["license"],
             row["last_commit"], row["category"], row["mentions"], row["main_mentions"], row["first_seen"],
-            row["last_seen"], json.dumps(row["risk_flags"]), row["verification"], row["ring"], row["notes_fa"], row["what_fa"]))
+            row["last_seen"], json.dumps(row["risk_flags"]), row["verification"], row["ring"], row["notes_fa"], row["what_fa"],
+            home, qid, wen, wfa, desc))
 
     # owner projects
     for p in tsv(os.path.join(DATA, "projects.tsv")):
@@ -299,7 +312,7 @@ def export_radar(con, resources):
         "categories": dict(by_cat.most_common()),
         "resources": [{k: r[k] for k in ("rid", "name", "type", "url", "repo", "license", "last_commit", "category",
                                          "mentions", "main_mentions", "first_seen", "last_seen", "risk_flags",
-                                         "verification", "ring", "what_fa")} | {"items": items[r["rid"]]} for r in keep],
+                                         "verification", "ring", "what_fa", "homepage", "qid", "wikipedia_en")} | {"items": items[r["rid"]]} for r in keep],
     }
     json.dump(radar, open(os.path.join(DATA, "radar.json"), "w", encoding="utf-8"), ensure_ascii=False)
 

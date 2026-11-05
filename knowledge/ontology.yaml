@@ -127,13 +127,17 @@ entities:
       verification: verification
       ring: {type: radar_ring, owner_only: true, default: assess}
       notes_fa: {type: str, owner_only: true}
-    sources: [knowledge/data/resources.jsonl, knowledge/data/repos.tsv]
+      homepage: str        # official website of a known entity (Wikidata P856 or hand-checked)
+      qid: str             # Wikidata item, e.g. Q124636097
+      wikipedia_en: str
+      wikipedia_fa: str
+    sources: [knowledge/data/resources.jsonl, knowledge/data/repos.tsv, knowledge/data/entity_links.tsv]
 
   Concept:
     description_fa: گرهٔ ویکی یادگیری.
     key: node
-    properties: {node: str, title: str, domain: str, star: bool}
-    sources: [learning/graph/graph.json]
+    properties: {node: str, title: str, domain: str, star: bool, qid: str, wikipedia_en: str, wikipedia_fa: str}
+    sources: [learning/graph/graph.json, knowledge/data/entity_links.tsv]
 
   Domain:
     description_fa: یکی از ۱۷ حوزهٔ خزانه.
