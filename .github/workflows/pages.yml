@@ -4,7 +4,7 @@ name: radar-site
 
 on:
   push:
-    branches: [main]
+    branches: [Hyp]
     paths: ["site/**", ".github/workflows/pages.yml"]
   workflow_dispatch:
 

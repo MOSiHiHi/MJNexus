@@ -36,8 +36,8 @@ SHELL = """<!doctype html>
   <span>{items} ذخیره · {resources} منبع · به‌روزرسانی {generated}</span>
   <span class="grow"></span>
   <a href="{repo}">کد و داده در GitHub</a>
-  <a href="{repo}/blob/main/knowledge/README.md">روش ساخت</a>
-  <a href="{repo}/blob/main/docs/radar-research.md">مقایسه با رادارهای دیگر</a>
+  <a href="{repo}/blob/Hyp/knowledge/README.md">روش ساخت</a>
+  <a href="{repo}/blob/Hyp/docs/radar-research.md">مقایسه با رادارهای دیگر</a>
 </header>
 {page}
 </body>
