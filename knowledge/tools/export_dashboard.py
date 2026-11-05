@@ -25,6 +25,11 @@ CATEGORY_FA = {
 INFO_FA = {"high": "پرمحتوا", "medium": "متوسط", "low": "کم‌اطلاع", "unknown": "بررسی‌نشده"}
 
 
+def short(text, n):
+    text = (text or "").strip()
+    return text if len(text) <= n else text[: n - 1].rstrip() + "…"
+
+
 def rows(con, sql, params=()):
     cur = con.execute(sql, params)
     cols = [d[0] for d in cur.description]
@@ -43,6 +48,9 @@ def main():
     for r in res:
         r["category_fa"] = CATEGORY_FA.get(r["category"], r["category"])
         r["risk"] = ", ".join(json.loads(r["risk"] or "[]"))
+        r["what_fa"] = short(r["what_fa"], 140)
+        for k in ("verification", "first_seen", "last_seen"):  # not shown on the page
+            r.pop(k, None)
     rids = {r["rid"] for r in res}
     items = [r for r in rows(con, """SELECT substr(e.dst, 10) AS rid, i.id AS item_id, i.url, i.creator, i.saved_at,
                                             coalesce(nullif(i.what_fa,''), substr(i.summary_fa, 1, 160), '') AS what_fa,
@@ -52,6 +60,9 @@ def main():
     for r in items:
         r["role_fa"] = {"main": "اصلی", "context": "زمینه"}.get(r["role"], r["role"] or "")
         r["info_fa"] = INFO_FA.get(r["info"], r["info"])
+        r["what_fa"] = short(r["what_fa"], 120)
+        for k in ("info", "role", "via"):  # Persian labels are what the page shows
+            r.pop(k, None)
     cats = rows(con, f"""SELECT category, count(*) AS resources, sum(main_mentions) AS main_mentions
                          FROM resource WHERE {keep} GROUP BY category ORDER BY resources DESC""")
     for c in cats:
@@ -75,7 +86,7 @@ def main():
     for name, data in [("kpis", kpis), ("categories", cats), ("licenses", lic), ("info_levels", info),
                        ("resources", res), ("resource_items", items)]:
         path = os.path.join(OUT, f"{name}.json")
-        json.dump(data, open(path, "w", encoding="utf-8"), ensure_ascii=False)
+        json.dump(data, open(path, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
         print(name, len(data), "rows", os.path.getsize(path), "bytes")
 
 
