@@ -1,0 +1,61 @@
+{
+ "item_id": "0100",
+ "shortcode": "De8vlYku5U7",
+ "url": "https://www.instagram.com/reel/De8vlYku5U7/",
+ "creator": "ai.honeycove",
+ "posted_at": "2026-10-26",
+ "duration_s": 39.7,
+ "language": "en",
+ "transcript": "Here's a tool that changes how Claude code reads your project. It's called Graphify, a free open source tool built by an independent developer. Here's the issue. Every new Claude code session, Claude re-reads your entire code base. Every file, every function. That's thousands of tokens burned before you even ask a question. Graphify handles that differently. It runs one time, scans your whole code base, and builds a knowledge graph of everything inside it. Every connection, every relationship, every architectural decision. Then, next session, Claude navigates the graph instead of re-reading files. The result is far fewer tokens spent on context loading. A $20 plan can start to feel like a $100 plan. Follow for more AI tools and practical workflows.",
+ "on_screen": [
+  "GRAPHIFY SAVES CLAUDE TOKENS",
+  "Benchmark table: mixed corpus (repos + 5 papers + 4 images, 52 files) 71.5x fewer tokens per query vs reading the raw files; paper corpus (4 files) 5.4x; small library (6 files) ~1x",
+  "Six files already fits in a context window; there the graph's value is structural clarity",
+  "Outputs: GRAPH_REPORT.md and graph.json",
+  "Claude Code terminal, codebase graph view, Claude Pro pricing page"
+ ],
+ "summary_fa": "معرفی Graphify: ابزاری متن‌باز که یک بار کل کدبیس را می‌خواند و از آن گراف دانش می‌سازد (فایل‌ها، رابطه‌ها، تصمیم‌های معماری). در جلسه‌های بعدی Claude Code به‌جای خواندن دوبارهٔ همهٔ فایل‌ها از روی همین گراف حرکت می‌کند و توکن کمتری برای بارگذاری زمینه خرج می‌شود.",
+ "key_points_fa": [
+  "مشکل: هر جلسهٔ تازهٔ Claude Code کل کدبیس را دوباره می‌خواند و هزاران توکن پیش از اولین سؤال مصرف می‌شود.",
+  "راه‌حل: Graphify یک بار اجرا می‌شود و گراف دانش می‌سازد؛ خروجی‌اش GRAPH_REPORT.md و graph.json است.",
+  "بنچمارک روی صفحه: روی پیکرهٔ ترکیبی ۵۲ فایلی ۷۱٫۵ برابر توکن کمتر در هر پرسش؛ روی ۴ مقاله ۵٫۴ برابر؛ روی کتابخانهٔ ۶ فایلی تقریباً بدون تفاوت.",
+  "برای پروژه‌های کوچک صرفه‌جویی ناچیز است و ارزشش بیشتر در شفافیت ساختار است.",
+  "ادعای بازاریابی: «پلن ۲۰ دلاری حس پلن ۱۰۰ دلاری را می‌دهد» (بررسی‌نشده)."
+ ],
+ "resources": [
+  {
+   "name": "Graphify",
+   "type": "tool",
+   "role": "main",
+   "via": "transcript"
+  },
+  {
+   "name": "Claude Code",
+   "type": "tool",
+   "role": "context",
+   "via": "transcript"
+  },
+  {
+   "name": "Claude Pro plan",
+   "type": "service",
+   "role": "context",
+   "via": "screen"
+  }
+ ],
+ "references": [],
+ "series": null,
+ "claims": [
+  "71.5x fewer tokens per query on a 52-file mixed corpus (on-screen benchmark)",
+  "A $20 plan can start to feel like a $100 plan"
+ ],
+ "open_questions_fa": [
+  "لینک یا ریپوی Graphify در پست و ویدیو نیست؛ اولین کامنت هم همین را پرسیده است."
+ ],
+ "category": "coding-agents",
+ "nodes": [
+  "ai/04-agents-automation"
+ ],
+ "extracted_by": "pilot: Apify instagram-reel-scraper (videoUrl) + ffmpeg keyframes + faster-whisper small (CPU) + Claude reading frames and transcript",
+ "extracted_at": "2026-11-05",
+ "cost_usd": 0.0036
+}
