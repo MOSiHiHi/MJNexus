@@ -1,0 +1,59 @@
+{
+ "item_id": "0008",
+ "shortcode": "DfLKZF7usQe",
+ "url": "https://www.instagram.com/reel/DfLKZF7usQe/",
+ "creator": "create_daniel2",
+ "posted_at": "2026-10-31",
+ "duration_s": 17.8,
+ "language": "en",
+ "transcript_quality": "good",
+ "frames_reviewed": true,
+ "transcript": "Blueprint, Roadmap, Handwritten, Decision Matrix, Flowchart, Infographic, Canvas, Layers, Cycle, Diagram, Sketch Notes, Iceberg, Exploded View, Tree, Timeline, Comment Prompts, and I'll send you all 15 with the full prompt for each.",
+ "on_screen": [
+  "15 VISUAL CODES — Codes to study anything (ChatGPT and Claude logos)",
+  "/blueprint /roadmap /handwritten /decision-matrix /flowchart /infographic /canvas /layers /cycle /diagram /sketchnotes /iceberg …",
+  "Examples: handwritten notes (journey of coffee), business model canvas, iceberg infographic"
+ ],
+ "summary_fa": "پانزده «کد بصری» برای پرامپت‌هایی که هر موضوعی را به شکل قابل‌مطالعه درمی‌آورند: blueprint، roadmap، handwritten، decision matrix، flowchart، infographic، canvas، layers، cycle، diagram، sketch notes، iceberg، exploded view، tree و timeline. متن کامل پرامپت‌ها پشت «کامنت prompts» است.",
+ "key_points_fa": [
+  "فهرست کامل ۱۵ قالب از گفتار و صفحه درآمد؛ کپشن فقط «کامنت prompts» بود.",
+  "کاربرد: ساختن خلاصهٔ تصویری برای یادگیری با ChatGPT یا Claude.",
+  "خود متن پرامپت‌ها در ویدیو نیست."
+ ],
+ "resources": [
+  {
+   "name": "15 visual study prompts",
+   "type": "prompt_pack",
+   "role": "main",
+   "via": "screen"
+  },
+  {
+   "name": "ChatGPT",
+   "type": "tool",
+   "role": "context",
+   "via": "screen"
+  },
+  {
+   "name": "Claude",
+   "type": "tool",
+   "role": "context",
+   "via": "screen"
+  }
+ ],
+ "references": [
+  "Comment \"prompts\" for the full prompt text"
+ ],
+ "series": null,
+ "claims": [],
+ "category": "learning-resources",
+ "nodes": [
+  "ai/02-prompting",
+  "learning-language-books/01-effective-learning-and-memory"
+ ],
+ "risk": [
+  "paid_lead_magnet"
+ ],
+ "open_questions_fa": [],
+ "extracted_by": "Apify instagram-reel-scraper (videoUrl) + ffmpeg keyframes + faster-whisper small (CPU) + Claude reading frames and transcript",
+ "extracted_at": "2026-11-05"
+}

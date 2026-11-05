@@ -1,0 +1,168 @@
+id	name	qid	wikipedia_en	homepage
+res:claude	Claude		Claude (language model)	https://claude.ai
+res:claude-opus	Claude Opus		Claude (language model)	https://www.anthropic.com/claude
+res:claude-4-6	Claude 4.6		Claude (language model)	https://www.anthropic.com/claude
+res:opus-5-5	Opus 5.5		Claude (language model)	https://www.anthropic.com/claude
+res:fable-5	Fable 5		Claude (language model)	https://www.anthropic.com/claude
+res:claude-cli	Claude CLI	Q138457287		https://claude.com/product/claude-code
+res:codex	Codex	Q138940795		https://openai.com/codex/
+res:codex-cli	Codex CLI	Q138940795		https://github.com/openai/codex
+res:cursor	Cursor		Cursor (code editor)	https://cursor.com
+res:gemini	Gemini	Q116698014		https://gemini.google.com
+res:gemini-3-1	Gemini 3.1			https://deepmind.google/models/gemini/
+res:gemini-flash	Gemini Flash			https://deepmind.google/models/gemini/
+res:gemini-cli	Gemini CLI			https://github.com/google-gemini/gemini-cli
+res:mcp	MCP	Q133436854		https://modelcontextprotocol.io
+res:hacker-news	Hacker News		Hacker News	https://news.ycombinator.com
+res:steam	Steam		Steam (service)	https://store.steampowered.com
+res:youtube	YouTube		YouTube	https://www.youtube.com
+res:github	GitHub		GitHub	https://github.com
+res:grok	Grok		Grok (chatbot)	https://grok.com
+res:hugging-face	Hugging Face		Hugging Face	https://huggingface.co
+res:huggingface	HuggingFace		Hugging Face	https://huggingface.co
+res:n8n	n8n			https://n8n.io
+res:langgraph	LangGraph			https://www.langchain.com/langgraph
+res:notebooklm	NotebookLM		NotebookLM	https://notebooklm.google.com
+res:kimi	Kimi			https://www.kimi.com
+res:kimi-k3	Kimi K3			https://www.kimi.com
+res:nvidia	NVIDIA		Nvidia	https://www.nvidia.com
+res:glm	GLM			https://z.ai
+res:glm-5-2	GLM-5.2			https://z.ai
+res:glm-5-3	GLM 5.3			https://z.ai
+res:android	Android		Android (operating system)	https://www.android.com
+res:photoshop	Photoshop		Adobe Photoshop	https://www.adobe.com/products/photoshop.html
+res:after-effects	After Effects		Adobe After Effects	https://www.adobe.com/products/aftereffects.html
+res:gpt	GPT		Generative pre-trained transformer	
+res:reddit	Reddit		Reddit	https://www.reddit.com
+res:tiktok	TikTok		TikTok	https://www.tiktok.com
+res:instagram	Instagram		Instagram	https://www.instagram.com
+res:supabase	Supabase			https://supabase.com
+res:chrome	Chrome		Google Chrome	https://www.google.com/chrome/
+res:aws	AWS		Amazon Web Services	https://aws.amazon.com
+res:azure	Azure		Microsoft Azure	https://azure.microsoft.com
+res:x	X		Twitter	https://x.com
+res:unity	Unity		Unity (game engine)	https://unity.com
+res:stripe	Stripe		Stripe, Inc.	https://stripe.com
+res:vllm	vLLM			https://github.com/vllm-project/vllm
+res:crewai	CrewAI			https://www.crewai.com
+res:runway	Runway		Runway (company)	https://runwayml.com
+res:ragas	RAGAS			https://docs.ragas.io
+res:lightrag	LightRAG			https://github.com/HKUDS/LightRAG
+res:docling	Docling			https://github.com/docling-project/docling
+res:kafka	Kafka		Apache Kafka	https://kafka.apache.org
+res:python	Python		Python (programming language)	https://www.python.org
+res:llama	Llama		Llama (language model)	https://www.llama.com
+res:cline	Cline			https://cline.bot
+res:vs-code	VS Code		Visual Studio Code	https://code.visualstudio.com
+res:windsurf	Windsurf			https://windsurf.com
+res:npm	npm		Npm	https://www.npmjs.com
+res:gradio	Gradio			https://www.gradio.app
+res:jupyter	Jupyter		Project Jupyter	https://jupyter.org
+res:perplexity	Perplexity		Perplexity AI	https://www.perplexity.ai
+res:godot	Godot		Godot (game engine)	https://godotengine.org
+res:aider	Aider			https://aider.chat
+res:meshy	Meshy			https://www.meshy.ai
+res:linkedin	LinkedIn		LinkedIn	https://www.linkedin.com
+res:veo	Veo			https://deepmind.google/models/veo/
+res:higgsfield	Higgsfield			https://higgsfield.ai
+res:reinforcement-learning-an-introduction	Reinforcement Learning: An Introduction			http://incompleteideas.net/book/the-book-2nd.html
+res:git	Git		Git	https://git-scm.com
+res:gta-san-andreas	GTA San Andreas		Grand Theft Auto: San Andreas	
+res:framer	Framer			https://www.framer.com
+res:surya	Surya			https://github.com/datalab-to/surya
+res:chandra	Chandra			https://github.com/datalab-to/chandra
+res:marker	Marker			https://github.com/datalab-to/marker
+res:kaggle	Kaggle		Kaggle	https://www.kaggle.com
+res:pydantic	Pydantic			https://docs.pydantic.dev
+res:wikipedia	Wikipedia		Wikipedia	https://www.wikipedia.org
+res:sadservers	SadServers			https://sadservers.com
+res:oh-my-git	Oh My Git!			https://ohmygit.org
+res:deepseek-ocr	DeepSeek-OCR			https://github.com/deepseek-ai/DeepSeek-OCR
+res:deepseek-v4-pro	DeepSeek V4 Pro			https://www.deepseek.com
+res:qdrant	Qdrant			https://qdrant.tech
+res:zig	Zig		Zig (programming language)	https://ziglang.org
+res:pinokio	Pinokio			https://pinokio.computer
+res:substack	Substack		Substack	https://substack.com
+res:posthog	PostHog			https://posthog.com
+res:3blue1brown	3Blue1Brown		3Blue1Brown	https://www.3blue1brown.com
+res:minimax	MiniMax			https://www.minimax.io
+res:minimax-h3	MiniMax H3			https://www.minimax.io
+res:gemma	Gemma			https://deepmind.google/models/gemma/
+res:gemma-4	Gemma 4			https://deepmind.google/models/gemma/
+res:esp32	ESP32		ESP32	https://www.espressif.com/en/products/socs/esp32
+res:kali-linux	Kali Linux		Kali Linux	https://www.kali.org
+res:qwen-3-8-27b	Qwen 3.8 27B			https://qwen.ai
+res:qwen-image-2-1-turbo	Qwen-Image-2.1-Turbo			https://qwen.ai
+res:mistral	Mistral		Mistral AI	https://mistral.ai
+res:marble	Marble			https://marble.worldlabs.ai
+res:rust	Rust		Rust (programming language)	https://www.rust-lang.org
+res:snowflake	Snowflake		Snowflake Inc.	https://www.snowflake.com
+res:make	Make		none	
+res:chisel	Chisel		none	
+res:spacexai	SpaceXAI		none	
+res:hyperedit	HyperEdit		none	
+res:copilot	Copilot		none	
+res:doom	Doom		none	
+concept:ai/01-llm-basics			Large language model	
+concept:ai/02-prompting			Prompt engineering	
+concept:ai/04-agents-automation			Intelligent agent	
+concept:ai/05-api-rag			Retrieval-augmented generation	
+concept:gamedev/01-engines			Game engine	
+concept:gamedev/02-game-design			Game design	
+concept:gamedev/04-ai-in-games			Artificial intelligence in video games	
+concept:gamedev/05-math-physics			Game physics	
+concept:math/01-foundations			Set theory	
+concept:math/02-linear-algebra			Linear algebra	
+concept:math/03-calculus			Calculus	
+concept:math/04-probability-stats			Probability theory	
+concept:programming-infra/01-programming-basics-python			Python (programming language)	
+concept:programming-infra/02-algorithms-data-structures			Algorithm	
+concept:programming-infra/03-linux-command-line			Command-line interface	
+concept:programming-infra/04-git-collaboration			Git	
+concept:programming-infra/05-devops-cloud-containers			DevOps	
+concept:programming-infra/06-software-security			Application security	
+concept:physics-astronomy/01-mechanics-electromagnetism			Classical mechanics	
+concept:physics-astronomy/02-particle-physics-cern			CERN	
+concept:physics-astronomy/03-observational-astronomy			Observational astronomy	
+concept:physics-astronomy/04-cosmology-gravitational-waves			Gravitational wave	
+concept:physics-astronomy/05-science-communication			Science communication	
+concept:design-typography/01-visual-principles			Visual design elements and principles	
+concept:design-typography/02-typography-font-choice			Typography	
+concept:design-typography/03-ui-ux			User experience design	
+concept:design-typography/05-game-design-visuals			Game art design	
+concept:hardware-tech-privacy/02-privacy-secure-tools			Internet privacy	
+concept:hardware-tech-privacy/03-electronics-arduino			Arduino	
+concept:business-marketing/01-business-model-and-revenue			Business model	
+concept:business-marketing/02-content-marketing-and-newsletter			Content marketing	
+concept:business-marketing/03-entrepreneurship-and-product-building			Entrepreneurship	
+concept:business-marketing/04-investing-and-personal-finance			Personal finance	
+concept:learning-language-books/02-second-language-and-linguistics			Second-language acquisition	
+concept:media-entertainment/01-cinema-film-criticism			Film criticism	
+concept:media-entertainment/02-music-sound			Music	
+concept:media-entertainment/03-animation-cartoon			Animation	
+concept:media-entertainment/04-series-streaming			Streaming television	
+concept:media-entertainment/05-memes-online-culture			Internet meme	
+concept:history-myth/01-iran-world-history			History of Iran	
+concept:history-myth/02-mythology-folklore			Mythology	
+concept:news-politics/01-media-literacy			Media literacy	
+concept:society-religion/01-islam-and-sources			Islam	
+concept:society-religion/02-religions-comparative			Comparative religion	
+concept:society-religion/03-social-activism-nonprofits			Nonprofit organization	
+concept:society-religion/04-interfaith-dialogue			Interfaith dialogue	
+concept:health-sports/01-calisthenics-basics			Calisthenics	
+concept:health-sports/02-nutrition-health			Nutrition	
+concept:health-sports/03-mental-health-sleep			Mental health	
+concept:health-sports/04-supplements			Dietary supplement	
+concept:music-sound/01-sound-music-basics			Music theory	
+concept:music-sound/02-daw-production			Digital audio workstation	
+concept:music-sound/03-sound-design-mixing			Audio mixing (recorded music)	
+concept:music-sound/05-music-licensing			Music licensing	
+concept:visual-art/01-painting-composition-basics			Composition (visual arts)	
+concept:visual-art/02-color-contrast			Color theory	
+concept:visual-art/03-figure-portrait-drawing			Figure drawing	
+concept:visual-art/04-gallery-exhibition-market			Art gallery	
+concept:visual-art/05-art-and-ai			Artificial intelligence art	
+concept:culture-spirituality/01-cultural-studies-journals			Cultural studies	
+concept:culture-spirituality/03-architecture-culture			Architecture	
+concept:culture-spirituality/04-persian-arabic-language-literature			Persian literature	
+concept:culture-spirituality/05-philosophy-meaning-ethics			Ethics	

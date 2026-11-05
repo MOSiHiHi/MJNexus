@@ -1,0 +1,82 @@
+{
+ "item_id": "0005",
+ "shortcode": "De-BmHeKTMd",
+ "url": "https://www.instagram.com/reel/De-BmHeKTMd/",
+ "creator": "j.t.rivard",
+ "posted_at": "2026-10-26",
+ "duration_s": 42.1,
+ "language": "en",
+ "transcript_quality": "good",
+ "frames_reviewed": true,
+ "transcript": "Claude Codes started blocking people trying to use the reverse engineer anything engine on github that has absolutely blown up here's how you get around that for just 37 cents this is step one get a different harness this is called the pie harness step two go to openrouter.com and get an api key now you can use other models such as deep-sea flash v4.1 and then would you look at that what we built by reverse engineering a $50 app to open and edit PDFs like come on who would pay $50 for that if you want to learn how to do this you have to follow me so I could DM you comment guide and I will send you a guide step by step getting this all set up and you can go have some fun with REA",
+ "on_screen": [
+  "REA — the Reverse Engineer Anything engine, \"on GitHub: blown up\"",
+  "REA report of a rebuilt PDF app: PDFium engine, annotations, signatures, page ops; selftest 27/27 checks on an 83-page PDF",
+  "Status line: $0.371, 33.3%/1.0M context",
+  "Model: (openrouter) deepseek/deepseek-v4.1-flash-1017, high"
+ ],
+ "summary_fa": "ادعا: Claude Code استفاده از REA (موتور «مهندسی معکوس هر چیزی») را مسدود کرده؛ سازنده به‌جای آن REA را با Pi harness و کلید OpenRouter روی DeepSeek Flash V4.1 اجرا کرده و با ۳۷ سنت یک اپ ۵۰ دلاری ویرایش PDF را بازسازی کرده است.",
+ "key_points_fa": [
+  "گام‌ها: هارنس دیگر (Pi harness) ← کلید API از OpenRouter ← مدل ارزان‌تر مثل DeepSeek Flash V4.1.",
+  "روی صفحه: گزارش بازسازی اپ PDF بر پایهٔ PDFium و آزمون ۲۷ از ۲۷.",
+  "هزینهٔ اعلام‌شده: ۰٫۳۷ دلار.",
+  "ریسک: دور زدن محدودیت ارائه‌دهنده و کپی اپ پولی دیگران؛ از نظر حقوقی و شرایط استفاده محل تردید است."
+ ],
+ "resources": [
+  {
+   "name": "REA (Reverse Engineer Anything)",
+   "type": "tool",
+   "role": "main",
+   "via": "transcript"
+  },
+  {
+   "name": "Pi harness",
+   "type": "tool",
+   "role": "main",
+   "via": "transcript"
+  },
+  {
+   "name": "OpenRouter",
+   "type": "service",
+   "role": "context",
+   "via": "transcript"
+  },
+  {
+   "name": "DeepSeek Flash V4.1",
+   "type": "model",
+   "role": "context",
+   "via": "screen"
+  },
+  {
+   "name": "Claude Code",
+   "type": "tool",
+   "role": "context",
+   "via": "transcript"
+  },
+  {
+   "name": "PDFium",
+   "type": "tool",
+   "role": "context",
+   "via": "screen"
+  }
+ ],
+ "references": [
+  "Comment GUIDE for a DM guide"
+ ],
+ "series": null,
+ "claims": [
+  "Reverse-engineered a $50 PDF app for $0.37",
+  "Claude Code started blocking people using REA"
+ ],
+ "category": "coding-agents",
+ "nodes": [
+  "ai/04-agents-automation"
+ ],
+ "risk": [
+  "piracy",
+  "paid_lead_magnet"
+ ],
+ "open_questions_fa": [],
+ "extracted_by": "Apify instagram-reel-scraper (videoUrl) + ffmpeg keyframes + faster-whisper small (CPU) + Claude reading frames and transcript",
+ "extracted_at": "2026-11-05"
+}

@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>کاهش گرادیانی و نرخ یادگیری</title>
+<style>
+/* Layout: one column of lesson blocks; the simulator is a two-column block that stacks on narrow screens. */
+:root{--bg:#f6f7fb;--surface:#fff;--line:#d9deea;--fg:#1b1f3b;--muted:#5b6283;--accent:#c97f00;--ok:#0d7f73;--bad:#b8324a;--soft:#eef1f8}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#11132a;--surface:#1a1d3a;--line:#31365e;--fg:#eceef9;--muted:#a3a8c9;--accent:#f2b33d;--ok:#4fd1bf;--bad:#ff8197;--soft:#232748;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#11132a;--surface:#1a1d3a;--line:#31365e;--fg:#eceef9;--muted:#a3a8c9;--accent:#f2b33d;--ok:#4fd1bf;--bad:#ff8197;--soft:#232748;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.8 Vazirmatn,Tahoma,sans-serif;direction:rtl}
+main{max-width:920px;margin:0 auto;padding:20px 16px 48px;display:grid;gap:18px}
+h1{font-size:28px;margin:0;line-height:1.35}
+h2{font-size:20px;margin:0 0 8px}
+section{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.muted{color:var(--muted)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.sim{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:16px}
+@media (max-width:720px){.sim{grid-template-columns:1fr}}
+canvas{width:100%;height:auto;background:var(--soft);border-radius:10px;display:block}
+label{display:grid;gap:4px;font-size:14px}
+input[type=range]{width:100%}
+output{font-variant-numeric:tabular-nums;font-weight:700}
+button{font:inherit;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:10px;padding:8px 14px;cursor:pointer}
+button.primary{background:var(--accent);border-color:var(--accent);color:#1a1300;font-weight:700}
+button:focus-visible,input:focus-visible{outline:3px solid var(--fg);outline-offset:2px}
+.log{font-size:14px;max-height:220px;overflow:auto;display:grid;gap:4px}
+.ok{color:var(--ok);font-weight:700}.bad{color:var(--bad);font-weight:700}
+.map{display:grid;gap:8px;list-style:none;padding:0;margin:0}
+.map li{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;background:var(--soft);border-radius:10px;padding:8px 12px}
+.tag{font-size:12px;border-radius:999px;padding:2px 10px;border:1px solid var(--line)}
+.tag.have{color:var(--ok);border-color:var(--ok)}.tag.need{color:var(--accent);border-color:var(--accent)}
+code{direction:ltr;unicode-bidi:isolate;background:var(--soft);padding:0 5px;border-radius:5px}
+.quiz .q{font-size:17px;font-weight:600}
+.quiz .opts{display:grid;gap:8px;margin-top:10px}
+.quiz .opts button{text-align:right}
+.quiz .opts button.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 18%,var(--surface))}
+.quiz .opts button.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 18%,var(--surface))}
+.quiz .hint{font-size:14px;color:var(--muted);margin-top:8px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <span class="muted">گرهٔ ریاضی ۵ · ریاضی برای یادگیری ماشین</span>
+  <h1>کاهش گرادیانی و نرخ یادگیری</h1>
+  <p class="muted">این درس را قدم‌به‌قدم بخوان و هر بخش را با کار کردن روی شبیه‌ساز بفهم. کد همه‌اش انگلیسی است؛ توضیح‌ها فارسی هستند.</p>
+</header>
+
+<section>
+  <h2>۱. نقشهٔ یادگیری: چه چیزهایی لازم است؟</h2>
+  <p>برای فهم این درس به پنج مفهوم نیاز داری. وضعیت هر کدام را خودت علامت بزن؛ جای خالی را با شبیه‌ساز و سؤال‌های پایین پر کن.</p>
+  <ul class="map" id="map"></ul>
+  <div class="row" style="margin-top:10px">
+    <button id="saveMap">ذخیرهٔ وضعیت روی این مرورگر</button>
+    <span class="muted" id="mapNote"></span>
+  </div>
+</section>
+
+<section>
+  <h2>۲. شیب و گرادیان، با یک تابع ساده</h2>
+  <p>تابع <code>f(x) = x²</code> یک کاسه است و کمینه‌اش در <code>x = 0</code> است. <strong>شیب</strong> (مشتق) در هر نقطه به ما می‌گوید تابع آنجا چقدر و در کدام جهت بالا می‌رود. گرادیان در یک بُعد همان شیب است.</p>
+  <div class="row"><label style="flex:1">نقطهٔ فعلی <output id="xOut"></output><input type="range" id="xSlider" min="-5" max="5" step="0.1" value="4"></label></div>
+  <p id="slopeText" class="muted"></p>
+  <canvas id="slopeCanvas" width="640" height="300" role="img" aria-label="نمودار f(x)=x² و شیب در نقطهٔ انتخابی"></canvas>
+</section>
+
+<section>
+  <h2>۳. شبیه‌ساز کاهش گرادیانی</h2>
+  <p>قانون هر قدم: <code>x ← x − نرخ × شیب</code>. فقط <strong>نرخ یادگیری</strong> و نقطهٔ شروع را تغییر بده و تماشا کن.</p>
+  <div class="sim">
+    <div><canvas id="descentCanvas" width="640" height="360" role="img" aria-label="مسیر کاهش گرادیانی روی f(x)=x²"></canvas></div>
+    <div class="stack" style="display:grid;gap:10px">
+      <label>نرخ یادگیری <output id="lrOut"></output><input type="range" id="lr" min="0.01" max="1.2" step="0.01" value="0.1"></label>
+      <label>نقطهٔ شروع <output id="x0Out"></output><input type="range" id="x0" min="-5" max="5" step="0.1" value="4"></label>
+      <label>تعداد قدم <output id="nOut"></output><input type="range" id="n" min="1" max="30" step="1" value="12"></label>
+      <div class="row"><button class="primary" id="run">اجرا</button><button id="reset">بازنشانی</button></div>
+      <div id="verdict" class="muted"></div>
+      <div class="log" id="log" aria-live="polite"></div>
+    </div>
+  </div>
+  <p class="muted" style="margin-top:12px">آزمایش‌های پیشنهادی: نرخ <code>0.1</code> را ببین. بعد نرخ <code>1.0</code> را امتحان کن. بعد <code>0.01</code> را. کدام‌یک به کمینه می‌رسد، کدام‌یک می‌پرد و کدام‌یک خیلی کند است؟</p>
+</section>
+
+<section class="quiz">
+  <h2>۴. سؤال‌های تولیدی</h2>
+  <p class="muted">هر بار یک سؤال تازه ساخته می‌شود. اول حدس بزن، بعد پاسخ را ببین.</p>
+  <div id="qbox"></div>
+  <div class="row" style="margin-top:12px"><button class="primary" id="newQ">سؤال تازه</button><span id="score" class="muted"></span></div>
+</section>
+
+</main>
+
+<script>
+"use strict";
+
+/* ---------- helpers ---------- */
+const f = x => x * x;            // loss function
+const df = x => 2 * x;           // its derivative (slope)
+const fmt = v => (Math.round(v * 100) / 100).toString();
+const $ = id => document.getElementById(id);
+const ctx = c => c.getContext("2d");
+
+/* ---------- 1. roadmap (generated from data) ---------- */
+const SKILLS = [
+  { key: "function", title: "تابع و نمودار آن", need: "بتوانی مقدار تابع را برای یک x حساب کنی" },
+  { key: "slope",    title: "شیب (مشتق)", need: "بدانی شیب یعنی تغییر خروجی به ازای تغییر ورودی" },
+  { key: "gradient", title: "گرادیان", need: "بدانی گرادیان جهت بیشترین افزایش است و برای پایین‌رفتن در خلافش حرکت می‌کنیم" },
+  { key: "lr",       title: "نرخ یادگیری", need: "بتوانی تأثیر اندازهٔ قدم را پیش‌بینی کنی" },
+  { key: "conv",     title: "همگرایی و واگرایی", need: "تشخیص دهی کی به کمینه می‌رسیم و کی از آن می‌پریم" }
+];
+const saved = (() => { try { return JSON.parse(localStorage.getItem("gd-map") || "{}"); } catch (e) { return {}; } })();
+
+function renderMap() {
+  $("map").innerHTML = "";
+  SKILLS.forEach((s, i) => {
+    const li = document.createElement("li");
+    const status = saved[s.key] || "need";
+    li.innerHTML = `<span class="muted">${i + 1}</span>
+      <span><strong>${s.title}</strong><br><span class="muted" style="font-size:14px">${s.need}</span></span>
+      <button data-k="${s.key}" aria-label="تغییر وضعیت ${s.title}">
+        <span class="tag ${status}">${status === "have" ? "بلدم" : "لازم دارم"}</span></button>`;
+    $("map").appendChild(li);
+  });
+}
+$("map").addEventListener("click", e => {
+  const b = e.target.closest("button[data-k]"); if (!b) return;
+  const k = b.dataset.k;
+  saved[k] = saved[k] === "have" ? "need" : "have";
+  renderMap();
+});
+$("saveMap").addEventListener("click", () => {
+  try { localStorage.setItem("gd-map", JSON.stringify(saved)); $("mapNote").textContent = "ذخیره شد (فقط روی همین مرورگر)."; }
+  catch (e) { $("mapNote").textContent = "ذخیره در این مرورگر ممکن نیست؛ وضعیت فقط تا بستن صفحه می‌ماند."; }
+});
+renderMap();
+
+/* ---------- 2. slope view ---------- */
+function drawSlope() {
+  const c = $("slopeCanvas"), g = ctx(c), W = c.width, H = c.height;
+  const x = +$("xSlider").value, y = f(x), s = df(x);
+  $("xOut").textContent = fmt(x);
+  const X = v => (v + 5) / 10 * W, Y = v => H - (v + 1) / 26 * H;   // x in [-5,5], y in [-1,25]
+  g.clearRect(0, 0, W, H);
+  g.strokeStyle = "#8b91a8"; g.lineWidth = 1;
+  g.beginPath(); g.moveTo(0, Y(0)); g.lineTo(W, Y(0)); g.moveTo(X(0), 0); g.lineTo(X(0), H); g.stroke();
+  g.strokeStyle = "#5a6bd8"; g.lineWidth = 3; g.beginPath();
+  for (let v = -5; v <= 5; v += 0.05) { const p = [X(v), Y(f(v))]; v === -5 ? g.moveTo(...p) : g.lineTo(...p); }
+  g.stroke();
+  // tangent line at x: y = y0 + s (t - x)
+  g.strokeStyle = "#c97f00"; g.lineWidth = 2; g.beginPath();
+  g.moveTo(X(-5), Y(y + s * (-5 - x))); g.lineTo(X(5), Y(y + s * (5 - x))); g.stroke();
+  g.fillStyle = "#c97f00"; g.beginPath(); g.arc(X(x), Y(y), 6, 0, Math.PI * 2); g.fill();
+  const dir = s > 0 ? "به راست (بالا می‌رود)" : s < 0 ? "به چپ (بالا می‌رود)" : "افقی (کمینه یا بیشینه)";
+  $("slopeText").innerHTML = `در x = ${fmt(x)}: f = ${fmt(y)}، شیب = ${fmt(s)}. برای بالارفتن تابع باید ${dir}؛ پس برای پایین‌رفتن در خلاف شیب حرکت می‌کنیم.`;
+}
+$("xSlider").addEventListener("input", drawSlope);
+drawSlope();
+
+/* ---------- 3. descent simulator ---------- */
+function simulate(lr, x0, steps) {
+  const xs = [x0];
+  let x = x0;
+  for (let i = 0; i < steps; i++) {
+    x = x - lr * df(x);
+    xs.push(x);
+    if (!isFinite(x) || Math.abs(x) > 1e6) break;
+  }
+  return xs;
+}
+function classify(xs, lr) {
+  const last = xs[xs.length - 1];
+  if (!isFinite(last) || Math.abs(last) > 1e3) return { cls: "bad", text: "واگرایی: هر قدم از قبلی بزرگ‌تر شد و مقدار از بین رفت. نرخ خیلی بزرگ است." };
+  if (Math.abs(last) < 0.05) return { cls: "ok", text: "همگرایی: به کمینه (x ≈ 0) رسیدیم." };
+  // oscillation: sign flips with growing magnitude
+  let flips = 0;
+  for (let i = 1; i < xs.length; i++) if (Math.sign(xs[i]) !== Math.sign(xs[i - 1])) flips++;
+  if (flips >= 3 && Math.abs(last) > Math.abs(xs[0]))
+    return { cls: "bad", text: "واگرایی: هر بار از کمینه رد می‌شویم و هر پرش بزرگ‌تر از قبلی است. نرخ زیاد است." };
+  if (flips >= 3)
+    return { cls: "muted", text: "نوسان: از دو طرف کمینه رد می‌شویم اما کم‌کم نزدیک‌تر می‌شویم. نرخ کمی زیاد است." };
+  return { cls: "muted", text: "هنوز در حال نزدیک‌شدن است. تعداد قدم را بیشتر کن یا نرخ را کمی بالا ببر." };
+}
+function drawDescent(xs) {
+  const c = $("descentCanvas"), g = ctx(c), W = c.width, H = c.height;
+  const X = v => (v + 5) / 10 * W, Y = v => H - (v + 1) / 26 * H;
+  const clampV = v => Math.max(-5, Math.min(5, v));
+  g.clearRect(0, 0, W, H);
+  g.strokeStyle = "#5a6bd8"; g.lineWidth = 3; g.beginPath();
+  for (let v = -5; v <= 5; v += 0.05) { const p = [X(v), Y(f(v))]; v === -5 ? g.moveTo(...p) : g.lineTo(...p); }
+  g.stroke();
+  g.strokeStyle = "#c97f00"; g.lineWidth = 1.5; g.setLineDash([4, 3]);
+  g.beginPath();
+  xs.forEach((v, i) => { const p = [X(clampV(v)), Y(clampV(f(v)))]; i ? g.lineTo(...p) : g.moveTo(...p); });
+  g.stroke(); g.setLineDash([]);
+  xs.forEach((v, i) => {
+    if (!isFinite(v) || Math.abs(v) > 5) return;
+    g.fillStyle = i === 0 ? "#0d7f73" : "#c97f00";
+    g.beginPath(); g.arc(X(v), Y(f(v)), i === 0 ? 7 : 4.5, 0, Math.PI * 2); g.fill();
+  });
+  g.fillStyle = "#8b91a8"; g.font = "13px sans-serif";
+  g.fillText("کمینه x = 0", X(0) + 6, H - 8);
+}
+function runSim() {
+  const lr = +$("lr").value, x0 = +$("x0").value, steps = +$("n").value;
+  $("lrOut").textContent = fmt(lr); $("x0Out").textContent = fmt(x0); $("nOut").textContent = steps;
+  const xs = simulate(lr, x0, steps);
+  drawDescent(xs);
+  const v = classify(xs, lr);
+  $("verdict").className = v.cls; $("verdict").textContent = v.text;
+  const rows = xs.slice(0, 8).map((x, i) => `<div>قدم ${i}: x = ${isFinite(x) ? fmt(x) : "∞"}</div>`).join("");
+  $("log").innerHTML = rows + (xs.length > 8 ? `<div class="muted">… ${xs.length - 1} قدم در مجموع</div>` : "");
+}
+["lr", "x0", "n"].forEach(id => $(id).addEventListener("input", runSim));
+$("run").addEventListener("click", runSim);
+$("reset").addEventListener("click", () => { $("lr").value = 0.1; $("x0").value = 4; $("n").value = 12; runSim(); });
+runSim();
+
+/* ---------- 4. generated questions ---------- */
+const rnd = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
+const shuffle = a => a.map(v => [Math.random(), v]).sort((p, q) => p[0] - q[0]).map(p => p[1]);
+let asked = 0, correct = 0;
+
+// Each generator returns { q, options, answer, hint } and computes the answer from the same numbers it shows.
+const GENERATORS = [
+  () => {
+    const x = rnd(-4, 4) || 3;
+    const correctShape = `شیب f(x)=x² در x = ${x} برابر ${2 * x} است`;
+    return {
+      q: `برای f(x) = x² شیب (مشتق) در x = ${x} چقدر است؟`,
+      options: [String(2 * x), String(x * x), String(2 * x * x), String(-2 * x)],
+      answer: String(2 * x),
+      hint: "مشتق x² برابر 2x است. مقدار x را جایگذاری کن.",
+      why: correctShape + "."
+    };
+  },
+  () => {
+    const x = rnd(1, 4), lr = [0.1, 0.5, 1.2][rnd(0, 2)];
+    const next = x - lr * 2 * x;
+    const cands = [fmt(next), fmt(x + lr * 2 * x), fmt(x - lr * x), fmt(x)];
+    return {
+      q: `x = ${x}، نرخ یادگیری = ${lr}. یک قدم کاهش گرادیانی روی f(x)=x² چه مقداری می‌دهد؟`,
+      options: cands,
+      answer: fmt(next),
+      hint: "قاعده: x ← x − نرخ × شیب. شیب را در x حساب کن.",
+      why: `شیب = 2 × ${x} = ${2 * x}؛ پس x ← ${x} − ${lr} × ${2 * x} = ${fmt(next)}.`
+    };
+  },
+  () => {
+    const lr = [0.05, 0.1, 0.9, 1.1, 1.5][rnd(0, 4)];
+    const big = lr > 1;
+    return {
+      q: `نرخ یادگیری ${lr} است. برای f(x)=x² چه اتفاقی می‌افتد؟`,
+      options: shuffle(["به کمینه همگرا می‌شود", "از کمینه می‌پرد و ممکن است واگرا شود", "هیچ‌وقت حرکت نمی‌کند", "مشتق صفر می‌شود و توقف می‌کند"]),
+      answer: big ? "از کمینه می‌پرد و ممکن است واگرا شود" : "به کمینه همگرا می‌شود",
+      hint: "برای f(x)=x²، قدم بعدی را برای x=1 حساب کن: x − نرخ×2. اگر قدم از 2 بزرگ‌تر باشد، از کمینه (0) رد شده‌ای.",
+      why: big
+        ? `برای x=1، قدم بعدی 1 − ${lr}×2 = ${fmt(1 - lr * 2)} است؛ از 0 گذشته و دور شده‌ایم.`
+        : `برای x=1، قدم بعدی 1 − ${lr}×2 = ${fmt(1 - lr * 2)} است؛ به 0 نزدیک‌تر شده‌ایم.`
+    };
+  },
+  () => {
+    const a = rnd(2, 6);
+    return {
+      q: `اگر تابع f(x) = ${a}x² باشد، شیب آن در x = 1 چقدر است؟`,
+      options: shuffle([String(2 * a), String(a), String(a * a), String(2)]),
+      answer: String(2 * a),
+      hint: "ضریب ثابت a را بیرون نگه دار و مشتق x² را بگیر.",
+      why: `مشتق ${a}x² برابر ${2 * a}x است، پس در x = 1 شیب ${2 * a} است.`
+    };
+  }
+];
+
+function newQuestion() {
+  const gen = GENERATORS[rnd(0, GENERATORS.length - 1)];
+  const item = gen();
+  const box = $("qbox");
+  box.innerHTML = `<div class="q"></div><div class="opts"></div><div class="hint" hidden></div>`;
+  box.querySelector(".q").textContent = item.q;
+  const opts = box.querySelector(".opts");
+  item.options.forEach(o => {
+    const b = document.createElement("button");
+    b.textContent = o;
+    b.addEventListener("click", () => answer(b, o, item, opts));
+    opts.appendChild(b);
+  });
+  const hint = box.querySelector(".hint");
+  hint.textContent = "راهنما: " + item.hint;
+  const h = document.createElement("button");
+  h.textContent = "راهنما";
+  h.style.marginTop = "8px";
+  h.addEventListener("click", () => { hint.hidden = false; });
+  box.appendChild(h);
+}
+function answer(btn, value, item, opts) {
+  if (opts.dataset.done) return;
+  opts.dataset.done = "1";
+  asked++;
+  const ok = value === item.answer;
+  if (ok) correct++;
+  [...opts.children].forEach(b => { if (b.textContent === item.answer) b.classList.add("right"); });
+  if (!ok) btn.classList.add("wrong");
+  const why = document.createElement("div");
+  why.className = "hint";
+  why.innerHTML = `<span class="${ok ? "ok" : "bad"}">${ok ? "درست" : "نادرست"}</span> — ${item.why}`;
+  $("qbox").appendChild(why);
+  $("score").textContent = `${correct} از ${asked} درست`;
+}
+$("newQ").addEventListener("click", newQuestion);
+newQuestion();
+</script>
+</body>
+</html>

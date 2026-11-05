@@ -1,0 +1,17 @@
+{
+ "shortCode": "DfAkXOeIRBm",
+ "ownerUsername": "archive.genocide",
+ "timestamp": "2026-10-27T19:07:41.000Z",
+ "videoDuration": 117.098228,
+ "caption": "We have released Zero Breach Toolkit, our second free open sourced tool capable of detecting over 12,100 traces of Israeli & other spyware on your devices. It works on Windows, Linux, Mac, Android and Iphones.\n\nYou can download it here: https://github.com/interplains/Zero-Breach-Toolkit\n\nInside the folder with the tools run: python -X utf8 scan/zero-breach-toolkit.py\n\nIt never writes to disk, connects to the internet, or ask for admin rights, it takes around 10-15 minutes to run depending on the device. \n\nThis project is fully open source, so feel free to take the code and use it to create your own tools. \n\nIf you find some spyware on your device, consider sending it to us via telegram. Leave us a star on GitHub if the tool helped you. \n\nFollow our backup @archive.genocide1\n\nGod bless.",
+ "hashtags": [],
+ "mentions": [
+  "archive.genocide1"
+ ],
+ "likesCount": 164227,
+ "commentsCount": 1611,
+ "videoPlayCount": 2067539,
+ "item_id": "0006",
+ "url": "https://www.instagram.com/reel/DfAkXOeIRBm/",
+ "run_id": "g18O9e8M1mku52lBk"
+}

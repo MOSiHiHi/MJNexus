@@ -1,0 +1,38 @@
+{
+ "item_id": "0001",
+ "shortcode": "DfNj-OztZMx",
+ "url": "https://www.instagram.com/reel/DfNj-OztZMx/",
+ "creator": "the_sleeper_must_awaken_",
+ "posted_at": "2026-11-01",
+ "duration_s": 64.0,
+ "language": "en",
+ "transcript_quality": "good",
+ "frames_reviewed": false,
+ "transcript": "Hate is not the opposite of love. It's the same feeling, at a different degree. The cabalion calls it the principle of polarity. Everything has two poles, and the opposites are the same thing, differing only in degree. On a thermometer, where does hot end and cold begin? There's no line, only degrees. Travel far enough east, and you're heading west. It's the same inside you. Fear and courage sit on one line. So do hate and love. So a feeling doesn't have to be destroyed. The cabalion calls this mental alchemy, lead, turns slowly in your rises and on its other pole, and are the same sky. You were never broken, just at the other end of the line.",
+ "on_screen": [],
+ "summary_fa": "توضیح «اصل قطبیت» از کتاب Kybalion: دو قطب متضاد (گرما و سرما، شرق و غرب، ترس و شجاعت، نفرت و عشق) یک چیزند با درجه‌های متفاوت؛ پس احساس را نباید نابود کرد، بلکه می‌شود آن را آرام‌آرام به قطب دیگر برد.",
+ "key_points_fa": [
+  "متضادها فقط در درجه با هم فرق دارند (مثال دماسنج).",
+  "«کیمیای ذهنی»: جابه‌جا کردن تدریجی احساس به‌جای سرکوب آن.",
+  "محتوای معنوی/هرمسی است، نه آموزش فنی."
+ ],
+ "resources": [
+  {
+   "name": "The Kybalion",
+   "type": "book",
+   "role": "main",
+   "via": "transcript"
+  }
+ ],
+ "references": [],
+ "series": null,
+ "claims": [],
+ "category": "other",
+ "nodes": [
+  "culture-spirituality/02-spirituality-classical-texts"
+ ],
+ "risk": [],
+ "open_questions_fa": [],
+ "extracted_by": "Apify instagram-reel-scraper (videoUrl) + ffmpeg keyframes + faster-whisper small (CPU) + Claude reading frames and transcript",
+ "extracted_at": "2026-11-05"
+}

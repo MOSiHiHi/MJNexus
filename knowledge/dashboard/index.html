@@ -1,0 +1,761 @@
+<meta name="dash-one-writer">
+<div id="dash-root">
+<style>
+  #dash-root { --dash-gutter: 0; }
+  .cv { --nav-w: 17rem; --det-w: 22rem; position: relative; display: grid;
+    grid-template-columns: var(--nav-w) minmax(0, 1fr) var(--det-w); grid-template-rows: minmax(0, 1fr) auto;
+    grid-template-areas: "nav stage detail" "bar bar bar"; height: max(34rem, calc(100dvh - 5rem));
+    font-family: var(--font-anthropic-sans); color: var(--color-fg); background: var(--color-bg);
+    border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); overflow: hidden;
+    transition: grid-template-columns var(--cds-dur-slow) var(--cds-ease-out); }
+  .cv.no-nav { --nav-w: 0rem; }
+  .cv.no-det { --det-w: 0rem; }
+  @media (prefers-reduced-motion: reduce) { .cv { transition: none; } }
+
+  .cv-side { background: var(--color-panel); overflow: auto; min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr); grid-auto-rows: max-content; align-content: start; gap: var(--cds-gap-md);
+    padding: var(--cds-pad-md); font-size: var(--cds-font-size-caption); }
+  .cv-nav { grid-area: nav; border-inline-end: 1px solid var(--color-border-line); }
+  .cv-det { grid-area: detail; border-inline-start: 1px solid var(--color-border-line); }
+  .cv.no-nav .cv-nav, .cv.no-det .cv-det { padding: 0; border: 0; overflow: hidden; }
+  .cv-stage { grid-area: stage; position: relative; min-width: 0; min-height: 0; }
+  .cv-bar { grid-area: bar; display: flex; flex-wrap: wrap; align-items: center; gap: var(--cds-gap-sm) var(--cds-gap-md);
+    padding: var(--cds-pad-xs) var(--cds-pad-md); background: var(--color-panel); border-top: 1px solid var(--color-border-line);
+    font-size: var(--cds-font-size-caption); }
+
+  @media (max-width: 900px) {
+    .cv { --nav-w: 0rem; --det-w: 0rem; }
+    .cv-side { position: absolute; top: 0; bottom: 2.75rem; z-index: 3; width: min(20rem, 88%); box-shadow: var(--cds-shadow-popover); }
+    .cv-nav { inset-inline-start: 0; }
+    .cv-det { inset-inline-end: 0; }
+    .cv:not(.open-nav) .cv-nav, .cv:not(.open-det) .cv-det { display: none; }
+    .cv.cv .cv-kpi:nth-child(n+3), .cv.cv .cv-ev, .cv.cv .cv-zoom[data-zoom=fit] { display: none; }
+    .cv-bar { flex-wrap: nowrap; }
+  }
+
+  .cv h2 { font-size: var(--cds-font-size-body); font-weight: var(--cds-font-weight-medium); margin: 0; line-height: 1.4; }
+  .cv h3 { font-size: var(--cds-font-size-caption); font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); margin: 0 0 var(--cds-gap-xs); }
+  .cv .cv-muted { color: var(--color-fg-muted); margin: 0; line-height: 1.6; }
+  .cv .cv-group { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--cds-gap-xs); }
+
+  .cv .cv-seg { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); overflow: hidden; }
+  .cv .cv-seg button { font: inherit; padding: var(--cds-pad-xs); border: 0; background: var(--color-bg); color: var(--color-fg-muted); cursor: pointer; }
+  .cv .cv-seg button[aria-pressed="true"] { background: var(--color-fg); color: var(--color-bg); }
+  .cv input[type=search], .cv input[type=number], .cv select, .cv .cv-btn {
+    font: inherit; font-size: var(--cds-font-size-caption); padding: 4px var(--cds-pad-sm); border: 1px solid var(--color-border-line);
+    border-radius: var(--cds-radius); background: var(--color-bg); color: var(--color-fg); min-width: 0; }
+  .cv .cv-btn { cursor: pointer; white-space: nowrap; }
+  .cv .cv-btn:hover { border-color: var(--color-fg-muted); }
+  .cv .cv-icon { min-width: 2rem; text-align: center; }
+  .cv :focus-visible { outline: 2px solid var(--color-fg); outline-offset: 1px; }
+  .cv .cv-check { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+  .cv .cv-swatch { width: 0.7rem; height: 0.7rem; border-radius: 50%; flex: none; }
+  .cv .cv-row { display: flex; align-items: center; gap: var(--cds-gap-xs); }
+  .cv .cv-row > * { flex: 1 1 auto; }
+
+  .cv .cv-list { display: grid; gap: 2px; }
+  .cv .cv-item { display: flex; justify-content: space-between; gap: var(--cds-gap-sm); align-items: baseline; font: inherit;
+    text-align: start; background: none; border: 0; border-radius: var(--cds-radius); padding: 3px var(--cds-pad-xs); color: inherit; cursor: pointer; }
+  .cv .cv-item:hover { background: var(--color-bg); }
+  .cv .cv-item span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .cv .cv-item span:last-child { color: var(--color-fg-muted); font-variant-numeric: tabular-nums; flex: none; }
+
+  .cv .cv-pills { display: flex; flex-wrap: wrap; gap: 4px; }
+  .cv .cv-pill { border: 1px solid var(--color-border-line); border-radius: 999px; padding: 0 var(--cds-pad-sm); }
+  .cv .cv-pill.warn { color: var(--color-warn); border-color: currentColor; }
+  .cv a.cv-pill { color: inherit; text-decoration: none; }
+  .cv a.cv-pill:hover { border-color: var(--color-fg-muted); }
+  .cv .cv-inline { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+  .cv-canvas .bg line, .cv-canvas .bg circle { fill: none; stroke: var(--color-border-line); }
+  .cv-canvas .bg text { font-family: var(--font-anthropic-sans); fill: var(--color-fg-muted); }
+  .cv .cv-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--cds-gap-xs); }
+  .cv .cv-stat { display: grid; background: var(--color-bg); border-radius: var(--cds-radius); padding: var(--cds-pad-xs) var(--cds-pad-sm); }
+  .cv .cv-stat b { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-heading); font-variant-numeric: tabular-nums; }
+  .cv .cv-gone, .cv [hidden] { display: none !important; }
+  .cv .cv-row > .cv-icon { flex: none; }
+
+  .cv .cv-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  .cv .cv-table th { text-align: start; font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); padding: 2px 4px; border-bottom: 1px solid var(--color-border-line); }
+  .cv .cv-table td { padding: 3px 4px; border-bottom: 1px solid var(--color-border-line); vertical-align: top; }
+  .cv .cv-table a { color: inherit; }
+
+  .cv-canvas { position: absolute; inset: 0; }
+  .cv-canvas svg { display: block; width: 100%; height: 100%; cursor: grab; touch-action: none; }
+  .cv-canvas svg:active { cursor: grabbing; }
+  .cv-canvas .lbl { font-family: var(--font-anthropic-sans); fill: var(--color-fg); paint-order: stroke; stroke: var(--color-bg);
+    stroke-width: 3px; stroke-linejoin: round; pointer-events: none; }
+  .cv-canvas .elbl { font-family: var(--font-anthropic-sans); fill: var(--color-fg-muted); pointer-events: none; }
+  .cv-canvas .node { cursor: pointer; }
+  .cv-tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border);
+    border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm);
+    font-size: var(--cds-font-size-caption); max-width: 16rem; z-index: 2; }
+  .cv-tip span { display: block; color: var(--cds-text-secondary); }
+
+  .cv .cv-kpis { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs) var(--cds-gap-md); }
+  .cv .cv-kpi { display: inline-flex; gap: 4px; align-items: baseline; color: var(--color-fg-muted); }
+  .cv .cv-kpi b { color: var(--color-fg); font-weight: var(--cds-font-weight-medium); font-variant-numeric: tabular-nums; }
+  .cv .cv-ev { display: flex; height: 0.5rem; width: 8rem; border-radius: var(--cds-radius); overflow: hidden; background: var(--cds-chart-grid); }
+  .cv .cv-spacer { flex: 1 1 auto; }
+  .cv-fail { color: var(--color-fg-muted); }
+  .cv [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+</style>
+
+<div class="cv" dir="rtl" lang="fa" id="canvas-app">
+  <aside class="cv-side cv-nav" id="explore" aria-label="جست‌وجو و فیلتر">
+    <div class="cv-group">
+      <h2>رادار ابزار و مخزن دانش</h2>
+      <p class="cv-muted">روی هر گره بزنید تا همه‌چیزش در پنل کناری بیاید. با چرخ ماوس بزرگ‌نمایی کنید و بوم را بکشید.</p>
+    </div>
+    <div class="cv-seg" role="group" aria-label="نمای بوم">
+      <button class="cv-mode" data-mode="graph" aria-pressed="true" type="button">مخزن دانش</button>
+      <button class="cv-mode" data-mode="radar" aria-pressed="false" type="button">رادار</button>
+      <button class="cv-mode" data-mode="ontology" aria-pressed="false" type="button">هستی‌شناسی</button>
+    </div>
+    <div class="cv-group">
+      <input class="cv-q" type="search" placeholder="جست‌وجوی گره… ( / )" aria-label="جست‌وجوی گره">
+      <div class="cv-list" data-draw="search_list" data-source="graph_nodes"></div>
+    </div>
+    <div class="cv-group cv-graph-only">
+      <h3>لایه‌ها</h3>
+      <label class="cv-check"><input class="cv-layer" type="checkbox" value="domain" checked><span class="cv-swatch" data-kind="domain"></span>حوزه‌ها</label>
+      <label class="cv-check"><input class="cv-layer" type="checkbox" value="concept" checked><span class="cv-swatch" data-kind="concept"></span>مفهوم‌های ویکی</label>
+      <label class="cv-check"><input class="cv-layer" type="checkbox" value="category" checked><span class="cv-swatch" data-kind="category"></span>دسته‌های رادار</label>
+      <label class="cv-check"><input class="cv-layer" type="checkbox" value="resource" checked><span class="cv-swatch" data-kind="resource"></span>منابع (رنگ دسته)</label>
+      <label class="cv-check"><input class="cv-layer" type="checkbox" value="account" checked><span class="cv-swatch" data-kind="account"></span>حساب‌های منتشرکننده</label>
+    </div>
+    <div class="cv-group cv-radar-only" hidden>
+      <h3>خواندن رادار</h3>
+      <p class="cv-muted">هر برش یک دستهٔ رادار است و هر حلقه یک تصمیم: به‌کارگیری، آزمایش، ارزیابی، توقف. حلقه را فقط صاحب مخزن در <code>radar_owner.tsv</code> تعیین می‌کند و تا آن موقع همه در «ارزیابی» هستند. درون هر حلقه، منبع پرتکرارتر به مرکز نزدیک‌تر است. حاشیهٔ تیره یعنی تازه (۳۰ روز آخر)؛ حاشیهٔ نارنجی یعنی پرچم ریسک.</p>
+    </div>
+    <div class="cv-group cv-filters">
+      <h3>فیلتر منابع</h3>
+      <select class="cv-cat" data-draw="cat_select" data-source="categories" aria-label="دسته"></select>
+      <select class="cv-lic" data-draw="lic_select" data-source="licenses" aria-label="لایسنس"></select>
+      <label class="cv-row">حداقل اشاره <input class="cv-min" type="number" min="1" max="50" value="1" aria-label="حداقل اشاره"></label>
+      <label class="cv-check"><input class="cv-safe" type="checkbox">فقط بدون ریسک</label>
+      <button class="cv-btn cv-reset" type="button">پاک کردن فیلترها</button>
+    </div>
+    <div class="cv-group">
+      <h3>کیفیت شواهد ذخیره‌ها</h3>
+      <div class="cv-list" data-draw="ev_list" data-source="info_levels"></div>
+    </div>
+  </aside>
+
+  <main class="cv-stage" id="stage" aria-label="بوم">
+    <div class="cv-canvas" data-draw="canvas" data-source="graph_nodes graph_edges ontology_nodes ontology_edges"></div>
+  </main>
+
+  <aside class="cv-side cv-det" id="detail" aria-label="جزئیات">
+    <section class="cv-group cv-hint">
+      <p class="cv-muted">چیزی انتخاب نشده است. روی یک گره در بوم یا یک نتیجهٔ جست‌وجو بزنید. Esc انتخاب را پاک می‌کند و / جست‌وجو را باز می‌کند.</p>
+      <h3>پرتکرارترین منابع (موضوع اصلی ذخیره)</h3>
+      <div class="cv-list" data-draw="top_list" data-source="graph_nodes"></div>
+    </section>
+
+    <section class="cv-group cv-sel-graph" hidden>
+      <div class="cv-row"><h2 data-draw="s_label" data-source="graph_nodes" data-field="label">—</h2>
+        <button class="cv-btn cv-icon cv-clear" type="button" aria-label="بستن انتخاب">✕</button></div>
+      <p class="cv-muted" data-draw="s_sub" data-source="graph_nodes" data-field="sub">—</p>
+      <p data-draw="s_what" data-source="graph_nodes" data-field="what_fa">—</p>
+      <p class="cv-muted" data-draw="s_desc" data-source="graph_nodes" data-field="description_en" lang="en" dir="ltr">—</p>
+      <div class="cv-pills" data-draw="s_ident" data-source="graph_nodes" aria-label="نشانی‌های رسمی"></div>
+      <div class="cv-pills">
+        <span class="cv-pill" data-draw="s_type" data-source="graph_nodes" data-field="type">—</span>
+        <span class="cv-pill" data-draw="s_lic" data-source="graph_nodes" data-field="license">—</span>
+        <span class="cv-pill" data-draw="s_commit" data-source="graph_nodes" data-field="last_commit">—</span>
+        <span class="cv-pill" data-draw="s_ring" data-source="graph_nodes" data-field="ring">—</span>
+        <span class="cv-pill warn" data-draw="s_risk" data-source="graph_nodes" data-field="risk">—</span>
+      </div>
+      <div class="cv-stats cv-res-only">
+        <div class="cv-stat"><span>موضوع اصلی</span><b data-draw="s_main" data-source="graph_nodes" data-field="main_mentions">—</b></div>
+        <div class="cv-stat"><span>کل اشاره</span><b data-draw="s_ment" data-source="graph_nodes" data-field="mentions">—</b></div>
+        <div class="cv-stat"><a class="cv-btn" data-draw="s_link" data-source="graph_nodes" data-field="url" target="_blank" rel="noopener">—</a></div>
+      </div>
+      <div class="cv-stats cv-acc-only" hidden>
+        <div class="cv-stat"><span>ذخیره از این حساب</span><b data-draw="s_acc_saved" data-source="graph_nodes" data-field="items">—</b></div>
+        <div class="cv-stat"><span>دنبال‌کننده</span><b data-draw="s_followers" data-source="graph_nodes" data-field="followers">—</b></div>
+        <div class="cv-stat"><span>دنبالش می‌کنم</span><b data-draw="s_followed" data-source="graph_nodes" data-field="followed">—</b></div>
+      </div>
+      <div class="cv-stats cv-count-only">
+        <div class="cv-stat"><span>ذخیره یا منبع</span><b data-draw="s_items" data-source="graph_nodes" data-field="items">—</b></div>
+      </div>
+      <div class="cv-list" data-draw="s_links" data-source="graph_nodes graph_edges"></div>
+      <section class="cv-group cv-res-items" hidden>
+        <h3>ذخیره‌هایی که به این منبع اشاره دارند</h3>
+        <table class="cv-table" data-source="resource_items" data-row-key="rid,item_id">
+          <thead><tr><th data-field="item_id">ذخیره</th><th data-field="creator">حساب</th><th data-field="saved_at">تاریخ</th><th data-field="role_fa">نقش</th><th data-field="what_fa">چیست</th></tr></thead>
+          <tbody data-draw="s_items_rows"></tbody>
+        </table>
+      </section>
+      <section class="cv-group cv-acc-items" hidden>
+        <h3>پست‌های ذخیره‌شده از این حساب</h3>
+        <table class="cv-table" data-source="items" data-row-key="item_id">
+          <thead><tr><th data-field="item_id">ذخیره</th><th data-field="saved_at">تاریخ</th><th data-field="what_fa">چیست</th></tr></thead>
+          <tbody data-draw="s_acc_rows"></tbody>
+        </table>
+      </section>
+    </section>
+
+    <section class="cv-group cv-sel-onto" hidden>
+      <div class="cv-row"><h2 data-draw="o_label" data-source="ontology_nodes" data-field="label">—</h2>
+        <button class="cv-btn cv-icon cv-clear" type="button" aria-label="بستن انتخاب">✕</button></div>
+      <p class="cv-muted" data-draw="o_sub" data-source="ontology_nodes" data-field="sub">—</p>
+      <div class="cv-stats"><div class="cv-stat"><span>تعداد در مدل</span><b data-draw="o_count" data-source="ontology_nodes" data-field="count">—</b></div></div>
+      <h3>رابطه‌ها</h3>
+      <div class="cv-list" data-draw="o_rels" data-source="ontology_edges"></div>
+    </section>
+  </aside>
+
+  <footer class="cv-bar" id="status">
+    <button class="cv-btn cv-toggle-nav" type="button" aria-label="نمایش یا پنهان کردن فیلترها">☰ فیلترها</button>
+    <div class="cv-kpis">
+      <span class="cv-kpi">ذخیره <b data-draw="k_items" data-source="kpis" data-field="items" data-row="0">—</b></span>
+      <span class="cv-kpi">منبع <b data-draw="k_res" data-source="kpis" data-field="resources" data-row="0">—</b></span>
+      <span class="cv-kpi">ریپو <b data-draw="k_repos" data-source="kpis" data-field="repos" data-row="0">—</b></span>
+      <span class="cv-kpi">کم‌اطلاع <b data-draw="k_low" data-source="kpis" data-field="low_info" data-row="0">—</b></span>
+      <span class="cv-kpi">ادعا <b data-draw="k_claims" data-source="kpis" data-field="claims" data-row="0">—</b></span>
+      <span class="cv-kpi">ریل تحلیل‌شده <b data-draw="k_videos" data-source="kpis" data-field="videos" data-row="0">—</b></span>
+    </div>
+    <div class="cv-ev" data-draw="ev_bar" data-source="info_levels" aria-label="کیفیت شواهد"></div>
+    <span class="cv-spacer"></span>
+    <button class="cv-btn cv-icon cv-zoom" data-zoom="out" type="button" aria-label="کوچک‌نمایی">−</button>
+    <button class="cv-btn cv-icon cv-zoom" data-zoom="in" type="button" aria-label="بزرگ‌نمایی">+</button>
+    <button class="cv-btn cv-zoom" data-zoom="fit" type="button">نمای کامل</button>
+    <button class="cv-btn cv-toggle-det" type="button" aria-label="نمایش یا پنهان کردن جزئیات">جزئیات ◧</button>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const fmt = d3.format(',');
+  const KIND_COLOR = { domain: () => 'var(--color-fg)', concept: () => 'var(--cds-chart-muted)', category: () => dash.colors[0],
+                       account: () => 'var(--cds-chart-reference)' };
+  const RINGS = ['adopt', 'trial', 'assess', 'hold'];
+  const RING_FA = { adopt: 'به‌کارگیری', trial: 'آزمایش', assess: 'ارزیابی', hold: 'توقف' };
+  const RING_R = [0, 90, 160, 330, 380];
+  const CATS = ['coding-agents', 'agent-frameworks', 'rag-knowledge', 'models-inference', 'media-generation',
+                'automation-business', 'dev-infra-security', 'learning-resources'];
+  const catColor = (c) => { const i = CATS.indexOf(c); return i >= 0 ? dash.colors[i % dash.colors.length] : 'var(--cds-chart-muted)'; };
+  const colorOf = (n) => (n.kind === 'resource' ? catColor(n.group) : n.kind === 'category' ? catColor(n.group) : KIND_COLOR[n.kind]());
+  const radius = (n) => n.kind === 'domain' ? 13 : n.kind === 'category' ? 15
+    : n.kind === 'concept' ? Math.min(13, 4 + Math.sqrt(n.items) * 1.2)
+    : n.kind === 'account' ? Math.min(10, 2.5 + Math.sqrt(n.items) * 1.2) : Math.min(13, 2.5 + Math.sqrt(n.mentions) * 1.7);
+  const LAYERS = ['domain', 'concept', 'category', 'resource', 'account'];
+  const state = { mode: 'graph', q: '', layers: new Set(LAYERS), cat: '', lic: '', min: 1, safe: false };
+  const ok = (id) => { const d = dash.data(id); return d.status === 'ok' ? d.data : null; };
+  const sel = () => dash.params().sel || '';
+  const where = (el, id) => { if (id) el.dataset.where = 'id=' + encodeURIComponent(id); else delete el.dataset.where; };
+  const RISKY_LIC = /AGPL|GPL|NC|SSPL/;
+
+  // which graph nodes pass the layers and filters
+  const visibleGraph = () => {
+    const nodes = ok('graph_nodes'), edges = ok('graph_edges');
+    if (!nodes || !edges) return null;
+    const keep = nodes.filter((n) => n.kind !== 'account' && state.layers.has(n.kind) && (n.kind !== 'resource' || (
+      (!state.cat || n.group === state.cat)
+      && (!state.lic || (state.lic === 'none found' ? (n.url.includes('github.com') && !n.license) : n.license === state.lic))
+      && n.mentions >= state.min && (!state.safe || !n.risk))));
+    const ids = new Set(keep.map((n) => n.id));
+    // an account is shown when it posted about at least one resource still on the canvas
+    if (state.layers.has('account')) {
+      const acc = new Set(edges.filter((e) => e.kind === 'posted' && ids.has(e.target)).map((e) => e.source));
+      for (const n of nodes) if (acc.has(n.id)) { keep.push(n); ids.add(n.id); }
+    }
+    return { nodes: keep, edges: edges.filter((e) => ids.has(e.source) && ids.has(e.target)) };
+  };
+  const neighbors = (id, edges) => {
+    const out = new Map();
+    for (const e of edges) {
+      if (e.source === id) out.set(e.target, e);
+      else if (e.target === id) out.set(e.source, e);
+    }
+    return out;
+  };
+
+  // ontology entities sit on a fixed map so the schema reads the same every time; loop angle (degrees) for self-relations
+  const ONTO_POS = { 'o:Owner': [-500, -100], 'o:Account': [-280, -100], 'o:Item': [-40, -100], 'o:Video': [-40, -300],
+    'o:Series': [200, -270], 'o:Concept': [320, -100], 'o:Claim': [160, 120], 'o:Resource': [-40, 220],
+    'o:Domain': [-280, 120], 'o:Project': [320, 260] };
+  const LOOP_DEG = { 'o:Item': -50, 'o:Concept': 0, 'o:Resource': 110 };
+  const edgePath = (e) => {
+    const s = e.source, t = e.target;
+    if (s === t) {
+      const a = ((LOOP_DEG[s.id] ?? -90) + e.loop * 40) * Math.PI / 180, L = 46 + e.loop * 10;
+      const pt = (ang, d) => [s.x + d * Math.cos(ang), s.y + d * Math.sin(ang)];
+      return 'M' + pt(a - 0.35, s.r) + 'C' + pt(a - 0.6, s.r + L) + ' ' + pt(a + 0.6, s.r + L) + ' ' + pt(a + 0.35, s.r + 3);
+    }
+    if (!e.arrow) return 'M' + s.x + ',' + s.y + 'L' + t.x + ',' + t.y;
+    const dx = t.x - s.x, dy = t.y - s.y, d = Math.hypot(dx, dy) || 1;
+    return 'M' + (s.x + dx * s.r / d) + ',' + (s.y + dy * s.r / d) + 'L' + (t.x - dx * (t.r + 4) / d) + ',' + (t.y - dy * (t.r + 4) / d);
+  };
+  const edgeLabelAt = (e) => {
+    const s = e.source, t = e.target;
+    if (s === t) { const a = ((LOOP_DEG[s.id] ?? -90) + e.loop * 40) * Math.PI / 180, d = s.r + 40 + e.loop * 10;
+      return [s.x + d * Math.cos(a), s.y + d * Math.sin(a)]; }
+    return [(s.x + t.x) / 2, (s.y + t.y) / 2 - 4];
+  };
+
+  // radar: one slice per category, one band per ring; inside a band the most mentioned sit nearest the centre
+  const radarLayout = (res) => {
+    const latest = d3.max(res, (n) => n.first_seen) || '';
+    const cut = latest ? new Date(Date.parse(latest) - 30 * 864e5).toISOString().slice(0, 10) : '';
+    const span = 2 * Math.PI / CATS.length, pad = 0.06;
+    const out = [];
+    for (const [ci, cat] of CATS.entries()) {
+      for (const [ri, ring] of RINGS.entries()) {
+        const list = res.filter((n) => n.group === cat && (n.ring || 'assess') === ring)
+          .sort((a, b) => b.mentions - a.mentions || b.main_mentions - a.main_mentions || a.label.localeCompare(b.label));
+        const r0 = RING_R[ri] + 10, r1 = RING_R[ri + 1] - 8;
+        list.forEach((n, i) => {
+          const t = (i + 0.5) / list.length, r = Math.sqrt(r0 * r0 + t * (r1 * r1 - r0 * r0));
+          const a = -Math.PI / 2 + ci * span + pad + (((i * 0.618034) + 0.31) % 1) * (span - 2 * pad);
+          out.push({ ...n, r: Math.min(8, 2.5 + Math.sqrt(n.mentions) * 1.2), x: r * Math.cos(a), y: r * Math.sin(a),
+                     isNew: !!cut && n.first_seen >= cut, always: i < 2 });
+        });
+      }
+    }
+    return out;
+  };
+  const drawRadarBg = (made, on) => {
+    made.gBG.selectAll('*').remove();
+    if (!on) return;
+    const cats = new Map((ok('categories') || []).map((c) => [c.category, c.category_fa]));
+    const span = 2 * Math.PI / CATS.length;
+    made.gBG.selectAll('circle').data(RING_R.slice(1)).join('circle').attr('r', (r) => r);
+    made.gBG.selectAll('line').data(CATS).join('line').attr('x1', 0).attr('y1', 0)
+      .attr('x2', (c, i) => RING_R[4] * Math.cos(-Math.PI / 2 + i * span)).attr('y2', (c, i) => RING_R[4] * Math.sin(-Math.PI / 2 + i * span));
+    made.gBG.selectAll('text.sector').data(CATS).join('text').attr('class', 'sector').attr('text-anchor', 'middle').attr('font-size', 13)
+      .attr('x', (c, i) => (RING_R[4] + 26) * Math.cos(-Math.PI / 2 + (i + 0.5) * span))
+      .attr('y', (c, i) => (RING_R[4] + 26) * Math.sin(-Math.PI / 2 + (i + 0.5) * span) + 4)
+      .style('fill', (c) => catColor(c)).text((c) => cats.get(c) || c);
+    made.gBG.selectAll('text.ring').data(RINGS).join('text').attr('class', 'ring').attr('text-anchor', 'middle').attr('font-size', 11)
+      .attr('x', 0).attr('y', (r, i) => -(RING_R[i + 1] - 6)).text((r) => RING_FA[r]);
+  };
+
+  // ---------------------------------------------------------------- the canvas
+  dash.draw('canvas', {
+    mount(el) {
+      const svg = d3.select(el).append('svg').attr('role', 'img').attr('aria-label', 'گراف مخزن دانش');
+      svg.append('defs').append('marker').attr('id', 'cv-arrow').attr('viewBox', '0 0 10 10').attr('refX', 9).attr('refY', 5)
+        .attr('markerWidth', 7).attr('markerHeight', 7).attr('orient', 'auto-start-reverse')
+        .append('path').attr('d', 'M0,0L10,5L0,10z').style('fill', 'var(--cds-chart-axis)');
+      const layer = svg.append('g');
+      const gBG = layer.append('g').attr('class', 'bg');
+      const gE = layer.append('g'), gEL = layer.append('g'), gN = layer.append('g'), gL = layer.append('g');
+      const tip = document.createElement('div'); tip.className = 'cv-tip'; tip.hidden = true; el.append(tip);
+      const zoom = d3.zoom().scaleExtent([0.15, 6]).on('zoom', (e) => {
+        layer.attr('transform', e.transform);
+        made.scaleText(e.transform.k);
+      });
+      svg.call(zoom).on('dblclick.zoom', null);
+      svg.on('click', (e) => { if (e.target === svg.node()) dash.setParams({ sel: null }); });
+      const made = { svg, layer, gBG, gE, gEL, gN, gL, tip, zoom, pos: {}, key: '', laid: [] };
+      // labels keep the same size on screen at any zoom; small resource labels appear once zoomed in
+      made.scaleText = (k) => {
+        gL.selectAll('text').attr('font-size', (d) => d.fs / k).style('stroke-width', 3 / k + 'px')
+          .attr('y', (d) => d.y - d.r - 4 / k).attr('display', (d) => (d.always || k > 1.6 ? null : 'none'));
+        gEL.selectAll('text').attr('font-size', 10 / k);
+      };
+      made.fit = (dur = 400) => {
+        const pts = made.laid;
+        if (!pts.length) return;
+        const w = el.clientWidth || 600, h = el.clientHeight || 400;
+        const [x0, x1] = d3.extent(pts, (d) => d.x), [y0, y1] = d3.extent(pts, (d) => d.y);
+        const pad = state.mode === 'ontology' ? 220 : state.mode === 'radar' ? 120 : 40;  // room for loops, labels
+        const k = Math.min(3, 0.92 / Math.max((x1 - x0 + pad) / w, (y1 - y0 + pad) / h));
+        svg.transition().duration(dur).call(zoom.transform, d3.zoomIdentity.translate(w / 2 - k * (x0 + x1) / 2, h / 2 - k * (y0 + y1) / 2).scale(k));
+      };
+      made.focus = (id) => {
+        const d = made.laid.find((n) => n.id === id);
+        if (!d) return;
+        const w = el.clientWidth, h = el.clientHeight, k = Math.max(1.8, d3.zoomTransform(svg.node()).k);
+        svg.transition().duration(450).call(zoom.transform, d3.zoomIdentity.translate(w / 2 - k * d.x, h / 2 - k * d.y).scale(k));
+      };
+      // refit when the stage changes size (sidebars toggled, window resized)
+      let last = [el.clientWidth, el.clientHeight];
+      made.ro = new ResizeObserver(() => {
+        const now = [el.clientWidth, el.clientHeight];
+        if (Math.abs(now[0] - last[0]) > 40 || Math.abs(now[1] - last[1]) > 40) { last = now; made.fit(250); }
+      });
+      made.ro.observe(el);
+      window.__cv = made;
+      return made;
+    },
+    unmount(el, made) { made.ro.disconnect(); },
+    update(el, made) {
+      const mode = state.mode;
+      let nodes, edges;
+      if (mode === 'graph') {
+        const g = visibleGraph();
+        if (!g) { made.gN.selectAll('*').remove(); made.gE.selectAll('*').remove(); made.gL.selectAll('*').remove(); return; }
+        nodes = g.nodes.map((n) => ({ ...n, r: radius(n) }));
+        edges = g.edges.map((e) => ({ ...e }));
+      } else if (mode === 'radar') {
+        const g = visibleGraph();
+        if (!g) return;
+        nodes = radarLayout(g.nodes.filter((n) => n.kind === 'resource' && CATS.includes(n.group)));
+        edges = [];
+      } else {
+        const on = ok('ontology_nodes'), oe = ok('ontology_edges');
+        if (!on || !oe) return;
+        nodes = on.map((n, i) => { const p = ONTO_POS[n.id] || [i * 60, 380];
+          return { ...n, kind: 'onto', r: 12 + Math.min(14, Math.sqrt(n.count) / 3), x: p[0], y: p[1] }; });
+        const loops = {};
+        edges = oe.map((e) => ({ ...e, kind: 'rel', arrow: true, loop: e.source === e.target ? (loops[e.source] = (loops[e.source] ?? -1) + 1) : 0 }));
+      }
+      // layout: reuse earlier positions, run a short, synchronous simulation (no animation, stable view)
+      const key = mode + '|' + nodes.length + '|' + edges.length;
+      const pos = made.pos[mode] || (made.pos[mode] = new Map());  // each view keeps its own layout
+      const seeded = mode === 'graph' ? nodes.map((n) => { const p = pos.get(n.id); return p ? Object.assign(n, { x: p.x, y: p.y }) : n; }) : nodes;
+      if (key !== made.key && mode === 'graph') {
+        const fresh = seeded.filter((n) => n.x === undefined).length;
+        const sim = d3.forceSimulation(seeded)
+          .force('link', d3.forceLink(edges).id((d) => d.id)
+            .distance((e) => (e.kind === 'in_category' ? 55 : e.kind === 'about' ? 70 : e.kind === 'posted' ? 40 : 45))
+            .strength((e) => (e.kind === 'about' ? 0.08 : e.kind === 'posted' ? 0.25 : e.kind === 'in_category' ? 0.5 : 0.7)))
+          .force('charge', d3.forceManyBody().strength((d) => (d.kind === 'resource' || d.kind === 'account' ? -18 : -160)).theta(0.9))
+          .force('collide', d3.forceCollide((d) => d.r + 2).iterations(1))
+          .force('x', d3.forceX(0).strength(0.04)).force('y', d3.forceY(0).strength(0.04))
+          .stop();
+        const ticks = fresh > nodes.length / 2 ? 220 : 60;
+        for (let i = 0; i < ticks; i++) sim.tick();
+        made.key = key;
+      }
+      const byId = new Map(seeded.map((n) => [n.id, n]));
+      for (const n of seeded) pos.set(n.id, { x: n.x, y: n.y });
+      drawRadarBg(made, mode === 'radar');
+      for (const e of edges) { if (typeof e.source === 'string') { e.source = byId.get(e.source); e.target = byId.get(e.target); } }
+      made.laid = seeded;
+
+      const picked = sel();
+      const near = picked ? neighbors(picked, edges.map((e) => ({ source: e.source.id, target: e.target.id }))) : null;
+      const q = state.q.trim().toLowerCase();
+      const hit = (n) => !q || n.label.toLowerCase().includes(q);
+      const lit = (n) => (picked ? n.id === picked || near.has(n.id) : hit(n));
+      const k = d3.zoomTransform(made.svg.node()).k;
+
+      made.gE.selectAll('path').data(edges, (e) => e.source.id + '>' + e.target.id + (e.rel || ''))
+        .join('path').attr('d', edgePath).style('fill', 'none')
+        .attr('marker-end', (e) => (e.arrow ? 'url(#cv-arrow)' : null))
+        .style('stroke', (e) => (e.kind === 'rel' ? 'var(--cds-chart-axis)' : e.kind === 'prereq' || e.kind === 'in_domain' ? 'var(--cds-chart-axis)' : 'var(--cds-chart-grid)'))
+        .attr('stroke-width', (e) => (mode === 'ontology' ? 1.5 : e.kind === 'about' ? Math.min(3, 0.6 + e.weight / 3) : 1))
+        .attr('stroke-dasharray', (e) => (e.planned || e.owner_only ? '4 3' : null))
+        .attr('opacity', (e) => (picked ? (e.source.id === picked || e.target.id === picked ? 0.9 : 0.06)
+          : q ? 0.1 : mode === 'ontology' ? (e.count ? 0.8 : 0.4) : 0.45));
+
+      made.gEL.selectAll('text').data(mode === 'ontology' ? edges : [], (e) => e.rel + e.source.id)
+        .join('text').attr('class', 'elbl').attr('text-anchor', 'middle').attr('font-size', 10)
+        .attr('x', (e) => edgeLabelAt(e)[0]).attr('y', (e) => edgeLabelAt(e)[1])
+        .attr('opacity', (e) => (picked && e.source.id !== picked && e.target.id !== picked ? 0.15 : 1))
+        .text((e) => e.rel + ' · ' + fmt(e.count));
+
+      made.gN.selectAll('circle').data(seeded, (n) => n.id)
+        .join('circle').attr('class', 'node')
+        .attr('cx', (n) => n.x).attr('cy', (n) => n.y).attr('r', (n) => n.r)
+        .style('fill', (n) => (n.kind === 'onto' ? (n.id === 'o:Owner' ? 'var(--color-fg)' : n.count ? dash.colors[0] : 'var(--cds-chart-muted)') : colorOf(n)))
+        .style('stroke', (n) => (n.id === picked || n.isNew ? 'var(--color-fg)' : n.risk ? 'var(--color-warn)' : 'var(--color-bg)'))
+        .attr('stroke-width', (n) => (n.id === picked ? 3 : n.isNew || n.risk ? 1.6 : 1))
+        .attr('opacity', (n) => (lit(n) ? 1 : 0.12))
+        .on('click', (e, n) => { e.stopPropagation(); dash.setParams({ sel: n.id }); })
+        .on('mouseenter', (e, n) => {
+          made.tip.replaceChildren();
+          const b = document.createElement('b'); b.textContent = n.label;
+          const s = document.createElement('span');
+          s.textContent = n.kind === 'onto' ? fmt(n.count) + ' در مدل' : n.kind === 'resource'
+            ? n.sub + ' · ' + fmt(n.mentions) + ' اشاره' : n.kind === 'account' ? n.sub + ' · ' + fmt(n.items) + ' ذخیره'
+            : n.sub + (n.items ? ' · ' + fmt(n.items) : '');
+          made.tip.append(b, s);
+          made.tip.hidden = false;
+        })
+        .on('mousemove', (e) => {
+          const r = el.getBoundingClientRect();
+          const x = Math.min(e.clientX - r.left + 12, r.width - 200);
+          made.tip.style.left = x + 'px'; made.tip.style.top = (e.clientY - r.top + 12) + 'px';
+        })
+        .on('mouseleave', () => { made.tip.hidden = true; });
+
+      // label the picked node's strongest neighbours only (a busy tool can have a hundred)
+      const top = new Set(picked ? [...near.keys()].map((id) => byId.get(id)).filter(Boolean)
+        .sort((a, b) => (b.mentions || b.items || 0) - (a.mentions || a.items || 0)).slice(0, 15).map((n) => n.id) : []);
+      const labelled = mode === 'radar' ? seeded : seeded.filter((n) => n.kind === 'onto' || n.kind === 'domain' || n.kind === 'category'
+        || (n.kind === 'resource' && n.mentions >= 8) || (n.kind === 'account' && n.items >= 10)
+        || n.id === picked || top.has(n.id) || (q && hit(n) && n.kind !== 'resource'));
+      made.gL.selectAll('text').data(labelled.map((n) => ({ ...n, fs: n.kind === 'onto' ? 13 : n.kind === 'category' || n.kind === 'domain' ? 12 : 11,
+        always: (mode === 'radar' ? n.always : n.kind !== 'resource' && n.kind !== 'account') || n.id === picked || top.has(n.id) })), (n) => n.id)
+        .join('text').attr('class', 'lbl').attr('text-anchor', 'middle')
+        .attr('x', (n) => n.x)
+        .text((n) => (n.label.length > 28 ? n.label.slice(0, 27) + '…' : n.label));
+      made.scaleText(k);
+
+      if (seeded.length && made.fittedMode !== mode) { made.fittedMode = mode; made.fit(0); }
+    },
+  });
+
+  // ---------------------------------------------------------------- left sidebar
+  dash.draw('search_list', (el) => {
+    el.replaceChildren();
+    const q = state.q.trim().toLowerCase();
+    const nodes = ok(state.mode === 'ontology' ? 'ontology_nodes' : 'graph_nodes');
+    if (!q || !nodes) return;
+    const found = nodes.filter((n) => n.label.toLowerCase().includes(q) || (n.what_fa || '').toLowerCase().includes(q))
+      .sort((a, b) => (b.mentions || b.count || 0) - (a.mentions || a.count || 0)).slice(0, 15);
+    for (const n of found) {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'cv-item'; b.dataset.node = n.id;
+      const a = document.createElement('span'); a.textContent = n.label;
+      const c = document.createElement('span'); c.textContent = n.sub || '';
+      b.append(a, c); el.append(b);
+    }
+    if (!found.length) { const p = document.createElement('p'); p.className = 'cv-muted'; p.textContent = 'چیزی پیدا نشد.'; el.append(p); }
+  });
+  const fillSelect = (name, id, all, label, value) => dash.draw(name, (s) => {
+    const rows = ok(id) || [];
+    const opt = (t, v) => { const o = document.createElement('option'); o.textContent = t; o.value = v; return o; };
+    s.replaceChildren(opt(all, ''), ...rows.map((r) => opt(r[label] + ' (' + fmt(r[value]) + ')', r[label === 'category_fa' ? 'category' : label])));
+    s.value = name === 'cat_select' ? state.cat : state.lic;
+  });
+  fillSelect('cat_select', 'categories', 'همهٔ دسته‌ها', 'category_fa', 'resources');
+  fillSelect('lic_select', 'licenses', 'همهٔ لایسنس‌ها', 'license', 'repos');
+  const INFO_COLOR = { high: () => dash.colors[0], medium: () => 'var(--cds-chart-muted)', low: () => 'var(--color-warn)' };
+  dash.draw('ev_list', (el) => {
+    el.replaceChildren();
+    for (const r of ok('info_levels') || []) {
+      const row = document.createElement('div'); row.className = 'cv-item';
+      const a = document.createElement('span'); a.textContent = r.level_fa;
+      const b = document.createElement('span'); b.textContent = fmt(r.items);
+      row.append(a, b); el.append(row);
+    }
+  });
+
+  // ---------------------------------------------------------------- bottom bar
+  for (const [name, field] of [['k_items', 'items'], ['k_res', 'resources'], ['k_repos', 'repos'], ['k_low', 'low_info'],
+                               ['k_claims', 'claims'], ['k_videos', 'videos']]) {
+    dash.draw(name, (el) => { const d = ok('kpis'); el.textContent = d && d[0] ? fmt(d[0][field]) : '—'; });
+  }
+  dash.draw('ev_bar', (el) => {
+    const rows = ok('info_levels') || [];
+    const total = d3.sum(rows, (r) => r.items) || 1;
+    el.replaceChildren(...rows.map((r) => { const s = document.createElement('span'); s.style.width = (100 * r.items / total) + '%';
+      s.style.background = (INFO_COLOR[r.level] || INFO_COLOR.medium)(); s.title = r.level_fa + ': ' + fmt(r.items); return s; }));
+  });
+
+  // ---------------------------------------------------------------- right sidebar
+  dash.draw('top_list', (el) => {
+    el.replaceChildren();
+    const nodes = ok('graph_nodes') || [];
+    for (const n of nodes.filter((x) => x.kind === 'resource').sort((a, b) => b.main_mentions - a.main_mentions || b.mentions - a.mentions).slice(0, 15)) {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'cv-item'; b.dataset.node = n.id;
+      const a = document.createElement('span'); a.textContent = n.label;
+      const c = document.createElement('span'); c.textContent = fmt(n.main_mentions);
+      b.append(a, c); el.append(b);
+    }
+  });
+  const pickedNode = () => { const id = sel(); const nodes = ok('graph_nodes'); return id && nodes ? nodes.find((n) => n.id === id) : null; };
+  const pickedOnto = () => { const id = sel(); const nodes = ok('ontology_nodes'); return id && nodes ? nodes.find((n) => n.id === id) : null; };
+  for (const [name, field, num] of [['s_label', 'label'], ['s_sub', 'sub'], ['s_what', 'what_fa'], ['s_type', 'type'], ['s_lic', 'license'],
+                                    ['s_commit', 'last_commit'], ['s_ring', 'ring'], ['s_risk', 'risk'], ['s_main', 'main_mentions', 1],
+                                    ['s_ment', 'mentions', 1], ['s_items', 'items', 1], ['s_desc', 'description_en'],
+                                    ['s_acc_saved', 'items', 1], ['s_followers', 'followers', 1]]) {
+    dash.draw(name, (el) => {
+      const n = pickedNode();
+      const v = n ? n[field] : '';
+      el.textContent = v || v === 0 ? (num ? fmt(v) : v) : '—';
+      el.classList.toggle('cv-gone', !!n && !v && !num && name !== 's_label');
+      where(el, n && n.id);
+    });
+  }
+  dash.draw('s_link', (el) => {
+    const n = pickedNode();
+    el.textContent = n && n.url ? 'باز کردن ↗' : '—';
+    if (n && n.url) el.href = n.url; else el.removeAttribute('href');
+    el.classList.toggle('cv-gone', !(n && n.url));
+    where(el, n && n.id);
+  });
+  dash.draw('s_followed', (el) => {
+    const n = pickedNode();
+    el.textContent = n && n.followed ? (n.followed === 'yes' ? 'بله' : 'نه') : '—';
+    where(el, n && n.id);
+  });
+  // canonical web identity: official site, Wikipedia (fa, en), Wikidata
+  dash.draw('s_ident', (el) => {
+    el.replaceChildren();
+    const n = pickedNode();
+    if (!n) return;
+    const links = [[n.kind === 'account' && n.url, 'صفحهٔ اینستاگرام ↗'], [n.homepage, 'سایت رسمی ↗'], [n.wikipedia_fa, 'ویکی‌پدیای فارسی ↗'], [n.wikipedia_en, 'Wikipedia ↗'],
+                   [n.qid && 'https://www.wikidata.org/wiki/' + n.qid, 'Wikidata ' + n.qid + ' ↗']];
+    for (const [href, text] of links) {
+      if (!href) continue;
+      const a = document.createElement('a'); a.className = 'cv-pill'; a.href = href; a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = text; el.append(a);
+    }
+    where(el, n.id);
+  });
+  const KIND_FA = { domain: 'حوزه', concept: 'مفهوم‌ها', category: 'دسته', resource: 'منابع', account: 'حساب‌ها' };
+  dash.draw('s_links', (el) => {
+    el.replaceChildren();
+    const n = pickedNode(), nodes = ok('graph_nodes'), edges = ok('graph_edges');
+    if (!n || !nodes || !edges) return;
+    const byId = new Map(nodes.map((x) => [x.id, x]));
+    const near = [...neighbors(n.id, edges).entries()].map(([id, e]) => ({ node: byId.get(id), e })).filter((x) => x.node);
+    const groups = d3.group(near, (x) => x.node.kind);
+    for (const kind of ['domain', 'category', 'concept', 'resource', 'account']) {
+      const list = (groups.get(kind) || []).sort((a, b) => (b.e.weight - a.e.weight) || (b.node.mentions - a.node.mentions) || (b.node.items - a.node.items));
+      if (kind === 'account' && n.kind === 'resource') { const h = document.createElement('h3'); h.textContent = 'چه کسانی دربارهٔ آن پست گذاشته‌اند'; el.append(h); }
+      if (!list.length) continue;
+      const h = document.createElement('h3'); h.textContent = KIND_FA[kind] + ' مرتبط (' + fmt(list.length) + ')'; el.append(h);
+      for (const { node, e } of list.slice(0, 40)) {
+        const b = document.createElement('button'); b.type = 'button'; b.className = 'cv-item'; b.dataset.node = node.id;
+        const a = document.createElement('span');
+        a.textContent = (e.kind === 'prereq' ? (e.source === n.id ? 'بعدی: ' : 'پیش‌نیاز: ') : '') + node.label;
+        const c = document.createElement('span');
+        c.textContent = e.kind === 'posted' ? fmt(e.weight) + ' پست' : node.kind === 'resource' ? fmt(node.mentions) : node.items ? fmt(node.items) : '';
+        b.append(a, c); el.append(b);
+      }
+    }
+  });
+  // every post names its account; a click opens the account on the canvas when it is there
+  const accountCell = (creator) => {
+    const td = document.createElement('td');
+    if (!creator) return td;
+    const nodes = ok('graph_nodes') || [];
+    if (nodes.some((x) => x.id === 'a:' + creator)) {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'cv-inline'; b.dataset.node = 'a:' + creator;
+      b.textContent = '@' + creator; td.append(b);
+    } else {
+      const a = document.createElement('a'); a.href = 'https://www.instagram.com/' + encodeURIComponent(creator) + '/';
+      a.target = '_blank'; a.rel = 'noopener'; a.textContent = '@' + creator; td.append(a);
+    }
+    return td;
+  };
+  dash.draw('s_acc_rows', (tb) => {
+    tb.replaceChildren();
+    const id = sel(), rows = ok('items');
+    if (!id.startsWith('a:') || !rows) return;
+    for (const r of rows.filter((x) => x.creator === id.slice(2))) {
+      const tr = document.createElement('tr'); tr.dataset.key = encodeURIComponent(r.item_id);
+      const td0 = document.createElement('td'); const a = document.createElement('a');
+      a.href = r.url; a.target = '_blank'; a.rel = 'noopener'; a.textContent = r.item_id; td0.append(a); tr.append(td0);
+      for (const v of [r.saved_at, r.what_fa]) { const td = document.createElement('td'); td.textContent = v || ''; tr.append(td); }
+      tb.append(tr);
+    }
+  });
+  dash.draw('s_items_rows', (tb) => {
+    tb.replaceChildren();
+    const id = sel();
+    const rows = ok('resource_items');
+    if (!id.startsWith('r:') || !rows) return;
+    const rid = id.slice(2);
+    for (const r of rows.filter((x) => x.rid === rid)) {
+      const tr = document.createElement('tr');
+      tr.dataset.key = encodeURIComponent(r.rid) + ',' + encodeURIComponent(r.item_id);
+      const td0 = document.createElement('td'); const a = document.createElement('a');
+      a.href = r.url; a.target = '_blank'; a.rel = 'noopener'; a.textContent = r.item_id; td0.append(a); tr.append(td0);
+      tr.append(accountCell(r.creator));
+      for (const v of [r.saved_at, r.role_fa, r.what_fa]) { const td = document.createElement('td'); td.textContent = v || ''; tr.append(td); }
+      tb.append(tr);
+    }
+  });
+  for (const [name, field, num] of [['o_label', 'label'], ['o_sub', 'sub'], ['o_count', 'count', 1]]) {
+    dash.draw(name, (el) => {
+      const n = pickedOnto();
+      el.textContent = n ? (num ? fmt(n[field]) : n[field]) : '—';
+      where(el, n && n.id);
+    });
+  }
+  dash.draw('o_rels', (el) => {
+    el.replaceChildren();
+    const n = pickedOnto(), rels = ok('ontology_edges');
+    if (!n || !rels) return;
+    for (const r of rels.filter((x) => x.source === n.id || x.target === n.id)) {
+      const other = r.source === n.id ? r.target : r.source;
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'cv-item'; b.dataset.node = other;
+      const a = document.createElement('span');
+      a.textContent = (r.source === n.id ? '→ ' : '← ') + r.rel + ' ' + other.slice(2) + (r.owner_only ? ' (فقط صاحب)' : '') + (r.planned ? ' (برنامه‌ریزی‌شده)' : '');
+      const c = document.createElement('span'); c.textContent = fmt(r.count);
+      b.append(a, c); el.append(b);
+    }
+  });
+
+  // ---------------------------------------------------------------- shell: listeners only set class / hidden / value / aria
+  const app = () => document.querySelectorAll('.cv');
+  const narrow = () => window.matchMedia('(max-width: 900px)').matches;
+  dash.onData(() => {
+    const id = sel();
+    const isGraph = id && !id.startsWith('o:'), isOnto = id.startsWith('o:');
+    const isRes = id.startsWith('r:'), isAcc = id.startsWith('a:');
+    document.querySelectorAll('.cv-hint').forEach((e) => { e.hidden = !!id; });
+    document.querySelectorAll('.cv-sel-graph').forEach((e) => { e.hidden = !isGraph; });
+    document.querySelectorAll('.cv-sel-onto').forEach((e) => { e.hidden = !isOnto; });
+    document.querySelectorAll('.cv-res-items, .cv-res-only').forEach((e) => { e.hidden = !isRes; });
+    document.querySelectorAll('.cv-acc-items, .cv-acc-only').forEach((e) => { e.hidden = !isAcc; });
+    document.querySelectorAll('.cv-count-only').forEach((e) => { e.hidden = isRes || isAcc || !isGraph; });
+    modeBlocks();
+    if (id) app().forEach((a) => { a.classList.remove('no-det'); if (narrow()) a.classList.add('open-det'); });
+  });
+  function modeBlocks() {
+    document.querySelectorAll('.cv-graph-only').forEach((e) => { e.hidden = state.mode !== 'graph'; });
+    document.querySelectorAll('.cv-radar-only').forEach((e) => { e.hidden = state.mode !== 'radar'; });
+    document.querySelectorAll('.cv-filters').forEach((e) => { e.hidden = state.mode === 'ontology'; });
+  }
+  document.querySelectorAll('.cv-swatch').forEach((s) => {
+    const k = s.dataset.kind;
+    s.style.background = k === 'resource' ? 'linear-gradient(90deg,' + dash.colors.slice(0, 4).join(',') + ')' : k === 'category' ? dash.colors[0] : KIND_COLOR[k]();
+  });
+  const redraw = () => { dash.draw('canvas'); dash.draw('search_list'); };
+  const choose = (id) => { dash.setParams({ sel: id }); if (window.__cv) setTimeout(() => window.__cv.focus(id), 30); };
+  document.querySelectorAll('.cv').forEach((root) => root.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-node]');
+    if (b) { e.preventDefault(); choose(b.dataset.node); }
+  }));
+  document.querySelectorAll('.cv-mode').forEach((b) => b.addEventListener('click', () => {
+    state.mode = b.dataset.mode;
+    state.q = '';
+    document.querySelectorAll('.cv-q').forEach((i) => { i.value = ''; });
+    document.querySelectorAll('.cv-mode').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    modeBlocks();
+    dash.setParams({ sel: null });
+    redraw();
+  }));
+  let timer = 0;
+  document.querySelectorAll('.cv-q').forEach((i) => i.addEventListener('input', () => {
+    clearTimeout(timer); timer = setTimeout(() => { state.q = i.value; redraw(); }, 160);
+  }));
+  document.querySelectorAll('.cv-layer').forEach((c) => c.addEventListener('change', () => {
+    if (c.checked) state.layers.add(c.value); else state.layers.delete(c.value);
+    redraw();
+  }));
+  document.querySelectorAll('.cv-cat').forEach((s) => s.addEventListener('change', () => { state.cat = s.value; redraw(); }));
+  document.querySelectorAll('.cv-lic').forEach((s) => s.addEventListener('change', () => { state.lic = s.value; redraw(); }));
+  document.querySelectorAll('.cv-min').forEach((i) => i.addEventListener('change', () => { state.min = Math.max(1, +i.value || 1); redraw(); }));
+  document.querySelectorAll('.cv-safe').forEach((c) => c.addEventListener('change', () => { state.safe = c.checked; redraw(); }));
+  document.querySelectorAll('.cv-reset').forEach((b) => b.addEventListener('click', () => {
+    Object.assign(state, { q: '', cat: '', lic: '', min: 1, safe: false, layers: new Set(LAYERS) });
+    document.querySelectorAll('.cv-q').forEach((i) => { i.value = ''; });
+    document.querySelectorAll('.cv-cat, .cv-lic').forEach((s) => { s.value = ''; });
+    document.querySelectorAll('.cv-min').forEach((i) => { i.value = '1'; });
+    document.querySelectorAll('.cv-safe').forEach((c) => { c.checked = false; });
+    document.querySelectorAll('.cv-layer').forEach((c) => { c.checked = true; });
+    dash.setParams({ sel: null });
+    redraw();
+  }));
+  document.querySelectorAll('.cv-clear').forEach((b) => b.addEventListener('click', () => {
+    dash.setParams({ sel: null });
+    if (narrow()) app().forEach((a) => a.classList.remove('open-det'));
+  }));
+  document.querySelectorAll('.cv-zoom').forEach((b) => b.addEventListener('click', () => {
+    const m = window.__cv; if (!m) return;
+    if (b.dataset.zoom === 'fit') m.fit();
+    else m.svg.transition().duration(250).call(m.zoom.scaleBy, b.dataset.zoom === 'in' ? 1.4 : 1 / 1.4);
+  }));
+  document.querySelectorAll('.cv-toggle-nav').forEach((b) => b.addEventListener('click', () => app().forEach((a) => {
+    if (narrow()) { a.classList.toggle('open-nav'); a.classList.remove('open-det'); } else a.classList.toggle('no-nav');
+  })));
+  document.querySelectorAll('.cv-toggle-det').forEach((b) => b.addEventListener('click', () => app().forEach((a) => {
+    if (narrow()) { a.classList.toggle('open-det'); a.classList.remove('open-nav'); } else a.classList.toggle('no-det');
+  })));
+  document.addEventListener('keydown', (e) => {
+    const typing = /INPUT|SELECT|TEXTAREA/.test((e.target && e.target.tagName) || '');
+    if (e.key === 'Escape') { dash.setParams({ sel: null }); app().forEach((a) => a.classList.remove('open-det', 'open-nav')); }
+    if (e.key === '/' && !typing) { e.preventDefault(); document.querySelectorAll('.cv-q').forEach((i) => i.focus()); }
+  });
+})();
+</script>
+</div>

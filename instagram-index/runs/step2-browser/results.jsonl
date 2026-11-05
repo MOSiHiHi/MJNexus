@@ -1,0 +1,1 @@
+{"username": "digitaljeff", "mode": "browser", "observed_at": "2026-10-06T07:44:48+00:00", "status": "network_blocked", "error": "Page.goto: net::ERR_HTTP_RESPONSE_CODE_FAILURE at https://www.instagram.com/digitaljeff/\nCall log:\n  - navigating to \"https://www.instagram.com/digitaljeff/\", waiting until \"domcontentloaded\"\n"}

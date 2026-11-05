@@ -1,0 +1,9 @@
+# transient run artifacts
+instagram-index/runs/*.log
+**/__pycache__/
+*.pyc
+# raw scraper output (third-party profiles and posts): kept out of the public repository
+instagram-index/runs/**/raw.jsonl
+instagram-index/runs/**/raw.jsonl.gz
+# local media for the video layer
+kg-media/

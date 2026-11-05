@@ -1,0 +1,49 @@
+{
+ "item_id": "0010",
+ "shortcode": "DfLU9gMKyOl",
+ "url": "https://www.instagram.com/reel/DfLU9gMKyOl/",
+ "creator": "griffinwooldridge1",
+ "posted_at": "2026-10-31",
+ "duration_s": 28.3,
+ "language": "en",
+ "transcript_quality": "good",
+ "frames_reviewed": true,
+ "transcript": "This new skill helps AI coding agents create better looking interfaces, animations, bento grids, and mockups. It's called Stage Show, and it was just released by Benji Taylor, who's the head of design at X. Instead of getting generic AI-generated designs, it helps your agent create more polished UI visuals with smoother animations. And the best part is, it's completely free. You can install it with a single command and start using it with your AI coding agent. Just comment UI and I'll send you the skill. Definitely worth trying if you're designing or building with AI.",
+ "on_screen": [
+  "Benji Taylor — Head of design at X",
+  "\"Free — Open source\"",
+  "One command: npx skills add benjitaylor/skills --skill stageshow",
+  "benji.org/stageshow",
+  "UI examples: calendar controls, music player, revenue card, bento grid"
+ ],
+ "summary_fa": "معرفی Stageshow، مهارت رایگان و متن‌باز از Benji Taylor (مدیر طراحی X) که به ایجنت‌های کدنویس کمک می‌کند رابط‌ها، انیمیشن‌ها، بنتوگرید و ماکاپ‌های پرداخته‌تر بسازند. نصب با یک دستور: npx skills add benjitaylor/skills --skill stageshow.",
+ "key_points_fa": [
+  "مشکل: رابط‌های ساخته‌شده با AI معمولاً شبیه هم و عمومی‌اند.",
+  "نصب: npx skills add benjitaylor/skills --skill stageshow (از روی صفحه؛ در کپشن نیست).",
+  "صفحهٔ معرفی: benji.org/stageshow."
+ ],
+ "resources": [
+  {
+   "name": "Stageshow",
+   "type": "skill",
+   "role": "main",
+   "via": "screen",
+   "repo": "benjitaylor/skills"
+  }
+ ],
+ "references": [
+  "benji.org/stageshow",
+  "npx skills add benjitaylor/skills --skill stageshow"
+ ],
+ "series": null,
+ "claims": [],
+ "category": "coding-agents",
+ "nodes": [
+  "design-typography/03-ui-ux",
+  "ai/04-agents-automation"
+ ],
+ "risk": [],
+ "open_questions_fa": [],
+ "extracted_by": "Apify instagram-reel-scraper (videoUrl) + ffmpeg keyframes + faster-whisper small (CPU) + Claude reading frames and transcript",
+ "extracted_at": "2026-11-05"
+}
