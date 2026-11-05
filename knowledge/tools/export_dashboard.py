@@ -10,7 +10,7 @@ Output folder: knowledge/data/dashboard/
   resource_items.json  saved items behind each resource (for the detail view)
 Usage: python3 -I knowledge/tools/export_dashboard.py
 """
-import json, os, sqlite3
+import collections, json, os, sqlite3
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 DB = os.path.join(ROOT, "knowledge", "kg.sqlite")
@@ -56,7 +56,10 @@ def main():
                                             coalesce(nullif(i.what_fa,''), substr(i.summary_fa, 1, 160), '') AS what_fa,
                                             coalesce(nullif(i.info_level,''), 'unknown') AS info, e.role, e.via
                                      FROM edge e JOIN item i ON e.src = 'item:' || i.id
-                                     WHERE e.rel = 'MENTIONS' ORDER BY i.saved_at DESC""") if r["rid"] in rids]
+                                     WHERE e.rel = 'MENTIONS'
+                                     ORDER BY i.saved_at DESC, e.role = 'main' DESC""") if r["rid"] in rids]
+    seen = set()  # one row per (resource, item): an item can mention a resource through several routes
+    items = [r for r in items if (r["rid"], r["item_id"]) not in seen and not seen.add((r["rid"], r["item_id"]))]
     for r in items:
         r["role_fa"] = {"main": "اصلی", "context": "زمینه"}.get(r["role"], r["role"] or "")
         r["info_fa"] = INFO_FA.get(r["info"], r["info"])
@@ -90,5 +93,82 @@ def main():
         print(name, len(data), "rows", os.path.getsize(path), "bytes")
 
 
+
+
+
+# ---------------------------------------------------------------- canvas datasets
+ENTITY_TABLE = {"Account": "account", "Item": "item", "Video": "video", "Resource": "resource", "Concept": "concept",
+                "Domain": "domain", "Series": "series", "Claim": "claim", "Project": "project"}
+
+
+def export_graph():
+    """graph_nodes / graph_edges for the knowledge canvas, ontology_nodes / ontology_edges for the schema canvas."""
+    import yaml
+    con = sqlite3.connect(DB)
+    blank = {"type": "", "category_fa": "", "license": "", "last_commit": "", "ring": "", "risk": "", "what_fa": "",
+             "url": "", "mentions": 0, "main_mentions": 0, "items": 0, "sub": ""}
+    nodes, edges = [], []
+    titles = dict(con.execute("SELECT slug, title_fa FROM domain").fetchall())
+    about = dict(con.execute("SELECT substr(dst, 9), count(DISTINCT src) FROM edge WHERE rel='ABOUT' GROUP BY 1").fetchall())
+    for slug, title in titles.items():
+        nodes.append(blank | {"id": "d:" + slug, "kind": "domain", "label": title, "group": slug, "size": 0, "sub": "حوزه"})
+    for node, title, dom, star in con.execute("SELECT node, title, domain, star FROM concept"):
+        nodes.append(blank | {"id": "c:" + node, "kind": "concept", "label": title, "group": dom, "size": about.get(node, 0),
+                              "items": about.get(node, 0), "sub": titles.get(dom, dom) + (" · گرهٔ حیاتی" if star else "")})
+        edges.append({"source": "c:" + node, "target": "d:" + dom, "kind": "in_domain", "weight": 1})
+    for src, rel, dst in con.execute("SELECT src, rel, dst FROM edge WHERE rel IN ('PREREQ_OF','LINKS_TO')"):
+        edges.append({"source": "c:" + src[8:], "target": "c:" + dst[8:], "kind": "prereq" if rel == "PREREQ_OF" else "link", "weight": 1})
+    res = rows(con, """SELECT rid, name, type, category, mentions, main_mentions, coalesce(license,'') AS license,
+                              coalesce(last_commit,'') AS last_commit, ring, risk_flags, coalesce(what_fa,'') AS what_fa,
+                              coalesce(url,'') AS url FROM resource
+                       WHERE main_mentions >= 1 AND NOT (type = 'site' AND mentions < 2)""")
+    cats = collections.Counter(r["category"] for r in res)
+    for c, n in cats.items():
+        nodes.append(blank | {"id": "k:" + c, "kind": "category", "label": CATEGORY_FA.get(c, c), "group": c, "size": n,
+                              "items": n, "sub": "دستهٔ رادار"})
+    keep = set()
+    for r in res:
+        rid = "r:" + r["rid"]
+        keep.add(r["rid"])
+        nodes.append(blank | {"id": rid, "kind": "resource", "label": r["name"], "group": r["category"], "size": r["mentions"],
+                              "type": r["type"], "category_fa": CATEGORY_FA.get(r["category"], r["category"]),
+                              "license": r["license"], "last_commit": r["last_commit"], "ring": r["ring"],
+                              "risk": ", ".join(json.loads(r["risk_flags"] or "[]")), "what_fa": short(r["what_fa"], 160),
+                              "url": r["url"], "mentions": r["mentions"], "main_mentions": r["main_mentions"],
+                              "items": r["mentions"], "sub": CATEGORY_FA.get(r["category"], r["category"])})
+        edges.append({"source": rid, "target": "k:" + r["category"], "kind": "in_category", "weight": 1})
+    # resource -> concept through the saved items that are about the concept (top 3 per resource)
+    pairs = collections.defaultdict(list)
+    for res_id, concept, n in con.execute("""SELECT substr(m.dst, 10), substr(a.dst, 9), count(*) FROM edge m
+                                             JOIN edge a ON a.src = m.src AND a.rel = 'ABOUT'
+                                             WHERE m.rel = 'MENTIONS' GROUP BY 1, 2"""):
+        if res_id in keep:
+            pairs[res_id].append((n, concept))
+    for res_id, lst in pairs.items():
+        for n, concept in sorted(lst, reverse=True)[:3]:
+            edges.append({"source": "r:" + res_id, "target": "c:" + concept, "kind": "about", "weight": n})
+    onto = yaml.safe_load(open(os.path.join(ROOT, "knowledge", "ontology.yaml"), encoding="utf-8"))
+    rel_n = dict(con.execute("SELECT rel, count(*) FROM edge GROUP BY rel").fetchall())
+    onodes = [{"id": "o:Owner", "label": "Owner", "sub": "صاحب مدل (شما)", "count": 1}]
+    for name, e in onto["entities"].items():
+        n = con.execute(f"SELECT count(*) FROM {ENTITY_TABLE[name]}").fetchone()[0]
+        onodes.append({"id": "o:" + name, "label": name, "sub": e.get("description_fa", ""), "count": n})
+    oedges = []
+    for rel, spec in onto["relations"].items():
+        for f in (spec["from"] if isinstance(spec["from"], list) else [spec["from"]]):
+            oedges.append({"source": "o:" + f, "target": "o:" + spec["to"], "rel": rel, "count": rel_n.get(rel, 0),
+                           "owner_only": bool(spec.get("owner_only")), "planned": spec.get("status") == "planned"})
+    for name, e in onto["entities"].items():  # a layer keyed by the item id (the video layer) hangs off Item
+        if name != "Item" and str(e.get("key", "")).startswith("item id"):
+            n = con.execute(f"SELECT count(*) FROM {ENTITY_TABLE[name]}").fetchone()[0]
+            oedges.append({"source": "o:Item", "target": "o:" + name, "rel": "HAS_LAYER", "count": n,
+                           "owner_only": False, "planned": False})
+    for name, data in [("graph_nodes", nodes), ("graph_edges", edges), ("ontology_nodes", onodes), ("ontology_edges", oedges)]:
+        path = os.path.join(OUT, f"{name}.json")
+        json.dump(data, open(path, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+        print(name, len(data), "rows", os.path.getsize(path), "bytes")
+
+
 if __name__ == "__main__":
     main()
+    export_graph()
