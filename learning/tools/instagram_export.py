@@ -123,6 +123,9 @@ def main():
 
     # one page per item, grouped by domain
     items_dir = os.path.join(BASE, "items")
+    # rebuild from scratch so pages moved to another domain do not linger in the old folder
+    import shutil
+    shutil.rmtree(items_dir, ignore_errors=True)
     for r in out_rows:
         d = os.path.join(items_dir, r["domain"])
         os.makedirs(d, exist_ok=True)
