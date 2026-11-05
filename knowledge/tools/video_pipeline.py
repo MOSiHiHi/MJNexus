@@ -105,7 +105,7 @@ def cmd_fetch(a):
             continue
         meta = {k: it.get(k) for k in ("shortCode", "ownerUsername", "timestamp", "videoDuration", "caption",
                                        "hashtags", "mentions", "likesCount", "commentsCount", "videoPlayCount")}
-        meta["firstComment"] = it.get("firstComment")
+        # comment text is written by third parties: keep only the count (public repository)
         meta["item_id"], meta["url"], meta["run_id"] = row["id"], row["url"], run_id
         json.dump(meta, open(os.path.join(META, f"{row['id']}.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         d = os.path.join(MEDIA, row["id"])

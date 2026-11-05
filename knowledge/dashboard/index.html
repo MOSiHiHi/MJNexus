@@ -1,0 +1,337 @@
+<meta name="dash-one-writer">
+<style>
+  .rx { font-family: var(--font-anthropic-sans); color: var(--color-fg); display: grid; gap: var(--cds-gap-lg); }
+  .rx .rx-title { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; }
+  .rx .rx-take { margin: var(--cds-gap-xs) 0 0; color: var(--color-fg-muted); font-size: var(--cds-font-size-body); line-height: 1.7; }
+  .rx .rx-take b { font-weight: var(--cds-font-weight-medium); color: var(--color-fg); font-variant-numeric: tabular-nums; }
+  .rx-tiles { display: grid; gap: var(--cds-gap-md); grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr)); }
+  .rx-tile { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-md) var(--cds-pad-lg); display: grid; gap: var(--cds-gap-xs); }
+  .rx .rx-tile span { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .rx .rx-tile b { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); font-variant-numeric: tabular-nums; }
+  .rx-grid { display: grid; gap: var(--cds-gap-md); grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); }
+  .rx-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width: 0; }
+  .rx .rx-card h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; }
+  .rx .rx-note { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: var(--cds-gap-xs) 0 var(--cds-gap-md); line-height: 1.6; }
+  .rx-bars { display: grid; gap: var(--cds-gap-xs); min-height: 9rem; }
+  .rx .rx-bar { display: grid; grid-template-columns: minmax(6rem, 12rem) 1fr 3.5rem; align-items: center; gap: var(--cds-gap-sm);
+    font: inherit; font-size: var(--cds-font-size-caption); background: none; border: 0; padding: 0; color: inherit; text-align: start; }
+  .rx button.rx-bar { cursor: pointer; }
+  .rx .rx-bar .lbl { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .rx .rx-bar .trk { height: 0.75rem; background: var(--cds-chart-grid); border-radius: var(--cds-radius); overflow: hidden; }
+  .rx .rx-bar .fill { height: 100%; border-radius: var(--cds-radius); }
+  .rx .rx-bar .val { font-variant-numeric: tabular-nums; text-align: end; }
+  .rx .rx-bar[aria-pressed="true"] .lbl { font-weight: var(--cds-font-weight-medium); text-decoration: underline; }
+  .rx-controls { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm); margin-bottom: var(--cds-gap-md); }
+  .rx .rx-controls input, .rx .rx-controls select, .rx .rx-controls button { font: inherit; font-size: var(--cds-font-size-caption);
+    padding: var(--cds-pad-xs) var(--cds-pad-sm); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius);
+    background: var(--color-bg); color: var(--color-fg); }
+  .rx .rx-controls input { flex: 1 1 12rem; min-width: 0; }
+  .rx .rx-controls button { cursor: pointer; }
+  .rx-box { max-height: 34rem; overflow: auto; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); }
+  .rx-table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+  .rx .rx-table th { position: sticky; top: 0; background: var(--color-panel); text-align: start; border-bottom: 1px solid var(--color-border-line);
+    padding: var(--cds-pad-xs) var(--cds-pad-sm); white-space: nowrap; z-index: 1; font-weight: var(--cds-font-weight-medium); }
+  .rx .rx-table th button { font: inherit; background: none; border: 0; padding: 0; color: inherit; cursor: pointer; }
+  .rx .rx-table td { padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); vertical-align: top; }
+  .rx .rx-res tbody tr { cursor: pointer; }
+  .rx .rx-res tbody tr:hover, .rx .rx-res tr.is-picked { background: var(--color-bg); }
+  .rx .rx-table td.num { text-align: end; }
+  .rx .rx-table a { color: inherit; }
+  .rx .rx-table td.risk { color: var(--color-warn); }
+  @media (max-width: 640px) { .rx .rx-narrow-hide { display: none; } }
+  .rx-fail { display: flex; align-items: center; justify-content: center; gap: var(--cds-gap-xs); color: var(--color-fg-muted);
+    font-size: var(--cds-font-size-caption); min-height: 6rem; }
+  .rx-fail::before { content: ""; width: 0.375rem; height: 0.375rem; border-radius: 50%; background: var(--color-bad); }
+  .rx [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+  .rx [data-dash-source-state=empty] { color: transparent; }
+</style>
+
+<div class="rx" dir="rtl" lang="fa" id="radar">
+  <header>
+    <h1 class="rx-title">رادار ابزار</h1>
+    <p class="rx-take">
+      از <b data-draw="k_items" data-source="kpis" data-field="items" data-row="0" class="dash-skeleton">—</b> پست و ریل ذخیره‌شده،
+      <b data-draw="k_res" data-source="kpis" data-field="resources" data-row="0" class="dash-skeleton">—</b> منبع جدا شده است.
+      پراشاره‌ترین منبع <b data-draw="top_name" data-source="resources" data-field="name" class="dash-skeleton">—</b> است
+      با <b data-draw="top_n" data-source="resources" data-field="mentions" class="dash-skeleton">—</b> اشاره.
+      <b data-draw="k_low" data-source="kpis" data-field="low_info" data-row="0" class="dash-skeleton">—</b> ذخیره کم‌اطلاع‌اند
+      و منبع اصلی‌شان در خود پست نیامده است.
+    </p>
+  </header>
+
+  <section class="rx-tiles" id="totals">
+    <div class="rx-tile"><span>پست و ریل ذخیره‌شده</span><b data-draw="k_items" data-source="kpis" data-field="items" data-row="0" class="dash-skeleton">—</b></div>
+    <div class="rx-tile"><span>منبع (ابزار، ریپو، مدل…)</span><b data-draw="k_res" data-source="kpis" data-field="resources" data-row="0" class="dash-skeleton">—</b></div>
+    <div class="rx-tile"><span>ریپوی گیت‌هاب در دسترس</span><b data-draw="k_repos" data-source="kpis" data-field="repos" data-row="0" class="dash-skeleton">—</b></div>
+    <div class="rx-tile"><span>ذخیرهٔ کم‌اطلاع</span><b data-draw="k_low" data-source="kpis" data-field="low_info" data-row="0" class="dash-skeleton">—</b></div>
+    <div class="rx-tile"><span>ادعای بررسی‌نشده</span><b data-draw="k_claims" data-source="kpis" data-field="claims" data-row="0" class="dash-skeleton">—</b></div>
+    <div class="rx-tile"><span>ریل با تحلیل ویدیو</span><b data-draw="k_videos" data-source="kpis" data-field="videos" data-row="0" class="dash-skeleton">—</b></div>
+  </section>
+
+  <section class="rx-grid">
+    <article class="rx-card" id="categories">
+      <h2>دسته‌ها</h2>
+      <p class="rx-note">تعداد منبع در هر دستهٔ رادار. روی یک دسته بزنید تا جدول پایین فقط همان را نشان دهد.</p>
+      <div class="rx-bars dash-skeleton" data-draw="cat_bars" data-source="categories"></div>
+    </article>
+    <article class="rx-card" id="licenses">
+      <h2>لایسنس ریپوها</h2>
+      <p class="rx-note">از فایل لایسنس خود ریپو. برای کار تجاری، AGPL و GPL و NC و ریپوی بدون لایسنس را جدا بررسی کنید.</p>
+      <div class="rx-bars dash-skeleton" data-draw="lic_bars" data-source="licenses"></div>
+    </article>
+    <article class="rx-card" id="evidence">
+      <h2>کیفیت شواهد</h2>
+      <p class="rx-note">چقدر خود پست توضیح می‌دهد. «کم‌اطلاع» یعنی بی‌کپشن یا فقط «کامنت بگذار / لینک در بیو».</p>
+      <div class="rx-bars dash-skeleton" data-draw="info_bars" data-source="info_levels"></div>
+    </article>
+  </section>
+
+  <section class="rx-card" id="resources">
+    <h2>منابع</h2>
+    <p class="rx-note">هر ردیف یک منبع است. «اشاره» یعنی چند ذخیره نامش را آورده‌اند و «اصلی» یعنی چند ذخیره دربارهٔ خودش است. Ring را فقط شما تعیین می‌کنید؛ پیش‌فرض assess است. روی ردیف بزنید تا پست‌هایش بیاید.</p>
+    <div class="rx-controls">
+      <input class="rx-q" type="search" placeholder="جست‌وجو در نام، ریپو یا توضیح" aria-label="جست‌وجو">
+      <select class="rx-cat" data-draw="cat_select" data-source="categories" aria-label="دسته"></select>
+      <select class="rx-type" aria-label="نوع">
+        <option value="">همهٔ نوع‌ها</option>
+        <option value="tool">ابزار</option>
+        <option value="repo">ریپو</option>
+        <option value="model">مدل</option>
+        <option value="service">سرویس</option>
+        <option value="site">سایت</option>
+        <option value="skill">مهارت</option>
+        <option value="course">دوره</option>
+        <option value="paper">مقاله</option>
+        <option value="book">کتاب</option>
+        <option value="prompt_pack">بستهٔ پرامپت</option>
+        <option value="protocol">پروتکل</option>
+        <option value="dataset">دیتاست</option>
+      </select>
+      <button class="rx-reset" type="button">پاک کردن فیلترها</button>
+    </div>
+    <div class="rx-box">
+      <table class="rx-table rx-res" data-source="resources" data-row-key="rid">
+        <thead><tr>
+          <th data-field="name"><button class="rx-sort" data-sort="name" type="button">نام</button></th>
+          <th data-field="category_fa" class="rx-narrow-hide"><button class="rx-sort" data-sort="category_fa" type="button">دسته</button></th>
+          <th data-field="type"><button class="rx-sort" data-sort="type" type="button">نوع</button></th>
+          <th data-field="mentions" aria-sort="descending"><button class="rx-sort" data-sort="mentions" type="button">اشاره</button></th>
+          <th data-field="main_mentions"><button class="rx-sort" data-sort="main_mentions" type="button">اصلی</button></th>
+          <th data-field="license" class="rx-narrow-hide"><button class="rx-sort" data-sort="license" type="button">لایسنس</button></th>
+          <th data-field="last_commit" class="rx-narrow-hide"><button class="rx-sort" data-sort="last_commit" type="button">آخرین commit</button></th>
+          <th data-field="ring" class="rx-narrow-hide"><button class="rx-sort" data-sort="ring" type="button">Ring</button></th>
+          <th data-field="risk" class="rx-narrow-hide">ریسک</th>
+        </tr></thead>
+        <tbody data-draw="res_rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="rx-card" id="detail">
+    <h2>پست‌های منبع: <span data-draw="sel_name" data-source="resources" data-field="name">—</span></h2>
+    <p class="rx-note" data-draw="sel_what" data-source="resources" data-field="what_fa">—</p>
+    <p class="rx-note rx-hint">یک ردیف از جدول منابع را انتخاب کنید.</p>
+    <div class="rx-box">
+      <table class="rx-table" data-source="resource_items" data-row-key="rid,item_id">
+        <thead><tr>
+          <th data-field="item_id">شناسه</th>
+          <th data-field="saved_at">تاریخ ذخیره</th>
+          <th data-field="creator" class="rx-narrow-hide">سازنده</th>
+          <th data-field="role_fa">نقش</th>
+          <th data-field="info_fa" class="rx-narrow-hide">شاهد</th>
+          <th data-field="what_fa">چیست</th>
+        </tr></thead>
+        <tbody data-draw="detail_rows"></tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<script>
+(() => {
+  const fmt = d3.format(',');
+  const DOWN = new Set(['mentions', 'main_mentions', 'last_commit']);
+  const state = { q: '', type: '', sort: 'mentions', dir: -1 };
+  const ok = (id) => { const d = dash.data(id); return d.status === 'ok' ? d : null; };
+  const fail = (el, id) => {
+    const s = dash.data(id).status;
+    el.classList.toggle('dash-skeleton', s === 'loading');
+    if (s !== 'ok' && s !== 'loading') {
+      const f = document.createElement('div');
+      f.className = 'rx-fail';
+      f.textContent = 'بارگذاری نشد';
+      el.replaceChildren(f);
+      return true;
+    }
+    return s !== 'ok';
+  };
+  const where = (el, rid) => { if (rid) el.dataset.where = 'rid=' + encodeURIComponent(rid); else delete el.dataset.where; };
+
+  // headline numbers: one-row dataset
+  for (const [name, field] of [['k_items', 'items'], ['k_res', 'resources'], ['k_repos', 'repos'], ['k_low', 'low_info'],
+                               ['k_claims', 'claims'], ['k_videos', 'videos']]) {
+    dash.draw(name, (el) => {
+      const d = ok('kpis');
+      el.classList.toggle('dash-skeleton', dash.data('kpis').status === 'loading');
+      el.textContent = d && d.data[0] ? fmt(d.data[0][field]) : '—';
+    });
+  }
+
+  const topRes = () => {
+    const d = ok('resources');
+    return d && d.data.length ? d.data.reduce((a, b) => (b.mentions > a.mentions ? b : a)) : null;
+  };
+  dash.draw('top_name', (el) => {
+    const t = topRes();
+    el.classList.toggle('dash-skeleton', dash.data('resources').status === 'loading');
+    el.textContent = t ? t.name : '—';
+    where(el, t && t.rid);
+  });
+  dash.draw('top_n', (el) => {
+    const t = topRes();
+    el.classList.toggle('dash-skeleton', dash.data('resources').status === 'loading');
+    el.textContent = t ? fmt(t.mentions) : '—';
+    where(el, t && t.rid);
+  });
+
+  // horizontal bars drawn in HTML (right to left with the page)
+  const bars = (name, id, label, value, opts = {}) => dash.draw(name, (el) => {
+    if (fail(el, id)) { if (dash.data(id).status === 'loading') el.replaceChildren(); return; }
+    const rows = dash.data(id).data;
+    const max = d3.max(rows, (r) => +r[value]) || 1;
+    const picked = opts.param ? dash.params()[opts.param] : null;
+    el.replaceChildren(...rows.map((r, i) => {
+      const b = document.createElement(opts.param ? 'button' : 'div');
+      b.className = 'rx-bar';
+      if (opts.param) {
+        b.type = 'button';
+        b.setAttribute('aria-pressed', String(picked === r[opts.key]));
+        b.addEventListener('click', () => dash.setParams({ [opts.param]: picked === r[opts.key] ? null : r[opts.key] }));
+      }
+      const l = document.createElement('span'); l.className = 'lbl'; l.textContent = r[label];
+      const t = document.createElement('span'); t.className = 'trk';
+      const f = document.createElement('span'); f.className = 'fill';
+      f.style.width = (100 * +r[value] / max) + '%';
+      f.style.background = opts.color ? opts.color(r, i) : dash.colors[0];
+      t.append(f);
+      const v = document.createElement('span'); v.className = 'val'; v.textContent = fmt(+r[value]);
+      b.append(l, t, v);
+      return b;
+    }));
+  });
+  bars('cat_bars', 'categories', 'category_fa', 'resources', { param: 'category', key: 'category' });
+  const RISKY = /AGPL|GPL|NC|SSPL|none/;
+  bars('lic_bars', 'licenses', 'license', 'repos', {
+    color: (r) => (RISKY.test(r.license) ? 'var(--color-warn)' : dash.colors[0]),
+  });
+  const INFO_COLOR = { high: () => dash.colors[0], medium: () => 'var(--cds-chart-muted)', low: () => 'var(--color-warn)' };
+  bars('info_bars', 'info_levels', 'level_fa', 'items', {
+    color: (r) => (INFO_COLOR[r.level] || (() => 'var(--cds-chart-muted)'))(),
+  });
+
+  // category filter: choices come from the data
+  dash.draw('cat_select', (sel) => {
+    const g = dash.data('categories');
+    const opt = (text, value) => { const o = document.createElement('option'); o.textContent = text; o.value = value; return o; };
+    sel.replaceChildren(opt('همهٔ دسته‌ها', ''), ...(g.status === 'ok' ? g.data : []).map((r) => opt(r.category_fa, r.category)));
+    sel.value = dash.params().category ?? '';
+    sel.onchange = () => dash.setParams({ category: sel.value || null });
+  });
+
+  // resources table
+  dash.draw('res_rows', (tb) => {
+    const d = dash.data('resources');
+    tb.replaceChildren();
+    if (d.status !== 'ok') return;
+    const p = dash.params();
+    const q = state.q.trim().toLowerCase();
+    const rows = d.data.filter((r) => (!p.category || r.category === p.category) && (!state.type || r.type === state.type)
+      && (!q || (r.name + ' ' + r.repo + ' ' + r.what_fa).toLowerCase().includes(q)));
+    rows.sort((a, b) => {
+      const x = a[state.sort], y = b[state.sort];
+      const c = typeof x === 'number' ? x - y : String(x || '').localeCompare(String(y || ''), 'fa');
+      return c * state.dir || b.mentions - a.mentions;
+    });
+    for (const r of rows.slice(0, 800)) {
+      const tr = document.createElement('tr');
+      tr.dataset.key = r.rid;
+      if (r.rid === p.rid) tr.className = 'is-picked';
+      const cell = (text, cls) => { const td = document.createElement('td'); if (cls) td.className = cls; td.textContent = text; tr.append(td); return td; };
+      const nameCell = document.createElement('td');
+      if (r.url) {
+        const a = document.createElement('a');
+        a.href = r.url; a.target = '_blank'; a.rel = 'noopener'; a.textContent = r.name;
+        nameCell.append(a);
+      } else nameCell.textContent = r.name;
+      tr.append(nameCell);
+      cell(r.category_fa, 'rx-narrow-hide');
+      cell(r.type);
+      cell(fmt(r.mentions), 'num');
+      cell(fmt(r.main_mentions), 'num');
+      cell(r.license, 'rx-narrow-hide');
+      cell(r.last_commit, 'rx-narrow-hide');
+      cell(r.ring, 'rx-narrow-hide');
+      cell(r.risk, 'rx-narrow-hide risk');
+      tb.append(tr);
+    }
+  });
+
+  // detail of the picked resource
+  const picked = () => { const p = dash.params(); const d = ok('resources'); return p.rid && d ? d.data.find((r) => r.rid === p.rid) : null; };
+  dash.draw('sel_name', (el) => { const r = picked(); el.textContent = r ? r.name : '—'; where(el, r && r.rid); });
+  dash.draw('sel_what', (el) => { const r = picked(); el.textContent = r && r.what_fa ? r.what_fa : '—'; where(el, r && r.rid); });
+  dash.draw('detail_rows', (tb) => {
+    tb.replaceChildren();
+    const rid = dash.params().rid;
+    const d = dash.data('resource_items');
+    if (!rid || d.status !== 'ok') return;
+    for (const r of d.data.filter((x) => x.rid === rid)) {
+      const tr = document.createElement('tr');
+      tr.dataset.key = encodeURIComponent(r.rid) + ',' + encodeURIComponent(r.item_id);
+      const idCell = document.createElement('td');
+      const a = document.createElement('a');
+      a.href = r.url; a.target = '_blank'; a.rel = 'noopener'; a.textContent = r.item_id;
+      idCell.append(a);
+      tr.append(idCell);
+      for (const [v, cls] of [[r.saved_at], [r.creator, 'rx-narrow-hide'], [r.role_fa], [r.info_fa, 'rx-narrow-hide'], [r.what_fa]]) {
+        const td = document.createElement('td'); if (cls) td.className = cls; td.textContent = v ?? ''; tr.append(td);
+      }
+      tb.append(tr);
+    }
+  });
+
+  // controls (outside drawings: listen and set value / aria / hidden only)
+  dash.onData(() => {
+    const rid = dash.params().rid;
+    document.querySelectorAll('.rx-hint').forEach((e) => { e.hidden = !!rid; });
+  });
+  document.querySelectorAll('.rx-q').forEach((inp) => inp.addEventListener('input', () => { state.q = inp.value; dash.draw('res_rows'); }));
+  document.querySelectorAll('.rx-type').forEach((sel) => sel.addEventListener('change', () => { state.type = sel.value; dash.draw('res_rows'); }));
+  document.querySelectorAll('.rx-sort').forEach((btn) => btn.addEventListener('click', () => {
+    const k = btn.dataset.sort;
+    state.dir = state.sort === k ? -state.dir : (DOWN.has(k) ? -1 : 1);
+    state.sort = k;
+    document.querySelectorAll('.rx-res th').forEach((th) => th.removeAttribute('aria-sort'));
+    const th = btn.closest('th');
+    if (th) th.setAttribute('aria-sort', state.dir > 0 ? 'ascending' : 'descending');
+    dash.draw('res_rows');
+  }));
+  document.querySelectorAll('.rx-reset').forEach((b) => b.addEventListener('click', () => {
+    state.q = ''; state.type = '';
+    document.querySelectorAll('.rx-q').forEach((i) => { i.value = ''; });
+    document.querySelectorAll('.rx-type').forEach((s) => { s.value = ''; });
+    dash.resetParams();
+    dash.draw('res_rows');
+  }));
+  document.querySelectorAll('.rx-res').forEach((t) => t.addEventListener('click', (e) => {
+    if (e.target.closest('a')) return;
+    const tr = e.target.closest('tbody tr[data-key]');
+    if (!tr) return;
+    dash.setParams({ rid: tr.dataset.key });
+    const det = document.getElementById('detail');
+    if (det) { det.scrollIntoView({ behavior: 'smooth', block: 'start' }); dash.setLink('detail'); }
+  }));
+  const named = document.getElementById(location.hash.slice(1));
+  if (named) named.scrollIntoView();
+})();
+</script>
