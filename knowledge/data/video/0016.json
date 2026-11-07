@@ -1,0 +1,44 @@
+{
+ "item_id": "0016",
+ "shortcode": "DfJTo2mvJCc",
+ "url": "https://www.instagram.com/p/DfJTo2mvJCc/",
+ "creator": "scalewithdahir",
+ "posted_at": "2026-10-31",
+ "duration_s": null,
+ "language": "en",
+ "transcript_quality": null,
+ "frames_reviewed": true,
+ "transcript": "",
+ "extracted_by": "Apify instagram-post-scraper (images) + contact sheet + Claude reading the images",
+ "extracted_at": "2026-11-07",
+ "media": "images",
+ "series": null,
+ "open_questions_fa": [],
+ "on_screen": [
+  "24 Questions to Sharpen Your Critical Thinking. Better questions. Better decisions. Better results.",
+  "WHAT: core issue; key facts; possible options; the most important detail I might be missing",
+  "WHERE: where it happens; where my information comes from; gaps in knowledge; where it could go next",
+  "WHEN: when it happened; when the impact is felt; when to act; the timeline",
+  "HOW: how to solve it; how to measure success; how to adapt; how to learn from it",
+  "WHY: why it happens; why it matters; why these options; the underlying causes",
+  "WHO: who is involved; who is affected; who has the most relevant information; who can help"
+ ],
+ "summary_fa": "یک برگهٔ تصویری با ۲۴ پرسش برای تفکر انتقادی، در شش دستهٔ چه، کجا، کی، چطور، چرا و چه کسی؛ چهار پرسش برای هر دسته. چارچوبی ساده برای بررسی هر مسئله یا خبر پیش از تصمیم.",
+ "key_points_fa": [
+  "چه: مسئلهٔ اصلی، واقعیت‌ها، گزینه‌ها، و مهم‌ترین جزئیاتی که شاید از دست رفته.",
+  "کجا: منبع اطلاعات و شکاف‌های دانش؛ برای سواد رسانه‌ای مفید است.",
+  "چرا: علت‌های زیربنایی، نه فقط علامت‌ها.",
+  "چطور: معیار موفقیت و درس گرفتن برای دفعهٔ بعد."
+ ],
+ "resources": [],
+ "references": [
+  "5W1H question framework"
+ ],
+ "claims": [],
+ "category": "learning-resources",
+ "nodes": [
+  "news-politics/01-media-literacy"
+ ],
+ "risk": [],
+ "info": "high"
+}

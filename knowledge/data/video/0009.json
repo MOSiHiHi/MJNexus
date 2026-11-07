@@ -1,0 +1,103 @@
+{
+ "item_id": "0009",
+ "shortcode": "DfKquhHHK3B",
+ "url": "https://www.instagram.com/p/DfKquhHHK3B/",
+ "creator": "chase.h.ai",
+ "posted_at": "2026-10-31",
+ "duration_s": null,
+ "language": "en",
+ "transcript_quality": null,
+ "frames_reviewed": true,
+ "transcript": "",
+ "extracted_by": "Apify instagram-post-scraper (images) + contact sheet + Claude reading the images",
+ "extracted_at": "2026-11-07",
+ "media": "images",
+ "series": null,
+ "open_questions_fa": [],
+ "on_screen": [
+  "The Claude Agentic OS that's making everyone go nuts (dashboard 'JARVIS': Obsidian memory, Jev model routing, fully local voice)",
+  "Claude Agentic OS = Opus 5.5 / GPT-6 Astra (the brain) + Jev (the model router) + Whisper + Kokoro (local voice mode) + Obsidian (the memory) + custom skill architecture",
+  "A big model does the real work: Opus 5.5 inside Claude Code, or GPT-6 Astra inside Codex; one switch changes the brain",
+  "Jev decides who answers: Tier 1 rules + saved data, no AI; Tier 2 small fast model (Haiku / Luna); Tier 3 opens Claude Code or Codex, or runs a skill in the background",
+  "Whisper + Kokoro: SYSTRAN/faster-whisper (26.3K stars, speech to text) and thewh1teagle/kokoro-onnx (2.8K stars, text to speech), both local",
+  "Everything lands in Obsidian; a CLAUDE.md gives Claude the map; 'The Karpathy Obsidian RAG setup': raw/ (capture), wiki/ (articles), outputs/ (what Claude ships)",
+  "Skills make it yours: /morning-intel (news to one brief, daily 6:30), /content-cascade (video to 3 posts), /qa-digest (questions to a post, Fridays)",
+  "Two front doors, one brain: Jarvis web app and Obsidian plugin, a bridge, Jev sorting into three tiers, the vault as shared memory",
+  "Want my exact setup? Comment JARVIS, I'll DM you how to get my exact setup"
+ ],
+ "summary_fa": "کاروسل ۹ اسلایدی دربارهٔ یک «سیستم‌عامل ایجنتی» شخصی: مدل بزرگ (Opus 5.5 در Claude Code یا GPT-6 Astra در Codex) کار اصلی را می‌کند، Jev درخواست‌ها را بین سه سطح (بدون هوش مصنوعی، مدل کوچک، ایجنت کامل) پخش می‌کند، صدا با faster-whisper و kokoro-onnx کاملاً محلی است، و همهٔ خروجی‌ها در Obsidian با ساختار raw/wiki/outputs ذخیره می‌شوند. پست برای گرفتن جزئیات، کامنت «JARVIS» می‌خواهد.",
+ "key_points_fa": [
+  "معماری سه‌سطحی: قاعده و دادهٔ ذخیره‌شده بدون مدل، مدل کوچک برای پاسخ سریع، و ایجنت کامل فقط برای کار واقعی.",
+  "حالت صوتی محلی با دو ریپوی متن‌باز: faster-whisper برای شنیدن و kokoro-onnx برای گفتن.",
+  "حافظه در Obsidian با سه پوشه: raw برای ثبت، wiki برای مقاله‌های مرتب، outputs برای خروجی‌ها؛ CLAUDE.md نقشهٔ راه Claude است.",
+  "skillها کارهای تکراری را یک بار می‌نویسند: خلاصهٔ خبر صبحگاهی، تبدیل ویدیو به سه پست، جمع‌بندی پرسش‌ها.",
+  "خود چیدمان دقیق پشت «کامنت بگذار» پنهان است؛ کپشن چیزی اضافه نمی‌کند."
+ ],
+ "resources": [
+  {
+   "name": "Claude Code",
+   "type": "tool",
+   "role": "main",
+   "via": "screen"
+  },
+  {
+   "name": "Jev",
+   "type": "model",
+   "role": "main",
+   "via": "screen"
+  },
+  {
+   "name": "faster-whisper",
+   "type": "repo",
+   "repo": "systran/faster-whisper",
+   "role": "main",
+   "via": "screen"
+  },
+  {
+   "name": "kokoro-onnx",
+   "type": "repo",
+   "repo": "thewh1teagle/kokoro-onnx",
+   "role": "main",
+   "via": "screen"
+  },
+  {
+   "name": "Obsidian",
+   "type": "tool",
+   "role": "main",
+   "via": "screen"
+  },
+  {
+   "name": "Codex",
+   "type": "tool",
+   "role": "context",
+   "via": "screen"
+  },
+  {
+   "name": "Opus 5.5",
+   "type": "model",
+   "role": "context",
+   "via": "screen"
+  },
+  {
+   "name": "Astra",
+   "type": "model",
+   "role": "context",
+   "via": "screen"
+  }
+ ],
+ "references": [
+  "Karpathy's Obsidian RAG setup (raw / wiki / outputs)"
+ ],
+ "claims": [
+  "Jev routes each request to the right tier virtually free and virtually instant",
+  "Whisper + Kokoro voice mode is fully local; audio never leaves the computer"
+ ],
+ "category": "agent-frameworks",
+ "nodes": [
+  "ai/04-agents-automation"
+ ],
+ "risk": [
+  "hype_claim"
+ ],
+ "info": "high"
+}

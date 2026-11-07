@@ -138,13 +138,22 @@ def main():
         caption = cat.get(r["url"], {}).get("caption", "")
         o = llm.get(i, {})
         info = o.get("info") or ("low" if not caption.strip() else "")
+        if i in videos:  # a media layer (speech, screen text, images) can explain more than the caption did
+            media_info = videos[i].get("info") or ("medium" if videos[i].get("summary_fa") else "")
+            rank = {"": 0, "low": 1, "medium": 2, "high": 3}
+            if rank.get(media_info, 0) > rank.get(info, 0):
+                info = media_info
         kind = "reel" if "/reel/" in r["url"] else "post" if "/p/" in r["url"] else "other"
         saved_at[i] = r["date"]
+        v = videos.get(i, {})
+        # when the caption said nothing, the media layer supplies the category and the one-line summary
+        category = o.get("category") or v.get("category") or ""
+        what = o.get("what_fa") or (v.get("summary_fa") or "")[:300]
         con.execute("INSERT INTO item VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", (
             i, r["url"], r["url"].rstrip("/").split("/")[-1], kind, r["date"], r["creator"].lower(), caption,
             r["summary"], r["persian"], cat.get(r["url"], {}).get("hashtags", ""), r["domain"], o.get("use") or "", info,
-            int(o["cta"]) if isinstance(o.get("cta"), bool) else None, o.get("category") or "",
-            o.get("what_fa") or "", o.get("use_fa") or "", json.dumps(o.get("concepts") or [], ensure_ascii=False),
+            int(o["cta"]) if isinstance(o.get("cta"), bool) else None, category,
+            what, o.get("use_fa") or "", json.dumps(o.get("concepts") or [], ensure_ascii=False),
             int(i in videos)))
         if r["creator"]:
             edge(f"account:{r['creator'].lower()}", "POSTED", f"item:{i}", "export")

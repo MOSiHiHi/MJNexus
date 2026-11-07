@@ -57,5 +57,6 @@
  ],
  "extracted_by": "pilot: Apify instagram-reel-scraper (videoUrl) + ffmpeg keyframes + faster-whisper small (CPU) + Claude reading frames and transcript",
  "extracted_at": "2026-11-05",
- "cost_usd": 0.0036
+ "cost_usd": 0.0036,
+ "risk": []
 }
